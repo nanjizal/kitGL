@@ -111,39 +111,3 @@ function posColors( gl: WebGLRenderContext
     gl.enableVertexAttribArray( posLoc );
     gl.enableVertexAttribArray( colorLoc );
 }
-
-class BufferGL{
-    public var bufferSetup_: ( gl: RenderingContext
-                             , programe: Program
-                             , data: Float32Array )->Buffer = bufferSetup;
-    public var interleaveXYZ_RGBA_: ( gl:       RenderingContext
-                                    , program:   Program 
-                                    , data:      Float32Array
-                                    , inPosName: String
-                                    , inColName: String )->Void = interleaveXYZ_RGBA;
-    public var interleaveXY_RGB_: ( gl:       RenderingContext
-                                  , program:   Program 
-                                  , data:      Float32Array
-                                  , inPosName: String
-                                  , inColName: String ) -> Void = interleaveXY_RGB;
-    public var colorsXYZ_RGBA_: ( gl:        RenderingContext
-                                , program:   Program 
-                                , positions: Float32Array 
-                                , colors:    Float32Array
-                                , inPosName: String
-                                , inColName: String ) -> Void = colorsXYZ_RGBA;
-    public var colorsXY_RGBA_: ( gl:        RenderingContext
-                               , program:   Program 
-                               , positions: Float32Array 
-                               , colors:    Float32Array
-                               , inPosName: String
-                               , inColName: String ) -> Void = colorsXY_RGBA;
-    public var posColors_: ( gl: RenderingContext
-                           , program:   Program 
-                           , positions: Float32Array 
-                           , colors:    Float32Array
-                           , inPosName: String
-                           , inColName: String
-                           , ?noPos: Int
-                           , ?noCols: Int ) -> Void = posColors;
-}
