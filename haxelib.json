@@ -1,0 +1,12 @@
+{
+    "name"         : "kitGL",
+    "url"          : "https://github.com/nanjizal/kitGL#kitGL",
+    "license"      : "MIT",
+    "tags"         : ["lime", "WebGL","javascript","js" ],
+    "description"  : "Kit to help with Lime and WebGL",
+    "version"      : "0.0.1",
+    "releasenote"  : "See https://github.com/nanjizal/kitGL/blob/master/CHANGELOG.md",
+    "classPath"    : "src",
+    "contributors" : ["Nanjizal"],
+    "dependencies" : {}
+}

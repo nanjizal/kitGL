@@ -1,0 +1,11 @@
+
+-D notKitGLDoc
+-D doc-gen
+-lib lime
+--macro include('dsHelper')
+-cp src
+-main kitGL.upkeep.Doc
+--no-output
+-xml upkeep/output.xml
+-js foo
+# -D dump==pretty

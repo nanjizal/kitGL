@@ -1,0 +1,18 @@
+-cmd echo ' '
+-cmd echo '****************************************************************************************'
+-cmd echo '***********  haxe-docTest currently broken for Haxe 4.2? no tests anyway.  *************'
+-cmd echo '****************************************************************************************'
+--next
+#    Javascript test
+-cp src
+-lib utest
+-lib haxe-doctest
+-lib equals
+--no-inline
+-dce std
+-main kitGL.upkeep.Test
+
+-js upkeep/testkitGLjs.js
+-cmd echo '<!DOCTYPE html><meta charset="UTF-8"><html><body><script src="testkitGLjs.js"></script></body></html>' >upkeep/testkitGLjs.html
+#-D dump=pretty
+-cmd open upkeep/testkitGLjs.html
