@@ -88,7 +88,7 @@ function colorsXYZ_RGBA( gl:        RenderingContext
                        , colors:    Float32Array
                        , inPosName: String
                        , inColName: String ){
-    posColors( gl, program, positions, colors, inPosName, inColName, 3, 4 );
+    return posColors( gl, program, positions, colors, inPosName, inColName, 3, 4 );
 }
 inline
 function colorsXY_RGBA( gl:        RenderingContext
@@ -97,7 +97,7 @@ function colorsXY_RGBA( gl:        RenderingContext
                       , colors:    Float32Array
                       , inPosName: String
                       , inColName: String ){
-    posColors( gl, program, positions, colors, inPosName, inColName, 2, 4 );
+    return posColors( gl, program, positions, colors, inPosName, inColName, 2, 4 );
 }
 inline
 function colorsXYZ_RGB( gl:        RenderingContext
@@ -106,7 +106,7 @@ function colorsXYZ_RGB( gl:        RenderingContext
                       , colors:    Float32Array
                       , inPosName: String
                       , inColName: String ){
-    posColors( gl, program, positions, colors, inPosName, inColName, 3, 3 );
+    return posColors( gl, program, positions, colors, inPosName, inColName, 3, 3 );
 }
 inline
 function colorsXY_RGB( gl:        RenderingContext
@@ -115,7 +115,7 @@ function colorsXY_RGB( gl:        RenderingContext
                      , colors:    Float32Array
                      , inPosName: String
                      , inColName: String ){
-    posColors( gl, program, positions, colors, inPosName, inColName, 2, 3 );
+    return posColors( gl, program, positions, colors, inPosName, inColName, 2, 3 );
 }
 inline
 function posColors( gl: RenderingContext
@@ -149,6 +149,7 @@ function posColors( gl: RenderingContext
     );
     gl.enableVertexAttribArray( posLoc );
     gl.enableVertexAttribArray( colorLoc );
+    return { pos: bufferPos, col: bufferCol };
 }
 
 // just used for docs
