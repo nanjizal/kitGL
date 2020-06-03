@@ -12,9 +12,9 @@ function bufferSetup( gl:           WebGLRenderContext
     var buf: GLBuffer = gl.createBuffer();
     gl.bindBuffer( gl.ARRAY_BUFFER, buf );
     if( isDynamic ){
-        gl.bufferData( RenderingContext.ARRAY_BUFFER, untyped data, RenderingContext.DYNAMIC_DRAW );
+        gl.bufferData( gl.ARRAY_BUFFER, untyped data, gl.DYNAMIC_DRAW );
     } else {
-        gl.bufferData( RenderingContext.ARRAY_BUFFER, untyped data, RenderingContext.STATIC_DRAW );
+        gl.bufferData( gl.ARRAY_BUFFER, untyped data, gl.STATIC_DRAW );
     }
     return buf;	
 }
@@ -50,7 +50,7 @@ function interleaveXY_RGB(  gl:       WebGLRenderContext
     return vbo;
 }
 inline
-function interleaveXYZ_ARGB( gl:        WebGLRenderContext
+function interleaveXYZ_RGBA( gl:        WebGLRenderContext
                            , program:   GLProgram 
                            , data:      Float32Array
                            , inPosName: String
@@ -63,7 +63,7 @@ function interleaveXYZ_ARGB( gl:        WebGLRenderContext
     gl.vertexAttribPointer(
         posLoc, 
         3, 
-        RenderingContext.FLOAT, 
+        gl.FLOAT, 
         false, 
         7 * Float32Array.BYTES_PER_ELEMENT, 
         0
@@ -71,7 +71,7 @@ function interleaveXYZ_ARGB( gl:        WebGLRenderContext
     gl.vertexAttribPointer(
         colorLoc,
         4,
-        RenderingContext.FLOAT, 
+        gl.FLOAT, 
         false, 
         7 * Float32Array.BYTES_PER_ELEMENT,
         3 * Float32Array.BYTES_PER_ELEMENT
