@@ -24,6 +24,30 @@ var fragmentSimpleColor =
     "void main() {" + 
         "gl_FragColor = vec4( vColor, 1.0 );" +
     "}";
+// RGBA and XYZ
+inline
+var vertexString0: String =
+#if( !desktop || rpi )
+"precision mediump float;" +
+"precision mediump int;" + 
+#end
+    'attribute vec3 vertexPosition;' +
+    'attribute vec4 vertexColor;' +
+    'varying vec4 vcol;' +
+    'void main(void) {' +
+        ' gl_Position = vec4(vertexPosition, 1.0);'+
+        ' vcol = vertexColor;' +
+    '}';
+inline
+var fragmentString0: String =
+#if( !desktop || rpi )
+"precision mediump float;" +
+"precision mediump int;" + 
+#end
+    'varying vec4 vcol;' +
+    'void main(void) {' +
+        ' gl_FragColor = vcol;' +
+    '}';
 // RGBA and XYZ with model view projection
 inline
 var vertexColor: String =

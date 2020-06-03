@@ -4,13 +4,19 @@ import js.html.webgl.Buffer;
 import haxe.io.Float32Array;
 import js.html.webgl.Program;
 import kitGL.glWeb.BufferGL;
+
 inline
 function bufferSetup( gl:           RenderingContext
                     , program:      Program
-                    , data:         Float32Array ): Buffer {
+                    , data:         Float32Array
+                    , ?isDynamic:    Bool = false ): Buffer {
     var buf: Buffer = gl.createBuffer();
     gl.bindBuffer( RenderingContext.ARRAY_BUFFER, buf );
-    gl.bufferData( RenderingContext.ARRAY_BUFFER, untyped data, RenderingContext.STATIC_DRAW );
+    if( isDynamic ){
+        gl.bufferData( RenderingContext.ARRAY_BUFFER, untyped data, RenderingContext.DYNAMIC_DRAW );
+    } else {
+        gl.bufferData( RenderingContext.ARRAY_BUFFER, untyped data, RenderingContext.STATIC_DRAW );
+    }
     return buf;	
 }
 inline
@@ -18,8 +24,9 @@ function interleaveXYZ_RGBA( gl:       RenderingContext
                            , program:   Program 
                            , data:      Float32Array
                            , inPosName: String
-                           , inColName: String ){
-    var vbo      = bufferSetup( gl, program, data );
+                           , inColName: String
+                           , ?isDynamic:    Bool = false ): Buffer {
+    var vbo      = bufferSetup( gl, program, data, isDynamic );
     var posLoc   = gl.getAttribLocation( program, inPosName );
     var colorLoc = gl.getAttribLocation( program, inColName );
     // X Y Z   R G B A
@@ -41,14 +48,16 @@ function interleaveXYZ_RGBA( gl:       RenderingContext
     );
     gl.enableVertexAttribArray( posLoc );
     gl.enableVertexAttribArray( colorLoc );
+    return vbo;
 }
 inline
 function interleaveXY_RGB( gl:       RenderingContext
                          , program:   Program 
                          , data:      Float32Array
                          , inPosName: String
-                         , inColName: String ){
-    var vbo      = bufferSetup( gl, program, data );
+                         , inColName: String                           
+                         , ?isDynamic:    Bool = false ): Buffer {
+    var vbo      = bufferSetup( gl, program, data, isDynamic );
     var posLoc   = gl.getAttribLocation( program, inPosName );
     var colorLoc = gl.getAttribLocation( program, inColName );
     // X Y   R G B
@@ -70,6 +79,7 @@ function interleaveXY_RGB( gl:       RenderingContext
     );
     gl.enableVertexAttribArray( posLoc );
     gl.enableVertexAttribArray( colorLoc );
+    return vbo;
 }
 inline
 function colorsXYZ_RGBA( gl:        RenderingContext
@@ -144,18 +154,21 @@ function posColors( gl: RenderingContext
 // just used for docs
 class BufferGL{
     public var bufferSetup_: ( gl: RenderingContext
-                             , programe: Program
-                             , data: Float32Array )->Buffer = bufferSetup;
+                             , program: Program
+                             , data: Float32Array
+                             , ?isDynamic: Bool )->Buffer = bufferSetup;
     public var interleaveXYZ_RGBA_: ( gl:       RenderingContext
                                     , program:   Program 
                                     , data:      Float32Array
                                     , inPosName: String
-                                    , inColName: String )->Void = interleaveXYZ_RGBA;
+                                    , inColName: String
+                                    , ?isDynamic: Bool )->Buffer = interleaveXYZ_RGBA;
     public var interleaveXY_RGB_: ( gl:       RenderingContext
                                   , program:   Program 
                                   , data:      Float32Array
                                   , inPosName: String
-                                  , inColName: String ) -> Void = interleaveXY_RGB;
+                                  , inColName: String
+                                  , ?isDynamic: Bool ) ->Buffer = interleaveXY_RGB;
     public var colorsXYZ_RGBA_: ( gl:        RenderingContext
                                 , program:   Program 
                                 , positions: Float32Array 
