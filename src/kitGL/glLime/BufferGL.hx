@@ -8,7 +8,7 @@ inline
 function bufferSetup( gl:           WebGLRenderContext
                     , program:      GLProgram
                     , data:         Float32Array
-                    , ?isDynamic:    Bool = false ): Buffer {
+                    , ?isDynamic:    Bool = false ): GLBuffer {
     var buf: GLBuffer = gl.createBuffer();
     gl.bindBuffer( gl.ARRAY_BUFFER, buf );
     if( isDynamic ){
@@ -24,7 +24,7 @@ function interleaveXY_RGB(  gl:       WebGLRenderContext
                          , data:      Float32Array
                          , inPosName: String
                          , inColName: String
-                         , ?isDynamic:    Bool = false ): Buffer {
+                         , ?isDynamic:    Bool = false ): GLBuffer {
     var vbo      = bufferSetup( gl, program, data );
     var posLoc   = gl.getAttribLocation( program, inPosName );
     var colorLoc = gl.getAttribLocation( program, inColName );
@@ -54,8 +54,8 @@ function interleaveXYZ_ARGB( gl:        WebGLRenderContext
                            , program:   GLProgram 
                            , data:      Float32Array
                            , inPosName: String
-                           , inColName: String                           
-                           , ?isDynamic:    Bool = false ): Buffer {
+                           , inColName: String
+                           , ?isDynamic:    Bool = false ): GLBuffer {
     var vbo      = bufferSetup( gl, program, data, isDynamic );
     var posLoc   = gl.getAttribLocation( program, inPosName );
     var colorLoc = gl.getAttribLocation( program, inColName );
@@ -125,8 +125,8 @@ function posColors( gl: WebGLRenderContext
                   , inColName: String
                   , noPos = 3
                   , noCols = 4 ){
-    var bufferPos = BufferHelpGL.bufferSetup( gl, program, positions );
-    var bufferCol = BufferHelpGL.bufferSetup( gl, program, colors );
+    var bufferPos = bufferSetup( gl, program, positions );
+    var bufferCol = bufferSetup( gl, program, colors );
     var posLoc   = gl.getAttribLocation( program, inPosName );
     var colorLoc = gl.getAttribLocation( program, inColName );
     // RGBA and XYZ with model view projection
