@@ -50,31 +50,31 @@ function interleaveXY_RGB(  gl:       WebGLRenderContext
     return vbo;
 }
 inline
-function interleaveXY_RGB( gl:        WebGLRenderContext
-                         , program:   GLProgram 
-                         , data:      Float32Array
-                         , inPosName: String
-                         , inColName: String                           
-                         , ?isDynamic:    Bool = false ): Buffer {
+function interleaveXYZ_ARGB( gl:        WebGLRenderContext
+                           , program:   GLProgram 
+                           , data:      Float32Array
+                           , inPosName: String
+                           , inColName: String                           
+                           , ?isDynamic:    Bool = false ): Buffer {
     var vbo      = bufferSetup( gl, program, data, isDynamic );
     var posLoc   = gl.getAttribLocation( program, inPosName );
     var colorLoc = gl.getAttribLocation( program, inColName );
-    // X Y   R G B
+    // X Y Z   R G B A
     gl.vertexAttribPointer(
         posLoc, 
-        2, 
+        3, 
         RenderingContext.FLOAT, 
         false, 
-        5 * Float32Array.BYTES_PER_ELEMENT, 
+        7 * Float32Array.BYTES_PER_ELEMENT, 
         0
     );
     gl.vertexAttribPointer(
         colorLoc,
-        3,
+        4,
         RenderingContext.FLOAT, 
         false, 
-        5 * Float32Array.BYTES_PER_ELEMENT,
-        2 * Float32Array.BYTES_PER_ELEMENT
+        7 * Float32Array.BYTES_PER_ELEMENT,
+        3 * Float32Array.BYTES_PER_ELEMENT
     );
     gl.enableVertexAttribArray( posLoc );
     gl.enableVertexAttribArray( colorLoc );

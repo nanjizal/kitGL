@@ -44,4 +44,3 @@ function shaderSetup( gl: WebGLRenderContext
     }
     return shader;
 }
-}
