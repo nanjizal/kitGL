@@ -14,7 +14,7 @@ function clearAll( gl: GLProgram, width: Int, height: Int ){
     gl.clear( gl.COLOR_BUFFER_BIT );
 }
 inline
-function programSetup( gl:          GLProgram
+function programSetup( gl:          GLContext
                      , strVertex:   String
                      , strFragment: String ): GLProgram {
     var program: GLProgram = gl.createProgram();
@@ -34,7 +34,7 @@ function programSetup( gl:          GLProgram
     return program;
 }
 inline
-function shaderSetup( gl: GLProgram
+function shaderSetup( gl: GLContext
                     , shaderType: Int
                     , str: String ): GLShader {
     var shader = gl.createShader( shaderType );
