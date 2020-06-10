@@ -1,5 +1,5 @@
 package kitGL.gluon;
-import typedArray.Float32Array;
+import typedarray.Float32Array;
 inline
 function tri2D(): Float32Array {
     return new Float32Array([

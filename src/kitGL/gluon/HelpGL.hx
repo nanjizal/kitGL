@@ -3,7 +3,7 @@ package kitGL.gluon;
 import gluon.webgl.GLContext;
 
 import gluon.webgl.GLProgram;
-import typedArray.Float32Array;
+import typedarray.Float32Array;
 import gluon.webgl.GLBuffer;
 import gluon.webgl.GLShader;
 
