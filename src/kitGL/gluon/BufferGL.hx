@@ -12,11 +12,11 @@ function bufferSetup( gl:           GLContext
                     , data:         Float32Array
                     , ?isDynamic:    Bool = false ): GLBuffer {
     var buf: GLBuffer = gl.createBuffer();
-    gl.bindBuffer( gl.ARRAY_BUFFER, buf );
+    gl.bindBuffer( BufferTarget.ARRAY_BUFFER, buf );
     if( isDynamic ){
-        gl.bufferData( gl.ARRAY_BUFFER, untyped data, gl.DYNAMIC_DRAW );
+        gl.bufferData( BufferTarget.ARRAY_BUFFER, untyped data, BufferUsage.DYNAMIC_DRAW );
     } else {
-        gl.bufferData( gl.ARRAY_BUFFER, untyped data, gl.STATIC_DRAW );
+        gl.bufferData( BufferTarget.ARRAY_BUFFER, untyped data, BufferUsage.STATIC_DRAW );
     }
     return buf;	
 }
@@ -34,7 +34,7 @@ function interleaveXY_RGB(  gl:       GLContext
     gl.vertexAttribPointer(
         posLoc, 
         2, 
-        gl.FLOAT, 
+        DataType.FLOAT, 
         false, 
         5 * Float32Array.BYTES_PER_ELEMENT, 
         0
@@ -42,7 +42,7 @@ function interleaveXY_RGB(  gl:       GLContext
     gl.vertexAttribPointer(
         colorLoc,
         3,
-        gl.FLOAT, 
+        DataType.FLOAT, 
         false, 
         5 * Float32Array.BYTES_PER_ELEMENT,
         2 * Float32Array.BYTES_PER_ELEMENT
@@ -65,7 +65,7 @@ function interleaveXYZ_RGBA( gl:        GLContext
     gl.vertexAttribPointer(
         posLoc, 
         3, 
-        gl.FLOAT, 
+        DataType.FLOAT, 
         false, 
         7 * Float32Array.BYTES_PER_ELEMENT, 
         0
@@ -73,7 +73,7 @@ function interleaveXYZ_RGBA( gl:        GLContext
     gl.vertexAttribPointer(
         colorLoc,
         4,
-        gl.FLOAT, 
+        DataType.FLOAT, 
         false, 
         7 * Float32Array.BYTES_PER_ELEMENT,
         3 * Float32Array.BYTES_PER_ELEMENT
@@ -135,7 +135,7 @@ function posColors( gl: GLContext
     gl.vertexAttribPointer(
         posLoc, 
         noPos, 
-        gl.FLOAT, 
+        DataType.FLOAT, 
         false, 
         noPos * Float32Array.BYTES_PER_ELEMENT,
         0
@@ -143,7 +143,7 @@ function posColors( gl: GLContext
     gl.vertexAttribPointer(
         colorLoc,
         noCols,
-        gl.FLOAT, 
+        DataType.FLOAT, 
         false, 
         noCols * Float32Array.BYTES_PER_ELEMENT,
         0
