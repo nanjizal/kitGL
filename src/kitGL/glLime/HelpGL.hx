@@ -38,9 +38,10 @@ function shaderSetup( gl: WebGLRenderContext
     var shader = gl.createShader( shaderType );
     gl.shaderSource( shader, str );
     gl.compileShader( shader );
+    /*
     if( !gl.getShaderParameter( shader, gl.COMPILE_STATUS ) ){
         throw("Error compiling shader. " + gl.getShaderInfoLog( shader ) );
         return null;
-    }
+    }*/
     return shader;
 }
