@@ -21,6 +21,7 @@ function programSetup( gl:          GLContext
     gl.attachShader( program, shaderSetup( gl, ShaderType.VERTEX_SHADER, strVertex ) );
     gl.attachShader( program, shaderSetup( gl, ShaderType.FRAGMENT_SHADER, strFragment ) );
     gl.linkProgram( program );
+    /*
     if( !gl.getProgramParameter(program, ProgramParameter.LINK_STATUS ) ) {
         throw("Error linking program. " + gl.getProgramInfoLog( program ) );
         return null;
@@ -29,7 +30,7 @@ function programSetup( gl:          GLContext
     if( !gl.getProgramParameter( program, ProgramParameter.VALIDATE_STATUS ) ) {
         throw("Error validating program. " + gl.getProgramInfoLog( program ) );
         return null;
-    }
+    } */
     gl.useProgram( program );
     return program;
 }

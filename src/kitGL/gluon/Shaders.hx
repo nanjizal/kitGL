@@ -11,7 +11,6 @@ var vertexString0: String =
     '}';
 inline
 var fragmentString0: String =
-    'precision mediump float;'+
     'varying vec4 vcol;' +
     'void main(void) {' +
         ' gl_FragColor = vcol;' +
