@@ -98,3 +98,14 @@ var fragmentTexture =
     "void main (void) {" +
         "gl_FragColor = texture2D( uImage0, vTexCoord );" +
     "}";
+    
+class Shader {
+    public var vertexSimpleColor_: String = vertexSimpleColor;
+    public var fragmentSimpleColor_: String = fragmentSimpleColor;
+    public var vertexString0_: String = vertexString0;
+    public var fragmentString0_: String = fragmentString0;
+    public var vertexColor_: String = vertexColor;
+    public var fragmentColor_: String = fragmentColor;
+    public var vertexTexture_: String = vertexTexture;
+    public var fragmentTexture_: String = fragmentTexture;
+}

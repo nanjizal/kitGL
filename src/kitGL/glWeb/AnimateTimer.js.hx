@@ -1,4 +1,5 @@
 package kitGL.glWeb;
+#if js
 import js.Browser;
 import js.html.StyleElement;
 class AnimateTimer {
@@ -39,3 +40,4 @@ class AnimateTimer {
         return f( t, b, e - b, d );
     }
 }
+#end 

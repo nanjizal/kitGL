@@ -18,7 +18,7 @@ function positions(){
         0.0, 0.559016994, 0.0 ]);
 }
 inline 
-function othogPositions(){
+function orthogPositions(){
     return new Float32Array([
         // X, Y, Z,
         300*(1-0.5), 300*(1-0.25), 0.0,
@@ -68,4 +68,12 @@ function colors3(){
                   0.0, 0.0, 1.0,
                   1.0, 1.0, 1.0,
                   0.0, 1.0, 1.0 ]);
+}
+class ColorPositions{
+    public var tri2D_:()-> Float32Array = tri2D;
+    public var positions_:()->Float32Array = positions;
+    public var orthogPositions_:()->Float32Array = orthogPositions;
+    public var colors_:()->Float32Array = colors;
+    public var positions3_:()->Float32Array = positions3;
+    public var colors3_:()->Float32Array = colors3;
 }

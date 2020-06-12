@@ -1,4 +1,5 @@
 package kitGL.upkeep;
+#if js
 import kitGL.glWeb.Texture;
 import kitGL.glWeb.DivertTrace;
 import js.html.webgl.RenderingContext;
@@ -34,3 +35,4 @@ class TestWebGL{
     }
     
 }
+#end

@@ -1,5 +1,5 @@
 package kitGL.gluon;
-
+#if( !js )
 import gluon.webgl.GLContext;
 
 import gluon.webgl.GLProgram;
@@ -47,3 +47,4 @@ function shaderSetup( gl: GLContext
     }
     return shader;
 }
+#end

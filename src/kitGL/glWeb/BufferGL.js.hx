@@ -1,8 +1,10 @@
 package kitGL.glWeb;
+#if js
 import js.html.webgl.RenderingContext;
 import js.html.webgl.Buffer;
-import haxe.io.Float32Array;
 import js.html.webgl.Program;
+
+import haxe.io.Float32Array;
 import kitGL.glWeb.BufferGL;
 
 inline
@@ -191,3 +193,4 @@ class BufferGL{
                            , ?noPos: Int
                            , ?noCols: Int ) -> Void = posColors;
 }
+#end

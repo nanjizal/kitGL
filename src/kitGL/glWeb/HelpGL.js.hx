@@ -1,4 +1,5 @@
 package kitGL.glWeb;
+#if js
 import js.html.webgl.RenderingContext;
 import js.html.webgl.ContextAttributes;
 import js.html.webgl.Shader;
@@ -55,3 +56,4 @@ class HelpGL {
                              , shaderType:   Int
                              , str:          String ) -> Shader = shaderSetup;
 }
+#end

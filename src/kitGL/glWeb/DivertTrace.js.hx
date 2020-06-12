@@ -1,4 +1,5 @@
 package kitGL.glWeb;
+#if js
 import js.html.DivElement;
 import js.Browser;
 class DivertTrace {
@@ -41,3 +42,4 @@ class DivertTrace {
         traceDiv.innerHTML = traceString;
     }
 }
+#end

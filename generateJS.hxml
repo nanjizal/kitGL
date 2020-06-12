@@ -1,0 +1,34 @@
+# lime dox flags
+-D display
+-D html5
+-D doc_gen
+-D lime-doc-gen
+
+
+-D notKitGLDoc
+-D doc-gen
+
+# can't currently generate nme dox's.
+-lib lime
+#-lib nme
+#-lib gluon
+
+--macro include('kitGL.lime')
+#--macro include('kitGL.nme')
+#--macro include('kitGL.glWeb')
+#--macro include('kitGL.gluon')
+-cp src
+-main kitGL.upkeep.Doc
+--no-output
+
+--each
+
+#--next
+#-xml upkeep/cpp.xml
+#-cpp foo
+
+--next
+-xml upkeep/js.xml
+-js foo.js
+
+# -D dump==pretty

@@ -44,3 +44,16 @@ function shaderSetup( gl: WebGLRenderContext
     }
     return shader;
 }
+
+class HelpGL {
+    public var clearAll_: 
+    ( gl: WebGLRenderContext, width: Int, height: Int )->Void = clearAll;
+    public var programSetup_:
+    ( gl:          WebGLRenderContext
+    , strVertex:   String
+    , strFragment: String ) -> GLProgram = programSetup;
+    public var shaderSetup_: 
+    ( gl: WebGLRenderContext
+    , shaderType: Int
+    , str: String ) -> GLShader = shaderSetup;
+}

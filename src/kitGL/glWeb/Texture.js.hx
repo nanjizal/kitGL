@@ -1,4 +1,5 @@
 package kitGL.glWeb;
+#if js 
 import js.Browser;
 import js.html.Element;
 import js.html.CanvasElement;
@@ -164,3 +165,4 @@ class Texture {
         penY = x2;
     }
 }
+#end

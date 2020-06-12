@@ -1,6 +1,6 @@
-package kitGL.gluon;
-
-import nme.gl.WebGL2Context;
+package kitGL.nme;
+#if (!js)
+import nme.gl.GL;
 import nme.gl.GLProgram;
 import nme.utils.Float32Array;
 import nme.gl.GLBuffer;
@@ -8,41 +8,38 @@ import nme.gl.GLShader;
 
 
 inline
-function clearAll( gl: GLProgram, width: Int, height: Int ){
-    gl.viewport( 0, 0, width, height );
-    gl.clearColor( 0.0, 0.0, 0.0, 1.0 );
-    gl.clear( gl.COLOR_BUFFER_BIT );
+function clearAll( width: Int, height: Int ){
+    GL.viewport( 0, 0, width, height );
+    GL.clearColor( 0.0, 0.0, 0.0, 1.0 );
+    GL.clear( GL.COLOR_BUFFER_BIT );
 }
 inline
-function programSetup( gl:          WebGL2Context
-                     , strVertex:   String
-                     , strFragment: String ): GLProgram {
-    var program: GLProgram = gl.createProgram();
-    gl.attachShader( program, shaderSetup( gl, gl.VERTEX_SHADER, strVertex ) );
-    gl.attachShader( program, shaderSetup( gl, gl.FRAGMENT_SHADER, strFragment ) );
-    gl.linkProgram( program );
-    if( !gl.getProgramParameter(program, gl.LINK_STATUS ) ) {
-        throw("Error linking program. " + gl.getProgramInfoLog( program ) );
+function programSetup( strVertex:   String, strFragment: String ): GLProgram {
+    var program: GLProgram = GL.createProgram();
+    GL.attachShader( program, shaderSetup( GL.VERTEX_SHADER, strVertex ) );
+    GL.attachShader( program, shaderSetup( GL.FRAGMENT_SHADER, strFragment ) );
+    GL.linkProgram( program );
+    if( GL.getProgramParameter( program, GL.LINK_STATUS ) == 0 ) {
+        throw("Error linking program. " + GL.getProgramInfoLog( program ) );
         return null;
     }
-    gl.validateProgram( program );
-    if( !gl.getProgramParameter( program, gl.VALIDATE_STATUS ) ) {
-        throw("Error validating program. " + gl.getProgramInfoLog( program ) );
+    GL.validateProgram( program );
+    if( GL.getProgramParameter( program, GL.VALIDATE_STATUS ) == 0 ) {
+        throw("Error validating program. " + GL.getProgramInfoLog( program ) );
         return null;
     }
-    gl.useProgram( program );
+    GL.useProgram( program );
     return program;
 }
 inline
-function shaderSetup( gl: WebGL2Context
-                    , shaderType: Int
-                    , str: String ): GLShader {
-    var shader = gl.createShader( shaderType );
-    gl.shaderSource( shader, str );
-    gl.compileShader( shader );
-    if( !gl.getShaderParameter( shader, gl.COMPILE_STATUS ) ){
-        throw("Error compiling shader. " + gl.getShaderInfoLog( shader ) );
+function shaderSetup( shaderType: Int, str: String ): GLShader {
+    var shader = GL.createShader( shaderType );
+    GL.shaderSource( shader, str );
+    GL.compileShader( shader );
+    if( GL.getShaderParameter( shader, GL.COMPILE_STATUS ) == 0 ){
+        throw("Error compiling shader. " + GL.getShaderInfoLog( shader ) );
         return null;
     }
     return shader;
 }
+#end
