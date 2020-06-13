@@ -18,7 +18,7 @@ function positions(){
         0.0, 0.559016994, 0.0 ]);
 }
 inline 
-function othogPositions(){
+function orthogPositions(){
     return new Float32Array([
         // X, Y, Z,
         300*(1-0.5), 300*(1-0.25), 0.0,
