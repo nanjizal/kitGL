@@ -72,8 +72,8 @@ function colors3(){
 class ColorPositions{
     public var tri2D_:()-> Float32Array = tri2D;
     public var positions_:()->Float32Array = positions;
-    public var orthogPositions_:()->Float32Arary = orthogPositions;
+    public var orthogPositions_:()->Float32Array = orthogPositions;
     public var colors_:()->Float32Array = colors;
-    public var positions3_:()->Float32Array = postitions3;
+    public var positions3_:()->Float32Array = positions3;
     public var colors3_:()->Float32Array = colors3;
 }
