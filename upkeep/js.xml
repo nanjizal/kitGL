@@ -973,6 +973,7 @@
 		</meta>
 	</typedef>
 	<class path="Math" params="" file="/usr/local/lib/haxe/std/js/_std/Math.hx" extern="1">
+		<PI public="1" set="null" static="1"><x path="Float"/></PI>
 		<abs public="1" set="method" static="1"><f a="v">
 	<x path="Float"/>
 	<x path="Float"/>
@@ -43473,6 +43474,107 @@
 </f></shaderSetup>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
+	<class path="kitGL.glLime.AppGL" params="" file="src/kitGL/glLime/InterleaveAlterGL.hx" module="kitGL.glLime.InterleaveAlterGL">
+		<program><x path="lime.graphics.opengl.GLProgram"/></program>
+		<interleaveDataGL public="1"><x path="kitGL.glLime.InterleaveDataGL"/></interleaveDataGL>
+		<width public="1"><x path="Int"/></width>
+		<height public="1"><x path="Int"/></height>
+		<buf public="1"><t path="lime.graphics.opengl.GLBuffer"/></buf>
+		<update public="1" set="method" line="30"><f a=""><x path="Void"/></f></update>
+		<setup public="1" get="inline" set="null" line="32"><f a="gl">
+	<x path="lime.graphics.WebGLRenderContext"/>
+	<x path="Void"/>
+</f></setup>
+		<draw public="1" set="method" line="42"><f a=""><x path="Void"/></f></draw>
+		<render public="1" get="inline" set="null" line="45"><f a="gl">
+	<x path="lime.graphics.WebGLRenderContext"/>
+	<x path="Void"/>
+</f></render>
+		<renderDraw public="1" set="method" line="55"><f a=""><x path="Void"/></f></renderDraw>
+		<new public="1" set="method" line="24"><f a="width_:height_">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></new>
+	</class>
+	<typedef path="kitGL.glLime.TInterleaveDataGL" params="" file="src/kitGL/glLime/InterleaveDataGL.hx" module="kitGL.glLime.InterleaveDataGL"><a>
+	<get_size set="method"><f a=""><x path="Int"/></f></get_size>
+	<get_data set="method"><f a=""><x path="lime.utils.Float32Array"/></f></get_data>
+</a></typedef>
+	<abstract path="kitGL.glLime.InterleaveDataGL" params="" file="src/kitGL/glLime/InterleaveDataGL.hx">
+		<from><icast><t path="kitGL.glLime.TInterleaveDataGL"/></icast></from>
+		<this><t path="kitGL.glLime.TInterleaveDataGL"/></this>
+		<to><icast><t path="kitGL.glLime.TInterleaveDataGL"/></icast></to>
+		<meta><m n=":forward"/></meta>
+		<impl><class path="kitGL.glLime._InterleaveDataGL.InterleaveDataGL_Impl_" params="" file="src/kitGL/glLime/InterleaveDataGL.hx" private="1" module="kitGL.glLime.InterleaveDataGL" final="1">
+	<_new public="1" get="inline" set="null" line="9" static="1">
+		<f a="tInterleaveDataGL">
+			<t path="kitGL.glLime.TInterleaveDataGL"/>
+			<x path="kitGL.glLime.InterleaveDataGL"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+	</_new>
+	<data public="1" get="accessor" set="null" static="1">
+		<x path="lime.utils.Float32Array"/>
+		<meta><m n=":impl"/></meta>
+	</data>
+	<get_data get="inline" set="null" line="13" static="1">
+		<f a="this">
+			<t path="kitGL.glLime.TInterleaveDataGL"/>
+			<x path="lime.utils.Float32Array"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</get_data>
+	<size public="1" get="accessor" set="null" static="1">
+		<x path="Int"/>
+		<meta><m n=":impl"/></meta>
+	</size>
+	<get_size get="inline" set="null" line="17" static="1">
+		<f a="this">
+			<t path="kitGL.glLime.TInterleaveDataGL"/>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</get_size>
+</class></impl>
+	</abstract>
+	<class path="kitGL.glLime._InterleaveDataGL.InterleaveDataGL_Impl_" params="" file="src/kitGL/glLime/InterleaveDataGL.hx" private="1" module="kitGL.glLime.InterleaveDataGL" final="1">
+		<_new public="1" get="inline" set="null" line="9" static="1">
+			<f a="tInterleaveDataGL">
+				<t path="kitGL.glLime.TInterleaveDataGL"/>
+				<x path="kitGL.glLime.InterleaveDataGL"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</_new>
+		<data public="1" get="accessor" set="null" static="1">
+			<x path="lime.utils.Float32Array"/>
+			<meta><m n=":impl"/></meta>
+		</data>
+		<get_data get="inline" set="null" line="13" static="1">
+			<f a="this">
+				<t path="kitGL.glLime.TInterleaveDataGL"/>
+				<x path="lime.utils.Float32Array"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</get_data>
+		<size public="1" get="accessor" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":impl"/></meta>
+		</size>
+		<get_size get="inline" set="null" line="17" static="1">
+			<f a="this">
+				<t path="kitGL.glLime.TInterleaveDataGL"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</get_size>
+	</class>
 	<class path="kitGL.glLime.Shader" params="" file="src/kitGL/glLime/Shaders.hx" module="kitGL.glLime.Shaders">
 		<vertexSimpleColor_ public="1" expr="vertexSimpleColor">
 			<c path="String"/>
@@ -43575,6 +43677,7 @@
 	</f>
 	<x path="Float"/>
 </f></tween>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="kitGL.glWeb.BufferGL" params="" file="src/kitGL/glWeb/BufferGL.js.hx">
 		<bufferSetup_ public="1" expr="bufferSetup">
@@ -43884,6 +43987,103 @@
 </f></shaderSetup>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
+	<class path="kitGL.glWeb.InterleaveAlterGL" params="" file="src/kitGL/glWeb/InterleaveAlterGL.js.hx">
+		<gl public="1"><c path="js.html.webgl.RenderingContext"/></gl>
+		<interleaveDataGL public="1"><x path="kitGL.glWeb.InterleaveDataGL"/></interleaveDataGL>
+		<program public="1"><c path="js.html.webgl.Program"/></program>
+		<width public="1"><x path="Int"/></width>
+		<height public="1"><x path="Int"/></height>
+		<buf public="1"><c path="js.html.webgl.Buffer"/></buf>
+		<creategl get="inline" set="null" line="27"><f a=""><x path="Void"/></f></creategl>
+		<setup get="inline" set="null" line="33"><f a=""><x path="Void"/></f></setup>
+		<draw public="1" set="method" line="44"><f a=""><x path="Void"/></f></draw>
+		<render get="inline" set="null" line="46"><f a=""><x path="Void"/></f></render>
+		<renderDraw public="1" set="method" line="56"><f a=""><x path="Void"/></f></renderDraw>
+		<setAnimate get="inline" set="null" line="58"><f a=""><x path="Void"/></f></setAnimate>
+		<new public="1" set="method" line="20"><f a="width_:height_">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></new>
+	</class>
+	<typedef path="kitGL.glWeb.TInterleaveDataGL" params="" file="src/kitGL/glWeb/InterleaveDataGL.js.hx" module="kitGL.glWeb.InterleaveDataGL"><a>
+	<get_size set="method"><f a=""><x path="Int"/></f></get_size>
+	<get_data set="method"><f a=""><x path="haxe.io.Float32Array"/></f></get_data>
+</a></typedef>
+	<abstract path="kitGL.glWeb.InterleaveDataGL" params="" file="src/kitGL/glWeb/InterleaveDataGL.js.hx">
+		<from><icast><t path="kitGL.glWeb.TInterleaveDataGL"/></icast></from>
+		<this><t path="kitGL.glWeb.TInterleaveDataGL"/></this>
+		<to><icast><t path="kitGL.glWeb.TInterleaveDataGL"/></icast></to>
+		<meta><m n=":forward"/></meta>
+		<impl><class path="kitGL.glWeb._InterleaveDataGL.InterleaveDataGL_Impl_" params="" file="src/kitGL/glWeb/InterleaveDataGL.js.hx" private="1" module="kitGL.glWeb.InterleaveDataGL" final="1">
+	<_new public="1" get="inline" set="null" line="9" static="1">
+		<f a="tInterleaveDataGL">
+			<t path="kitGL.glWeb.TInterleaveDataGL"/>
+			<x path="kitGL.glWeb.InterleaveDataGL"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+	</_new>
+	<data public="1" get="accessor" set="null" static="1">
+		<x path="haxe.io.Float32Array"/>
+		<meta><m n=":impl"/></meta>
+	</data>
+	<get_data get="inline" set="null" line="13" static="1">
+		<f a="this">
+			<t path="kitGL.glWeb.TInterleaveDataGL"/>
+			<x path="haxe.io.Float32Array"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</get_data>
+	<size public="1" get="accessor" set="null" static="1">
+		<x path="Int"/>
+		<meta><m n=":impl"/></meta>
+	</size>
+	<get_size get="inline" set="null" line="17" static="1">
+		<f a="this">
+			<t path="kitGL.glWeb.TInterleaveDataGL"/>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</get_size>
+</class></impl>
+	</abstract>
+	<class path="kitGL.glWeb._InterleaveDataGL.InterleaveDataGL_Impl_" params="" file="src/kitGL/glWeb/InterleaveDataGL.js.hx" private="1" module="kitGL.glWeb.InterleaveDataGL" final="1">
+		<_new public="1" get="inline" set="null" line="9" static="1">
+			<f a="tInterleaveDataGL">
+				<t path="kitGL.glWeb.TInterleaveDataGL"/>
+				<x path="kitGL.glWeb.InterleaveDataGL"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</_new>
+		<data public="1" get="accessor" set="null" static="1">
+			<x path="haxe.io.Float32Array"/>
+			<meta><m n=":impl"/></meta>
+		</data>
+		<get_data get="inline" set="null" line="13" static="1">
+			<f a="this">
+				<t path="kitGL.glWeb.TInterleaveDataGL"/>
+				<x path="haxe.io.Float32Array"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</get_data>
+		<size public="1" get="accessor" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":impl"/></meta>
+		</size>
+		<get_size get="inline" set="null" line="17" static="1">
+			<f a="this">
+				<t path="kitGL.glWeb.TInterleaveDataGL"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</get_size>
+	</class>
 	<abstract path="kitGL.glWeb.Shaders" params="" file="src/kitGL/glWeb/Shaders.js.hx">
 		<this><c path="String"/></this>
 		<meta><m n=":enum"/></meta>
@@ -44060,13 +44260,14 @@
 	<x path="Void"/>
 </f></curveTo>
 		<new public="1" get="inline" set="null" line="24"><f a=""><x path="Void"/></f></new>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="kitGL.upkeep.Doc" params="" file="src/kitGL/upkeep/Doc.js.hx">
-		<main public="1" set="method" line="33" static="1">
+		<main public="1" set="method" line="36" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
 		</main>
-		<new public="1" set="method" line="36"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="39"><f a=""><x path="Void"/></f></new>
 		<meta><m n=":dox"><e>hide</e></m></meta>
 	</class>
 	<class path="lime._internal.backend.html5.HTML5Application" params="" file="/projects/May2019/May2020/lime/src/lime/_internal/backend/html5/HTML5Application.hx">
@@ -75669,6 +75870,1213 @@
 			</meta>
 		</set>
 		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="lime.math.Matrix3" params="" file="/projects/May2019/May2020/lime/src/lime/math/Matrix3.hx">
+		<__identity expr="new Matrix3()" line="56" static="1">
+			<c path="lime.math.Matrix3"/>
+			<meta><m n=":value"><e>new Matrix3()</e></m></meta>
+		</__identity>
+		<a public="1">
+			<x path="Float"/>
+			<haxe_doc>The matrix a component, used in scaling and skewing (default is 1)</haxe_doc>
+		</a>
+		<b public="1">
+			<x path="Float"/>
+			<haxe_doc>The matrix b component, used in rotation and skewing (default is 0)</haxe_doc>
+		</b>
+		<c public="1">
+			<x path="Float"/>
+			<haxe_doc>The matrix c component, used in rotation and skewing (default is 0)</haxe_doc>
+		</c>
+		<d public="1">
+			<x path="Float"/>
+			<haxe_doc>The matrix d component, used in scaling and skewing (default is 1)</haxe_doc>
+		</d>
+		<tx public="1">
+			<x path="Float"/>
+			<haxe_doc>The matrix tx component, used in translation (default is 0)</haxe_doc>
+		</tx>
+		<ty public="1">
+			<x path="Float"/>
+			<haxe_doc>The matrix ty component, used in translation (default is 0)</haxe_doc>
+		</ty>
+		<clone public="1" get="inline" set="null" line="81">
+			<f a=""><c path="lime.math.Matrix3"/></f>
+			<haxe_doc>Creates a duplicate of the current `Matrix3`
+		@return	A duplicate `Matrix3` instance</haxe_doc>
+		</clone>
+		<concat public="1" set="method" line="92">
+			<f a="m">
+				<c path="lime.math.Matrix3"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Concatenates the values of a second matrix to the current
+		`Matrix3`, combining the effects of both. This is the same
+		as matrix multiplication. The second matrix is not modified.
+		@param	m	A second `Matrix3` to concatenate to the current instance</haxe_doc>
+		</concat>
+		<copyColumnFrom public="1" set="method" line="114">
+			<f a="column:vector4">
+				<x path="Int"/>
+				<c path="lime.math.Vector4"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Copies the `x` and `y` components from a `Vector4` instance
+		to the `a`/`c`, `b`/`d` or the `tx`/`ty` column of the current
+		matrix
+		@param	column	The column to copy into (0, 1 or 2)
+		@param	vector4	The `Vector4` instance to copy from</haxe_doc>
+		</copyColumnFrom>
+		<copyColumnTo public="1" set="method" line="143">
+			<f a="column:vector4">
+				<x path="Int"/>
+				<c path="lime.math.Vector4"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Copies a column of the current matrix into a `Vector4`
+		instance. The `w` value will not be modified.
+		@param	column	The column to copy from (0, 1 or 2)
+		@param	vector4	The `Vector4` instance to copy to</haxe_doc>
+		</copyColumnTo>
+		<copyFrom public="1" set="method" line="174">
+			<f a="sourceMatrix3">
+				<c path="lime.math.Matrix3"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Copies the values of another `Matrix3` and
+		applies it to the current instance
+		@param	sourceMatrix3	The `Matrix3` to copy from</haxe_doc>
+		</copyFrom>
+		<copyRowFrom public="1" set="method" line="190">
+			<f a="row:vector4">
+				<x path="Int"/>
+				<c path="lime.math.Vector4"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Copies the values of a `Vector4` instance into a row
+		of the current matrix
+		@param	row	The row to copy into (0 or 1)
+		@param	vector4	The `Vector4` instance to copy from</haxe_doc>
+		</copyRowFrom>
+		<copyRowTo public="1" set="method" line="216">
+			<f a="row:vector4">
+				<x path="Int"/>
+				<c path="lime.math.Vector4"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Copies a row of the current matrix into a `Vector4`
+		instance. The `w` value will not be modified.
+		@param	row	The row to copy into (0, 1 or 2)
+		@param	vector4	The `Vector4` instance to copy from</haxe_doc>
+		</copyRowTo>
+		<createBox public="1" set="method" line="251">
+			<f a="scaleX:scaleY:?rotation:?tx:?ty" v="::0:0:0">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ ty : 0, tx : 0, rotation : 0 }</e></m></meta>
+			<haxe_doc>Applies a two-dimensional transformation to the current matrix.
+
+		This is the same as calling `identity()`, `rotate()`, `scale()`
+		then `translate()` with these values.
+		@param	scaleX	An x scale transformation value
+		@param	scaleY	A y scale transformation value
+		@param	rotation (Optional) A rotation value (default is 0)
+		@param	tx	(Optional) A translate x value (default is 0)
+		@param	ty	(Optional) A translate y value (default is 0)</haxe_doc>
+		</createBox>
+		<createGradientBox public="1" set="method" line="284">
+			<f a="width:height:?rotation:?tx:?ty" v="::0:0:0">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ ty : 0, tx : 0, rotation : 0 }</e></m></meta>
+			<haxe_doc>Creates a matrix to use for a linear gradient fill
+		@param	width	The width of the gradient fill
+		@param	height	The height of the gradient fill
+		@param	rotation	(Optional) A rotation for the gradient fill (default is 0)
+		@param	tx	(Optional) An x offset for the gradient fill (default is 0)
+		@param	ty	(Optional) A y offset for the gradient fill (default is 0)
+		@return	A new `Matrix` instance</haxe_doc>
+		</createGradientBox>
+		<equals public="1" set="method" line="314">
+			<f a="matrix3">
+				<c path="lime.math.Matrix3"/>
+				<x path="Bool"/>
+			</f>
+			<haxe_doc>Check if two matrices have the same values
+		@return	Whether both matrices are equal</haxe_doc>
+		</equals>
+		<deltaTransformVector public="1" set="method" line="325">
+			<f a="Vector2:?result" v=":null">
+				<c path="lime.math.Vector2"/>
+				<c path="lime.math.Vector2"/>
+				<c path="lime.math.Vector2"/>
+			</f>
+			<meta><m n=":value"><e>{ result : null }</e></m></meta>
+			<haxe_doc>Transforms a `Vector2` instance by the current matrix,
+		without considering the `tx` and `ty` values of the matrix
+		@param	result	(Optional) An existing `Vector2` instance to fill with the result
+		@return	A new `Vector2` instance representing the transformed values</haxe_doc>
+		</deltaTransformVector>
+		<identity public="1" set="method" line="336">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Resets the matrix to default identity values</haxe_doc>
+		</identity>
+		<invert public="1" set="method" line="350">
+			<f a=""><c path="lime.math.Matrix3"/></f>
+			<haxe_doc>Inverts the values of the current matrix
+		@return	The current matrix instance</haxe_doc>
+		</invert>
+		<rotate public="1" set="method" line="387">
+			<f a="theta">
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Applies rotation to the current matrix
+		@param	theta	A rotation value in degrees</haxe_doc>
+		</rotate>
+		<scale public="1" set="method" line="424">
+			<f a="sx:sy">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Scales the current matrix
+		@param	sx	The x scale to apply
+		@param	sy	The y scale to apply</haxe_doc>
+		</scale>
+		<setRotation get="inline" set="null" line="443">
+			<f a="theta:?scale" v=":1">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":value"><e>{ scale : 1 }</e></m>
+				<m n=":noCompletion"/>
+			</meta>
+		</setRotation>
+		<setTo public="1" set="method" line="460">
+			<f a="a:b:c:d:tx:ty">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Sets the values of the current matrix
+		@param	a	The new matrix a value
+		@param	b	The new matrix b value
+		@param	c	The new matrix c value
+		@param	d	The new matrix d value
+		@param	tx	The new matrix tx value
+		@param	ty	The new matrix ty value</haxe_doc>
+		</setTo>
+		<to3DString public="1" get="inline" set="null" line="470">
+			<f a="?roundPixels" v="false">
+				<x path="Bool"/>
+				<c path="String"/>
+			</f>
+			<meta>
+				<m n=":value"><e>{ roundPixels : false }</e></m>
+				<m n=":dox"><e>hide</e></m>
+				<m n=":noCompletion"/>
+			</meta>
+		</to3DString>
+		<toString public="1" get="inline" set="null" line="504">
+			<f a=""><c path="String"/></f>
+			<meta><m n=":dox"><e>hide</e></m></meta>
+		</toString>
+		<transformRect public="1" set="method" line="517">
+			<f a="rect:?result" v=":null">
+				<c path="lime.math.Rectangle"/>
+				<c path="lime.math.Rectangle"/>
+				<c path="lime.math.Rectangle"/>
+			</f>
+			<meta><m n=":value"><e>{ result : null }</e></m></meta>
+			<haxe_doc>Transforms a `Rectangle` instance by the current matrix
+		and returns `Rectangle` with the bounds of the transformed
+		rectangle.
+		@param	transform	A `Matrix3` instance to transform by
+		@param	result	(Optional) A `Rectangle` instance to use for the result
+		@return	A `Rectangle` represented the transformed bounds</haxe_doc>
+		</transformRect>
+		<transformVector public="1" set="method" line="559">
+			<f a="pos:?result" v=":null">
+				<c path="lime.math.Vector2"/>
+				<c path="lime.math.Vector2"/>
+				<c path="lime.math.Vector2"/>
+			</f>
+			<meta><m n=":value"><e>{ result : null }</e></m></meta>
+			<haxe_doc>Transforms a `Vector2` instance by the current matrix
+		@param	result	(Optional) An existing `Vector2` instance to fill with the result
+		@return	A new `Vector2` instance representing the transformed values</haxe_doc>
+		</transformVector>
+		<translate public="1" get="inline" set="null" line="572">
+			<f a="dx:dy">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Adjusts the `tx` and `ty` of the current matrix
+		@param	dx	The x amount to translate
+		@param	dy	The y amount to translate</haxe_doc>
+		</translate>
+		<new public="1" set="method" line="67">
+			<f a="?a:?b:?c:?d:?tx:?ty" v="1:0:0:1:0:0">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ ty : 0, tx : 0, d : 1, c : 0, b : 0, a : 1 }</e></m></meta>
+			<haxe_doc>Creates a new `Matrix` instance
+		@param	a	(Optional) An initial a component value (default is 1)
+		@param	b	(Optional) An initial b component value (default is 0)
+		@param	c	(Optional) An initial c component value (default is 0)
+		@param	d	(Optional) An initial d component value (default is 1)
+		@param	tx	(Optional) An initial tx component value (default is 0)
+		@param	ty	(Optional) An initial ty component value (default is 0)</haxe_doc>
+		</new>
+		<haxe_doc>`Matrix3` is a 3x3 transformation matrix particularly useful for
+	two-dimensional transformation. It can be used for rotation, scale
+	and skewing of a two-dimensional object.
+
+	Although a 3x3 matrix is represented, configurable values can be
+	considered as a 3x2 matrix:
+
+	```
+	[ a, c, tx ]
+	[ c, d, ty ]
+	[ 0, 0,  1 ]
+	```</haxe_doc>
+		<meta>
+			<m n=":fileXml"><e>"tags=\"haxe,release\""</e></m>
+			<m n=":noDebug"/>
+		</meta>
+	</class>
+	<abstract path="lime.math.Matrix4" params="" file="/projects/May2019/May2020/lime/src/lime/math/Matrix4.hx">
+		<from>
+			<icast><x path="lime.utils.Float32Array"/></icast>
+			<icast field="fromMatrix3"><c path="lime.math.Matrix3"/></icast>
+		</from>
+		<this><x path="lime.utils.Float32Array"/></this>
+		<to><icast><x path="lime.utils.Float32Array"/></icast></to>
+		<haxe_doc>`Matrix4` is a 4x4 matrix, useful for 3D calculations</haxe_doc>
+		<impl><class path="lime.math._Matrix4.Matrix4_Impl_" params="" file="/projects/May2019/May2020/lime/src/lime/math/Matrix4.hx" private="1" module="lime.math.Matrix4" final="1">
+	<__identity expr="[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]" line="11" static="1">
+		<c path="Array"><x path="Float"/></c>
+		<meta><m n=":value"><e>[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]</e></m></meta>
+	</__identity>
+	<determinant public="1" get="accessor" set="null" static="1">
+		<x path="Float"/>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Gets the determinant of the matrix</haxe_doc>
+	</determinant>
+	<position public="1" get="accessor" set="accessor" static="1">
+		<c path="lime.math.Vector4"/>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Gets or sets the position value of this matrix</haxe_doc>
+	</position>
+	<_new public="1" set="method" line="27" static="1">
+		<f a="?data" v="null">
+			<x path="lime.utils.Float32Array"/>
+			<x path="lime.math.Matrix4"/>
+		</f>
+		<meta>
+			<m n=":value"><e>{ data : null }</e></m>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+		<haxe_doc>Creates a new matrix instance
+		@param	data	(Optional) A `Float32Array` of 16 values to use for this matrix</haxe_doc>
+	</_new>
+	<append public="1" set="method" line="43" static="1">
+		<f a="this:lhs">
+			<x path="lime.utils.Float32Array"/>
+			<x path="lime.math.Matrix4"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Appends a second matrix by multiplying its values against the current one
+		@param	lhs	A second matrix instance</haxe_doc>
+	</append>
+	<appendRotation public="1" set="method" line="105" static="1">
+		<f a="this:degrees:axis:?pivotPoint" v=":::null">
+			<x path="lime.utils.Float32Array"/>
+			<x path="Float"/>
+			<c path="lime.math.Vector4"/>
+			<c path="lime.math.Vector4"/>
+			<x path="Void"/>
+		</f>
+		<meta>
+			<m n=":value"><e>{ pivotPoint : null }</e></m>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>Appends rotation to the current matrix
+		@param	degrees	A rotation value (in degrees)
+		@param	axis	The coordinate position of the rotation axis
+		@param	pivotPoint	(Optional) A pivot point to use in the rotation</haxe_doc>
+	</appendRotation>
+	<appendScale public="1" set="method" line="124" static="1">
+		<f a="this:xScale:yScale:zScale">
+			<x path="lime.utils.Float32Array"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Appends a scale value to the current matrix
+		@param	xScale	The x scale to append
+		@param	yScale	The y scale to append
+		@param	zScale	The z scale to append</haxe_doc>
+	</appendScale>
+	<appendTranslation public="1" set="method" line="137" static="1">
+		<f a="this:x:y:z">
+			<x path="lime.utils.Float32Array"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Increases the position/translation of the current matrix
+		@param	x	The x amount to offset the current position
+		@param	y	The y amount to offset the current position
+		@param	z	The z amount to offset the current position</haxe_doc>
+	</appendTranslation>
+	<clone public="1" set="method" line="148" static="1">
+		<f a="this">
+			<x path="lime.utils.Float32Array"/>
+			<x path="lime.math.Matrix4"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Creates a duplicate of the current `Matrix4`
+		@return	A new `Matrix4` with the same values as the current matrix</haxe_doc>
+	</clone>
+	<copyColumnFrom public="1" set="method" line="158" static="1">
+		<f a="this:column:vector">
+			<x path="lime.utils.Float32Array"/>
+			<x path="Int"/>
+			<c path="lime.math.Vector4"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Copies a column of data from a `Vector4` instance into the values of this matrix
+		@param	column	The column to copy into (0, 1, 2 or 3)
+		@param	vector	The `Vector4` copy from</haxe_doc>
+	</copyColumnFrom>
+	<copyColumnTo public="1" set="method" line="196" static="1">
+		<f a="this:column:vector">
+			<x path="lime.utils.Float32Array"/>
+			<x path="Int"/>
+			<c path="lime.math.Vector4"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Copies a column of data from the current matrix into a `Vector4` instance
+		@param	column	The column to copy (0, 1, 2 or 3)
+		@param	vector	The `Vector4` copy to</haxe_doc>
+	</copyColumnTo>
+	<copyFrom public="1" set="method" line="233" static="1">
+		<f a="this:other">
+			<x path="lime.utils.Float32Array"/>
+			<x path="lime.math.Matrix4"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Copies the values of another `Matrix4` into the current matrix
+		@param	other	A `Matrix4` instance to copy from</haxe_doc>
+	</copyFrom>
+	<copyRowFrom public="1" set="method" line="243" static="1">
+		<f a="this:row:vector">
+			<x path="lime.utils.Float32Array"/>
+			<x path="Int"/>
+			<c path="lime.math.Vector4"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Copies a row of data from a `Vector4` instance into the values of this matrix
+		@param	row	The row to copy into (0, 1, 2 or 3)
+		@param	vector	The `Vector4` copy from</haxe_doc>
+	</copyRowFrom>
+	<copyRowTo public="1" set="method" line="281" static="1">
+		<f a="this:row:vector">
+			<x path="lime.utils.Float32Array"/>
+			<x path="Int"/>
+			<c path="lime.math.Vector4"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Copies a row of data from the current matrix into a `Vector4` instance
+		@param	column	The row to copy (0, 1, 2 or 3)
+		@param	vector	The `Vector4` copy to</haxe_doc>
+	</copyRowTo>
+	<create2D public="1" set="method" line="323" static="1">
+		<f a="this:a:b:c:d:?tx:?ty" v=":::::0:0">
+			<x path="lime.utils.Float32Array"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="Void"/>
+		</f>
+		<meta>
+			<m n=":value"><e>{ ty : 0, tx : 0 }</e></m>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>Resets the current matrix using two-dimensional transform values
+		@param	a	A two-dimensional matrix a value
+		@param	b	A two-dimensional matrix b value
+		@param	c	A two-dimensional matrix c value
+		@param	d	A two-dimensional matrix d value
+		@param	tx	(Optional) A two-dimensional matrix tx value (default is 0)
+		@param	ty	(Optional) A two-dimensional matrix ty value (default is 0)</haxe_doc>
+	</create2D>
+	<createOrtho public="1" set="method" line="355" static="1">
+		<f a="this:left:right:bottom:top:zNear:zFar">
+			<x path="lime.utils.Float32Array"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Initializes this matrix with values for an orthographic projection, useful in rendering
+		@param	left	The left (or x0) coordinate for the projection
+		@param	right	The right (or x1) coordinate for the projection
+		@param	bottom	The bottom (or y0) coordinate for the projection
+		@param	top	The top (or y1) coordinate for the projection
+		@param	zNear	The near depth-clipping plane position
+		@param	zFar	The far depth-clipping plane position</haxe_doc>
+	</createOrtho>
+	<deltaTransformVector public="1" set="method" line="485" static="1">
+		<f a="this:v:?result" v="::null">
+			<x path="lime.utils.Float32Array"/>
+			<c path="lime.math.Vector4"/>
+			<c path="lime.math.Vector4"/>
+			<c path="lime.math.Vector4"/>
+		</f>
+		<meta>
+			<m n=":value"><e>{ result : null }</e></m>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>* Returns the transformation matrix's translation, rotation, and scale settings as a Vector of three Vector4 objects.</haxe_doc>
+	</deltaTransformVector>
+	<fromMatrix3 public="1" set="method" line="495" static="1">
+		<f a="matrix3">
+			<c path="lime.math.Matrix3"/>
+			<x path="lime.math.Matrix4"/>
+		</f>
+		<meta><m n=":from"/></meta>
+	</fromMatrix3>
+	<identity public="1" set="method" line="505" static="1">
+		<f a="this">
+			<x path="lime.utils.Float32Array"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Resets the current matrix using default identity values</haxe_doc>
+	</identity>
+	<interpolate public="1" set="method" line="533" static="1">
+		<f a="thisMat:toMat:percent:?result" v=":::null">
+			<x path="lime.math.Matrix4"/>
+			<x path="lime.math.Matrix4"/>
+			<x path="Float"/>
+			<x path="lime.math.Matrix4"/>
+			<x path="lime.math.Matrix4"/>
+		</f>
+		<meta><m n=":value"><e>{ result : null }</e></m></meta>
+		<haxe_doc>Interpolates from one `Matrix4` instance to another, given a percentage between the two
+		@param	thisMat	The first `Matrix4` object to start from
+		@param	toMat	The second `Matrix4` object to interpolate toward
+		@param	percent	The percentage value to interpolate by
+		@param	result	(Optional) A `Matrix4` instance to use when returning the result
+		@return	A `Matrix4` with the resulting value</haxe_doc>
+	</interpolate>
+	<interpolateTo public="1" set="method" line="550" static="1">
+		<f a="this:toMat:percent">
+			<x path="lime.utils.Float32Array"/>
+			<x path="lime.math.Matrix4"/>
+			<x path="Float"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Interpolates the current matrix toward another matrix, resetting the values of the current matrix
+		@param	toMat	The second `Matrix4` object to interpolate toward
+		@param	percetn	The percentage value to interpolate by</haxe_doc>
+	</interpolateTo>
+	<invert public="1" set="method" line="562" static="1">
+		<f a="this">
+			<x path="lime.utils.Float32Array"/>
+			<x path="Bool"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Attempts to invert the current matrix, so long as the determinant is greater than zero
+		@return	Whether the `invert` operation was successful</haxe_doc>
+	</invert>
+	<pointAt public="1" set="method" line="615" static="1">
+		<f a="this:pos:?at:?up" v="::null:null">
+			<x path="lime.utils.Float32Array"/>
+			<c path="lime.math.Vector4"/>
+			<c path="lime.math.Vector4"/>
+			<c path="lime.math.Vector4"/>
+			<x path="Void"/>
+		</f>
+		<meta>
+			<m n=":value"><e>{ up : null, at : null }</e></m>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>Sets the matrix values as a transformation orientated toward a certain vector position
+		@param	pos	A target vector position in absolute coordinates
+		@param	at	(Optional) A vector relative to this matrix which defines the current direction
+		@param	up	(Optional) A vector relative to this matrix which defines the "up" direction</haxe_doc>
+	</pointAt>
+	<prepend public="1" set="method" line="682" static="1">
+		<f a="this:rhs">
+			<x path="lime.utils.Float32Array"/>
+			<x path="lime.math.Matrix4"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Prepends a right-hand matrix to the current matrix
+		@param	rhx	A right-hand `Matrix4` to append</haxe_doc>
+	</prepend>
+	<prependRotation public="1" set="method" line="744" static="1">
+		<f a="this:degrees:axis:?pivotPoint" v=":::null">
+			<x path="lime.utils.Float32Array"/>
+			<x path="Float"/>
+			<c path="lime.math.Vector4"/>
+			<c path="lime.math.Vector4"/>
+			<x path="Void"/>
+		</f>
+		<meta>
+			<m n=":value"><e>{ pivotPoint : null }</e></m>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>Prepends rotation to this matrix
+		@param	degrees	The rotation amount in degrees
+		@param	axis	The rotation axis
+		@param	pivotPoint	(Optional) A pivot point for the rotation</haxe_doc>
+	</prependRotation>
+	<prependScale public="1" set="method" line="763" static="1">
+		<f a="this:xScale:yScale:zScale">
+			<x path="lime.utils.Float32Array"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Prepends scale to this matrix
+		@param	xScale	An x scale value
+		@param	yScale	A y scale value
+		@param	zScale	A z scale value</haxe_doc>
+	</prependScale>
+	<prependTranslation public="1" set="method" line="776" static="1">
+		<f a="this:x:y:z">
+			<x path="lime.utils.Float32Array"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Prepends translation values to this matrix
+		@param	x	An x translation value
+		@param	y	A y translation value
+		@param	z	A z translation value</haxe_doc>
+	</prependTranslation>
+	<transformVector public="1" set="method" line="870" static="1">
+		<f a="this:v:?result" v="::null">
+			<x path="lime.utils.Float32Array"/>
+			<c path="lime.math.Vector4"/>
+			<c path="lime.math.Vector4"/>
+			<c path="lime.math.Vector4"/>
+		</f>
+		<meta>
+			<m n=":value"><e>{ result : null }</e></m>
+			<m n=":impl"/>
+		</meta>
+		<haxe_doc>Transforms a `Vector4` instance using the current matrix
+		@param	result	(Optional) An existing `Vector2` instance to fill with the result
+		@return	The resulting `Vector4` instance</haxe_doc>
+	</transformVector>
+	<transformVectors public="1" set="method" line="886" static="1">
+		<f a="this:ain:aout">
+			<x path="lime.utils.Float32Array"/>
+			<x path="lime.utils.Float32Array"/>
+			<x path="lime.utils.Float32Array"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Transforms a series of [x, y, z] value pairs at once
+		@param	ain	An input `Float32Array` to transform
+		@param	aout	An output `Float32Array` to write to</haxe_doc>
+	</transformVectors>
+	<transpose public="1" set="method" line="908" static="1">
+		<f a="this">
+			<x path="lime.utils.Float32Array"/>
+			<x path="Void"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+		<haxe_doc>Transposes the current matrix</haxe_doc>
+	</transpose>
+	<__getAxisRotation set="method" line="918" static="1">
+		<f a="this:x:y:z:degrees">
+			<x path="lime.utils.Float32Array"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="Float"/>
+			<x path="lime.math.Matrix4"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+	</__getAxisRotation>
+	<__swap get="inline" set="null" line="948" static="1">
+		<f a="this:a:b">
+			<x path="lime.utils.Float32Array"/>
+			<x path="Int"/>
+			<x path="Int"/>
+			<x path="Void"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+	</__swap>
+	<get_determinant set="method" line="956" static="1">
+		<f a="this">
+			<x path="lime.utils.Float32Array"/>
+			<x path="Float"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+	</get_determinant>
+	<get_position set="method" line="966" static="1">
+		<f a="this">
+			<x path="lime.utils.Float32Array"/>
+			<c path="lime.math.Vector4"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+	</get_position>
+	<set_position set="method" line="971" static="1">
+		<f a="this:val">
+			<x path="lime.utils.Float32Array"/>
+			<c path="lime.math.Vector4"/>
+			<c path="lime.math.Vector4"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+	</set_position>
+	<get public="1" set="method" line="979" static="1">
+		<f a="this:index">
+			<x path="lime.utils.Float32Array"/>
+			<x path="Int"/>
+			<x path="Float"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":dox"><e>hide</e></m>
+			<m n=":noCompletion"/>
+			<m n=":arrayAccess"/>
+		</meta>
+	</get>
+	<set public="1" set="method" line="984" static="1">
+		<f a="this:index:value">
+			<x path="lime.utils.Float32Array"/>
+			<x path="Int"/>
+			<x path="Float"/>
+			<x path="Float"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":dox"><e>hide</e></m>
+			<m n=":noCompletion"/>
+			<m n=":arrayAccess"/>
+		</meta>
+	</set>
+</class></impl>
+	</abstract>
+	<class path="lime.math._Matrix4.Matrix4_Impl_" params="" file="/projects/May2019/May2020/lime/src/lime/math/Matrix4.hx" private="1" module="lime.math.Matrix4" final="1">
+		<__identity expr="[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]" line="11" static="1">
+			<c path="Array"><x path="Float"/></c>
+			<meta><m n=":value"><e>[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]</e></m></meta>
+		</__identity>
+		<determinant public="1" get="accessor" set="null" static="1">
+			<x path="Float"/>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Gets the determinant of the matrix</haxe_doc>
+		</determinant>
+		<position public="1" get="accessor" set="accessor" static="1">
+			<c path="lime.math.Vector4"/>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Gets or sets the position value of this matrix</haxe_doc>
+		</position>
+		<_new public="1" set="method" line="27" static="1">
+			<f a="?data" v="null">
+				<x path="lime.utils.Float32Array"/>
+				<x path="lime.math.Matrix4"/>
+			</f>
+			<meta>
+				<m n=":value"><e>{ data : null }</e></m>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+			<haxe_doc>Creates a new matrix instance
+		@param	data	(Optional) A `Float32Array` of 16 values to use for this matrix</haxe_doc>
+		</_new>
+		<append public="1" set="method" line="43" static="1">
+			<f a="this:lhs">
+				<x path="lime.utils.Float32Array"/>
+				<x path="lime.math.Matrix4"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Appends a second matrix by multiplying its values against the current one
+		@param	lhs	A second matrix instance</haxe_doc>
+		</append>
+		<appendRotation public="1" set="method" line="105" static="1">
+			<f a="this:degrees:axis:?pivotPoint" v=":::null">
+				<x path="lime.utils.Float32Array"/>
+				<x path="Float"/>
+				<c path="lime.math.Vector4"/>
+				<c path="lime.math.Vector4"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":value"><e>{ pivotPoint : null }</e></m>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>Appends rotation to the current matrix
+		@param	degrees	A rotation value (in degrees)
+		@param	axis	The coordinate position of the rotation axis
+		@param	pivotPoint	(Optional) A pivot point to use in the rotation</haxe_doc>
+		</appendRotation>
+		<appendScale public="1" set="method" line="124" static="1">
+			<f a="this:xScale:yScale:zScale">
+				<x path="lime.utils.Float32Array"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Appends a scale value to the current matrix
+		@param	xScale	The x scale to append
+		@param	yScale	The y scale to append
+		@param	zScale	The z scale to append</haxe_doc>
+		</appendScale>
+		<appendTranslation public="1" set="method" line="137" static="1">
+			<f a="this:x:y:z">
+				<x path="lime.utils.Float32Array"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Increases the position/translation of the current matrix
+		@param	x	The x amount to offset the current position
+		@param	y	The y amount to offset the current position
+		@param	z	The z amount to offset the current position</haxe_doc>
+		</appendTranslation>
+		<clone public="1" set="method" line="148" static="1">
+			<f a="this">
+				<x path="lime.utils.Float32Array"/>
+				<x path="lime.math.Matrix4"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Creates a duplicate of the current `Matrix4`
+		@return	A new `Matrix4` with the same values as the current matrix</haxe_doc>
+		</clone>
+		<copyColumnFrom public="1" set="method" line="158" static="1">
+			<f a="this:column:vector">
+				<x path="lime.utils.Float32Array"/>
+				<x path="Int"/>
+				<c path="lime.math.Vector4"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Copies a column of data from a `Vector4` instance into the values of this matrix
+		@param	column	The column to copy into (0, 1, 2 or 3)
+		@param	vector	The `Vector4` copy from</haxe_doc>
+		</copyColumnFrom>
+		<copyColumnTo public="1" set="method" line="196" static="1">
+			<f a="this:column:vector">
+				<x path="lime.utils.Float32Array"/>
+				<x path="Int"/>
+				<c path="lime.math.Vector4"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Copies a column of data from the current matrix into a `Vector4` instance
+		@param	column	The column to copy (0, 1, 2 or 3)
+		@param	vector	The `Vector4` copy to</haxe_doc>
+		</copyColumnTo>
+		<copyFrom public="1" set="method" line="233" static="1">
+			<f a="this:other">
+				<x path="lime.utils.Float32Array"/>
+				<x path="lime.math.Matrix4"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Copies the values of another `Matrix4` into the current matrix
+		@param	other	A `Matrix4` instance to copy from</haxe_doc>
+		</copyFrom>
+		<copyRowFrom public="1" set="method" line="243" static="1">
+			<f a="this:row:vector">
+				<x path="lime.utils.Float32Array"/>
+				<x path="Int"/>
+				<c path="lime.math.Vector4"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Copies a row of data from a `Vector4` instance into the values of this matrix
+		@param	row	The row to copy into (0, 1, 2 or 3)
+		@param	vector	The `Vector4` copy from</haxe_doc>
+		</copyRowFrom>
+		<copyRowTo public="1" set="method" line="281" static="1">
+			<f a="this:row:vector">
+				<x path="lime.utils.Float32Array"/>
+				<x path="Int"/>
+				<c path="lime.math.Vector4"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Copies a row of data from the current matrix into a `Vector4` instance
+		@param	column	The row to copy (0, 1, 2 or 3)
+		@param	vector	The `Vector4` copy to</haxe_doc>
+		</copyRowTo>
+		<create2D public="1" set="method" line="323" static="1">
+			<f a="this:a:b:c:d:?tx:?ty" v=":::::0:0">
+				<x path="lime.utils.Float32Array"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":value"><e>{ ty : 0, tx : 0 }</e></m>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>Resets the current matrix using two-dimensional transform values
+		@param	a	A two-dimensional matrix a value
+		@param	b	A two-dimensional matrix b value
+		@param	c	A two-dimensional matrix c value
+		@param	d	A two-dimensional matrix d value
+		@param	tx	(Optional) A two-dimensional matrix tx value (default is 0)
+		@param	ty	(Optional) A two-dimensional matrix ty value (default is 0)</haxe_doc>
+		</create2D>
+		<createOrtho public="1" set="method" line="355" static="1">
+			<f a="this:left:right:bottom:top:zNear:zFar">
+				<x path="lime.utils.Float32Array"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Initializes this matrix with values for an orthographic projection, useful in rendering
+		@param	left	The left (or x0) coordinate for the projection
+		@param	right	The right (or x1) coordinate for the projection
+		@param	bottom	The bottom (or y0) coordinate for the projection
+		@param	top	The top (or y1) coordinate for the projection
+		@param	zNear	The near depth-clipping plane position
+		@param	zFar	The far depth-clipping plane position</haxe_doc>
+		</createOrtho>
+		<deltaTransformVector public="1" set="method" line="485" static="1">
+			<f a="this:v:?result" v="::null">
+				<x path="lime.utils.Float32Array"/>
+				<c path="lime.math.Vector4"/>
+				<c path="lime.math.Vector4"/>
+				<c path="lime.math.Vector4"/>
+			</f>
+			<meta>
+				<m n=":value"><e>{ result : null }</e></m>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>* Returns the transformation matrix's translation, rotation, and scale settings as a Vector of three Vector4 objects.</haxe_doc>
+		</deltaTransformVector>
+		<fromMatrix3 public="1" set="method" line="495" static="1">
+			<f a="matrix3">
+				<c path="lime.math.Matrix3"/>
+				<x path="lime.math.Matrix4"/>
+			</f>
+			<meta><m n=":from"/></meta>
+		</fromMatrix3>
+		<identity public="1" set="method" line="505" static="1">
+			<f a="this">
+				<x path="lime.utils.Float32Array"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Resets the current matrix using default identity values</haxe_doc>
+		</identity>
+		<interpolate public="1" set="method" line="533" static="1">
+			<f a="thisMat:toMat:percent:?result" v=":::null">
+				<x path="lime.math.Matrix4"/>
+				<x path="lime.math.Matrix4"/>
+				<x path="Float"/>
+				<x path="lime.math.Matrix4"/>
+				<x path="lime.math.Matrix4"/>
+			</f>
+			<meta><m n=":value"><e>{ result : null }</e></m></meta>
+			<haxe_doc>Interpolates from one `Matrix4` instance to another, given a percentage between the two
+		@param	thisMat	The first `Matrix4` object to start from
+		@param	toMat	The second `Matrix4` object to interpolate toward
+		@param	percent	The percentage value to interpolate by
+		@param	result	(Optional) A `Matrix4` instance to use when returning the result
+		@return	A `Matrix4` with the resulting value</haxe_doc>
+		</interpolate>
+		<interpolateTo public="1" set="method" line="550" static="1">
+			<f a="this:toMat:percent">
+				<x path="lime.utils.Float32Array"/>
+				<x path="lime.math.Matrix4"/>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Interpolates the current matrix toward another matrix, resetting the values of the current matrix
+		@param	toMat	The second `Matrix4` object to interpolate toward
+		@param	percetn	The percentage value to interpolate by</haxe_doc>
+		</interpolateTo>
+		<invert public="1" set="method" line="562" static="1">
+			<f a="this">
+				<x path="lime.utils.Float32Array"/>
+				<x path="Bool"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Attempts to invert the current matrix, so long as the determinant is greater than zero
+		@return	Whether the `invert` operation was successful</haxe_doc>
+		</invert>
+		<pointAt public="1" set="method" line="615" static="1">
+			<f a="this:pos:?at:?up" v="::null:null">
+				<x path="lime.utils.Float32Array"/>
+				<c path="lime.math.Vector4"/>
+				<c path="lime.math.Vector4"/>
+				<c path="lime.math.Vector4"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":value"><e>{ up : null, at : null }</e></m>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>Sets the matrix values as a transformation orientated toward a certain vector position
+		@param	pos	A target vector position in absolute coordinates
+		@param	at	(Optional) A vector relative to this matrix which defines the current direction
+		@param	up	(Optional) A vector relative to this matrix which defines the "up" direction</haxe_doc>
+		</pointAt>
+		<prepend public="1" set="method" line="682" static="1">
+			<f a="this:rhs">
+				<x path="lime.utils.Float32Array"/>
+				<x path="lime.math.Matrix4"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Prepends a right-hand matrix to the current matrix
+		@param	rhx	A right-hand `Matrix4` to append</haxe_doc>
+		</prepend>
+		<prependRotation public="1" set="method" line="744" static="1">
+			<f a="this:degrees:axis:?pivotPoint" v=":::null">
+				<x path="lime.utils.Float32Array"/>
+				<x path="Float"/>
+				<c path="lime.math.Vector4"/>
+				<c path="lime.math.Vector4"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":value"><e>{ pivotPoint : null }</e></m>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>Prepends rotation to this matrix
+		@param	degrees	The rotation amount in degrees
+		@param	axis	The rotation axis
+		@param	pivotPoint	(Optional) A pivot point for the rotation</haxe_doc>
+		</prependRotation>
+		<prependScale public="1" set="method" line="763" static="1">
+			<f a="this:xScale:yScale:zScale">
+				<x path="lime.utils.Float32Array"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Prepends scale to this matrix
+		@param	xScale	An x scale value
+		@param	yScale	A y scale value
+		@param	zScale	A z scale value</haxe_doc>
+		</prependScale>
+		<prependTranslation public="1" set="method" line="776" static="1">
+			<f a="this:x:y:z">
+				<x path="lime.utils.Float32Array"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Prepends translation values to this matrix
+		@param	x	An x translation value
+		@param	y	A y translation value
+		@param	z	A z translation value</haxe_doc>
+		</prependTranslation>
+		<transformVector public="1" set="method" line="870" static="1">
+			<f a="this:v:?result" v="::null">
+				<x path="lime.utils.Float32Array"/>
+				<c path="lime.math.Vector4"/>
+				<c path="lime.math.Vector4"/>
+				<c path="lime.math.Vector4"/>
+			</f>
+			<meta>
+				<m n=":value"><e>{ result : null }</e></m>
+				<m n=":impl"/>
+			</meta>
+			<haxe_doc>Transforms a `Vector4` instance using the current matrix
+		@param	result	(Optional) An existing `Vector2` instance to fill with the result
+		@return	The resulting `Vector4` instance</haxe_doc>
+		</transformVector>
+		<transformVectors public="1" set="method" line="886" static="1">
+			<f a="this:ain:aout">
+				<x path="lime.utils.Float32Array"/>
+				<x path="lime.utils.Float32Array"/>
+				<x path="lime.utils.Float32Array"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Transforms a series of [x, y, z] value pairs at once
+		@param	ain	An input `Float32Array` to transform
+		@param	aout	An output `Float32Array` to write to</haxe_doc>
+		</transformVectors>
+		<transpose public="1" set="method" line="908" static="1">
+			<f a="this">
+				<x path="lime.utils.Float32Array"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+			<haxe_doc>Transposes the current matrix</haxe_doc>
+		</transpose>
+		<__getAxisRotation set="method" line="918" static="1">
+			<f a="this:x:y:z:degrees">
+				<x path="lime.utils.Float32Array"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="lime.math.Matrix4"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</__getAxisRotation>
+		<__swap get="inline" set="null" line="948" static="1">
+			<f a="this:a:b">
+				<x path="lime.utils.Float32Array"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</__swap>
+		<get_determinant set="method" line="956" static="1">
+			<f a="this">
+				<x path="lime.utils.Float32Array"/>
+				<x path="Float"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</get_determinant>
+		<get_position set="method" line="966" static="1">
+			<f a="this">
+				<x path="lime.utils.Float32Array"/>
+				<c path="lime.math.Vector4"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</get_position>
+		<set_position set="method" line="971" static="1">
+			<f a="this:val">
+				<x path="lime.utils.Float32Array"/>
+				<c path="lime.math.Vector4"/>
+				<c path="lime.math.Vector4"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</set_position>
+		<get public="1" set="method" line="979" static="1">
+			<f a="this:index">
+				<x path="lime.utils.Float32Array"/>
+				<x path="Int"/>
+				<x path="Float"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":dox"><e>hide</e></m>
+				<m n=":noCompletion"/>
+				<m n=":arrayAccess"/>
+			</meta>
+		</get>
+		<set public="1" set="method" line="984" static="1">
+			<f a="this:index:value">
+				<x path="lime.utils.Float32Array"/>
+				<x path="Int"/>
+				<x path="Float"/>
+				<x path="Float"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":dox"><e>hide</e></m>
+				<m n=":noCompletion"/>
+				<m n=":arrayAccess"/>
+			</meta>
+		</set>
 	</class>
 	<abstract path="lime.math.RGBA" params="" file="/projects/May2019/May2020/lime/src/lime/math/RGBA.hx">
 		<from>
