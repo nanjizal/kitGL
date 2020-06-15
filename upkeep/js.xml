@@ -43474,7 +43474,7 @@
 </f></shaderSetup>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
-	<class path="kitGL.glLime.AppGL" params="" file="src/kitGL/glLime/InterleaveAlterGL.hx" module="kitGL.glLime.InterleaveAlterGL">
+	<class path="kitGL.glLime.InterleaveAlterGL" params="" file="src/kitGL/glLime/InterleaveAlterGL.hx">
 		<program><x path="lime.graphics.opengl.GLProgram"/></program>
 		<interleaveDataGL public="1"><x path="kitGL.glLime.InterleaveDataGL"/></interleaveDataGL>
 		<width public="1"><x path="Int"/></width>

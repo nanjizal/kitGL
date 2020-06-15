@@ -15,7 +15,7 @@ import kitGL.glLime.BufferGL;
 
 import lime.graphics.opengl.GLBuffer;
 
-class AppGL{
+class InterleaveAlterGL{
     var program: GLProgram;
     public var interleaveDataGL: InterleaveDataGL;
     public var width:  Int;
