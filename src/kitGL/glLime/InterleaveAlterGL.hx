@@ -12,10 +12,10 @@ import lime.graphics.opengl.GLProgram;
 import kitGL.glLime.Shaders;
 import kitGL.glLime.HelpGL;
 import kitGL.glLime.BufferGL;
-
+import kitGL.glLime.setup.IAppGL;
 import lime.graphics.opengl.GLBuffer;
 
-class InterleaveAlterGL{
+class InterleaveAlterGL implements IAppGL{
     var program: GLProgram;
     public var interleaveDataGL: InterleaveDataGL;
     public var width:  Int;

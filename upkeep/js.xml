@@ -43474,7 +43474,21 @@
 </f></shaderSetup>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
+	<class path="kitGL.glLime.setup.IAppGL" params="" file="src/kitGL/glLime/setup/IAppGL.hx" interface="1">
+		<update public="1" set="method"><f a=""><x path="Void"/></f></update>
+		<setup public="1" set="method"><f a="gl">
+	<x path="lime.graphics.WebGLRenderContext"/>
+	<x path="Void"/>
+</f></setup>
+		<draw public="1" set="method"><f a=""><x path="Void"/></f></draw>
+		<render public="1" set="method"><f a="gl">
+	<x path="lime.graphics.WebGLRenderContext"/>
+	<x path="Void"/>
+</f></render>
+		<renderDraw public="1" set="method"><f a=""><x path="Void"/></f></renderDraw>
+	</class>
 	<class path="kitGL.glLime.InterleaveAlterGL" params="" file="src/kitGL/glLime/InterleaveAlterGL.hx">
+		<implements path="kitGL.glLime.setup.IAppGL"/>
 		<program><x path="lime.graphics.opengl.GLProgram"/></program>
 		<interleaveDataGL public="1"><x path="kitGL.glLime.InterleaveDataGL"/></interleaveDataGL>
 		<width public="1"><x path="Int"/></width>
@@ -43646,6 +43660,729 @@
 			<c path="String"/>
 			<meta><m n=":value"><e>"precision mediump float;" + "varying vec2 vTexCoord;" + "uniform sampler2D uImage0;" + "void main (void) {" + "gl_FragColor = texture2D( uImage0, vTexCoord );" + "}"</e></m></meta>
 		</fragmentTexture>
+	</class>
+	<class path="lime.app.IModule" params="" file="/projects/May2019/May2020/lime/src/lime/app/IModule.hx" interface="1">
+		<__registerLimeModule set="method">
+			<f a="application">
+				<c path="lime.app.Application"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":dox"><e>show</e></m>
+				<m n=":noCompletion"/>
+			</meta>
+		</__registerLimeModule>
+		<__unregisterLimeModule set="method">
+			<f a="application">
+				<c path="lime.app.Application"/>
+				<x path="Void"/>
+			</f>
+			<meta>
+				<m n=":dox"><e>show</e></m>
+				<m n=":noCompletion"/>
+			</meta>
+		</__unregisterLimeModule>
+	</class>
+	<class path="lime.app.Module" params="" file="/projects/May2019/May2020/lime/src/lime/app/Module.hx">
+		<implements path="lime.app.IModule"/>
+		<onExit public="1" expr="new Event&lt;Int&gt;()">
+			<c path="lime.app._Event_Int_Void"><f a="">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></c>
+			<meta><m n=":value"><e><![CDATA[new Event<Int>()]]></e></m></meta>
+			<haxe_doc>Exit events are dispatched when the application is exiting</haxe_doc>
+		</onExit>
+		<__registerLimeModule set="method" line="27">
+			<f a="application">
+				<c path="lime.app.Application"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</__registerLimeModule>
+		<__unregisterLimeModule set="method" line="29">
+			<f a="application">
+				<c path="lime.app.Application"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</__unregisterLimeModule>
+		<new public="1" set="method" line="25">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a new `Module` instance</haxe_doc>
+		</new>
+		<haxe_doc>`Module` instances can be added to a running `Application`,
+	simplifying support for adding new components, such as a renderer,
+	input handler or higher-level framework.</haxe_doc>
+		<meta>
+			<m n=":fileXml"><e>"tags=\"haxe,release\""</e></m>
+			<m n=":noDebug"/>
+		</meta>
+	</class>
+	<class path="lime._internal.backend.html5.HTML5Application" params="" file="/projects/May2019/May2020/lime/src/lime/_internal/backend/html5/HTML5Application.hx">
+		<gameDeviceCache expr="new Map&lt;Int,GameDeviceData&gt;()">
+			<x path="haxe.ds.Map">
+				<x path="Int"/>
+				<c path="lime._internal.backend.html5.GameDeviceData"/>
+			</x>
+			<meta><m n=":value"><e><![CDATA[new Map<Int,GameDeviceData>()]]></e></m></meta>
+		</gameDeviceCache>
+		<accelerometer><c path="lime.system.Sensor"/></accelerometer>
+		<currentUpdate><x path="Float"/></currentUpdate>
+		<deltaTime><x path="Float"/></deltaTime>
+		<framePeriod><x path="Float"/></framePeriod>
+		<lastUpdate><x path="Float"/></lastUpdate>
+		<nextUpdate><x path="Float"/></nextUpdate>
+		<parent><c path="lime.app.Application"/></parent>
+		<convertKeyCode set="method" line="51"><f a="keyCode">
+	<x path="Int"/>
+	<x path="lime.ui.KeyCode"/>
+</f></convertKeyCode>
+		<exec public="1" set="method" line="271"><f a=""><x path="Int"/></f></exec>
+		<exit public="1" set="method" line="346"><f a=""><x path="Void"/></f></exit>
+		<handleApplicationEvent set="method" line="348"><f a="?__">
+	<unknown/>
+	<x path="Void"/>
+</f></handleApplicationEvent>
+		<handleKeyEvent set="method" line="394"><f a="event">
+	<c path="js.html.KeyboardEvent"/>
+	<x path="Void"/>
+</f></handleKeyEvent>
+		<handleSensorEvent set="method" line="432"><f a="event">
+	<c path="js.html.DeviceMotionEvent"/>
+	<x path="Void"/>
+</f></handleSensorEvent>
+		<handleWindowEvent set="method" line="437"><f a="event">
+	<c path="js.html.Event"/>
+	<x path="Void"/>
+</f></handleWindowEvent>
+		<updateGameDevices set="method" line="478"><f a=""><x path="Void"/></f></updateGameDevices>
+		<new public="1" get="inline" set="null" line="38"><f a="parent">
+	<c path="lime.app.Application"/>
+	<x path="Void"/>
+</f></new>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":access"><e>lime._internal.backend.html5.HTML5Window</e></m>
+			<m n=":access"><e>lime.app.Application</e></m>
+			<m n=":access"><e>lime.system.Sensor</e></m>
+			<m n=":access"><e>lime.ui.Gamepad</e></m>
+			<m n=":access"><e>lime.ui.Joystick</e></m>
+			<m n=":access"><e>lime.ui.Window</e></m>
+		</meta>
+	</class>
+	<class path="lime.app.Application" params="" file="/projects/May2019/May2020/lime/src/lime/app/Application.hx">
+		<extends path="lime.app.Module"/>
+		<current public="1" set="null" static="1">
+			<c path="lime.app.Application"/>
+			<haxe_doc>The current Application instance that is executing</haxe_doc>
+		</current>
+		<meta public="1">
+			<t path="Map">
+				<c path="String"/>
+				<c path="String"/>
+			</t>
+			<haxe_doc>Meta-data values for the application, such as a version or a package name</haxe_doc>
+		</meta>
+		<modules public="1" set="null">
+			<c path="Array"><c path="lime.app.IModule"/></c>
+			<haxe_doc>A list of currently attached Module instances</haxe_doc>
+		</modules>
+		<onUpdate public="1" expr="new Event&lt;Int&gt;()">
+			<c path="lime.app._Event_Int_Void"><f a="">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></c>
+			<meta><m n=":value"><e><![CDATA[new Event<Int>()]]></e></m></meta>
+			<haxe_doc>Update events are dispatched each frame (usually just before rendering)</haxe_doc>
+		</onUpdate>
+		<onCreateWindow public="1" expr="new Event&lt;Window&gt;()">
+			<c path="lime.app._Event_lime_ui_Window_Void"><f a="">
+	<c path="lime.ui.Window"/>
+	<x path="Void"/>
+</f></c>
+			<meta><m n=":value"><e><![CDATA[new Event<Window>()]]></e></m></meta>
+			<haxe_doc>Dispatched when a new window has been created by this application</haxe_doc>
+		</onCreateWindow>
+		<preloader public="1" get="accessor" set="null">
+			<c path="lime.utils.Preloader"/>
+			<haxe_doc>The Preloader for the current Application</haxe_doc>
+		</preloader>
+		<window public="1" get="accessor" set="null">
+			<c path="lime.ui.Window"/>
+			<haxe_doc>The Window associated with this Application, or the first Window
+		if there are multiple Windows active</haxe_doc>
+		</window>
+		<windows public="1" get="accessor" set="null">
+			<c path="Array"><c path="lime.ui.Window"/></c>
+			<haxe_doc>A list of active Window instances associated with this Application</haxe_doc>
+		</windows>
+		<__backend>
+			<t path="lime.app._Application.ApplicationBackend"/>
+			<meta><m n=":noCompletion"/></meta>
+		</__backend>
+		<__preloader>
+			<c path="lime.utils.Preloader"/>
+			<meta><m n=":noCompletion"/></meta>
+		</__preloader>
+		<__window>
+			<c path="lime.ui.Window"/>
+			<meta><m n=":noCompletion"/></meta>
+		</__window>
+		<__windowByID>
+			<t path="Map">
+				<x path="Int"/>
+				<c path="lime.ui.Window"/>
+			</t>
+			<meta><m n=":noCompletion"/></meta>
+		</__windowByID>
+		<__windows>
+			<c path="Array"><c path="lime.ui.Window"/></c>
+			<meta><m n=":noCompletion"/></meta>
+		</__windows>
+		<addModule public="1" set="method" line="123">
+			<f a="module">
+				<c path="lime.app.IModule"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Adds a new module to the Application
+		@param	module	A module to add</haxe_doc>
+		</addModule>
+		<createWindow public="1" set="method" line="133">
+			<f a="attributes">
+				<t path="lime.ui.WindowAttributes"/>
+				<c path="lime.ui.Window"/>
+			</f>
+			<haxe_doc>Creates a new Window and adds it to the Application
+		@param	attributes	A set of parameters to initialize the window</haxe_doc>
+		</createWindow>
+		<exec public="1" set="method" line="146">
+			<f a=""><x path="Int"/></f>
+			<haxe_doc>Execute the Application. On native platforms, this method
+		blocks until the application is finished running. On other
+		platforms, it will return immediately
+		@return	An exit code, 0 if there was no error</haxe_doc>
+		</exec>
+		<onGamepadAxisMove public="1" set="method" line="159">
+			<f a="gamepad:axis:value">
+				<c path="lime.ui.Gamepad"/>
+				<x path="lime.ui.GamepadAxis"/>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a gamepad axis move event is fired
+		@param	gamepad	The current gamepad
+		@param	axis	The axis that was moved
+		@param	value	The axis value (between 0 and 1)</haxe_doc>
+		</onGamepadAxisMove>
+		<onGamepadButtonDown public="1" set="method" line="166">
+			<f a="gamepad:button">
+				<c path="lime.ui.Gamepad"/>
+				<x path="lime.ui.GamepadButton"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a gamepad button down event is fired
+		@param	gamepad	The current gamepad
+		@param	button	The button that was pressed</haxe_doc>
+		</onGamepadButtonDown>
+		<onGamepadButtonUp public="1" set="method" line="173">
+			<f a="gamepad:button">
+				<c path="lime.ui.Gamepad"/>
+				<x path="lime.ui.GamepadButton"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a gamepad button up event is fired
+		@param	gamepad	The current gamepad
+		@param	button	The button that was released</haxe_doc>
+		</onGamepadButtonUp>
+		<onGamepadConnect public="1" set="method" line="179">
+			<f a="gamepad">
+				<c path="lime.ui.Gamepad"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a gamepad is connected
+		@param	gamepad	The gamepad that was connected</haxe_doc>
+		</onGamepadConnect>
+		<onGamepadDisconnect public="1" set="method" line="185">
+			<f a="gamepad">
+				<c path="lime.ui.Gamepad"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a gamepad is disconnected
+		@param	gamepad	The gamepad that was disconnected</haxe_doc>
+		</onGamepadDisconnect>
+		<onJoystickAxisMove public="1" set="method" line="193">
+			<f a="joystick:axis:value">
+				<c path="lime.ui.Joystick"/>
+				<x path="Int"/>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a joystick axis move event is fired
+		@param	joystick	The current joystick
+		@param	axis	The axis that was moved
+		@param	value	The axis value (between 0 and 1)</haxe_doc>
+		</onJoystickAxisMove>
+		<onJoystickButtonDown public="1" set="method" line="200">
+			<f a="joystick:button">
+				<c path="lime.ui.Joystick"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a joystick button down event is fired
+		@param	joystick	The current joystick
+		@param	button	The button that was pressed</haxe_doc>
+		</onJoystickButtonDown>
+		<onJoystickButtonUp public="1" set="method" line="207">
+			<f a="joystick:button">
+				<c path="lime.ui.Joystick"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a joystick button up event is fired
+		@param	joystick	The current joystick
+		@param	button	The button that was released</haxe_doc>
+		</onJoystickButtonUp>
+		<onJoystickConnect public="1" set="method" line="213">
+			<f a="joystick">
+				<c path="lime.ui.Joystick"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a joystick is connected
+		@param	joystick	The joystick that was connected</haxe_doc>
+		</onJoystickConnect>
+		<onJoystickDisconnect public="1" set="method" line="219">
+			<f a="joystick">
+				<c path="lime.ui.Joystick"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a joystick is disconnected
+		@param	joystick	The joystick that was disconnected</haxe_doc>
+		</onJoystickDisconnect>
+		<onJoystickHatMove public="1" set="method" line="227">
+			<f a="joystick:hat:position">
+				<c path="lime.ui.Joystick"/>
+				<x path="Int"/>
+				<x path="lime.ui.JoystickHatPosition"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a joystick hat move event is fired
+		@param	joystick	The current joystick
+		@param	hat	The hat that was moved
+		@param	position	The current hat position</haxe_doc>
+		</onJoystickHatMove>
+		<onJoystickTrackballMove public="1" set="method" line="236">
+			<f a="joystick:trackball:x:y">
+				<c path="lime.ui.Joystick"/>
+				<x path="Int"/>
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a joystick axis move event is fired
+		@param	joystick	The current joystick
+		@param	trackball	The trackball that was moved
+		@param	x	The x movement of the trackball (between 0 and 1)
+		@param	y	The y movement of the trackball (between 0 and 1)</haxe_doc>
+		</onJoystickTrackballMove>
+		<onKeyDown public="1" set="method" line="243">
+			<f a="keyCode:modifier">
+				<x path="lime.ui.KeyCode"/>
+				<x path="lime.ui.KeyModifier"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a key down event is fired on the primary window
+		@param	keyCode	The code of the key that was pressed
+		@param	modifier	The modifier of the key that was pressed</haxe_doc>
+		</onKeyDown>
+		<onKeyUp public="1" set="method" line="250">
+			<f a="keyCode:modifier">
+				<x path="lime.ui.KeyCode"/>
+				<x path="lime.ui.KeyModifier"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a key up event is fired on the primary window
+		@param	keyCode	The code of the key that was released
+		@param	modifier	The modifier of the key that was released</haxe_doc>
+		</onKeyUp>
+		<onModuleExit public="1" set="method" line="255">
+			<f a="code">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when the module is exiting</haxe_doc>
+		</onModuleExit>
+		<onMouseDown public="1" set="method" line="263">
+			<f a="x:y:button">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="lime.ui.MouseButton"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a mouse down event is fired on the primary window
+		@param	x	The current x coordinate of the mouse
+		@param	y	The current y coordinate of the mouse
+		@param	button	The ID of the mouse button that was pressed</haxe_doc>
+		</onMouseDown>
+		<onMouseMove public="1" set="method" line="270">
+			<f a="x:y">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a mouse move event is fired on the primary window
+		@param	x	The current x coordinate of the mouse
+		@param	y	The current y coordinate of the mouse</haxe_doc>
+		</onMouseMove>
+		<onMouseMoveRelative public="1" set="method" line="277">
+			<f a="x:y">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a mouse move relative event is fired on the primary window
+		@param	x	The x movement of the mouse
+		@param	y	The y movement of the mouse</haxe_doc>
+		</onMouseMoveRelative>
+		<onMouseUp public="1" set="method" line="285">
+			<f a="x:y:button">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="lime.ui.MouseButton"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a mouse up event is fired on the primary window
+		@param	x	The current x coordinate of the mouse
+		@param	y	The current y coordinate of the mouse
+		@param	button	The ID of the button that was released</haxe_doc>
+		</onMouseUp>
+		<onMouseWheel public="1" set="method" line="293">
+			<f a="deltaX:deltaY:deltaMode">
+				<x path="Float"/>
+				<x path="Float"/>
+				<e path="lime.ui.MouseWheelMode"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a mouse wheel event is fired on the primary window
+		@param	deltaX	The amount of horizontal scrolling (if applicable)
+		@param	deltaY	The amount of vertical scrolling (if applicable)
+		@param	deltaMode	The units of measurement used</haxe_doc>
+		</onMouseWheel>
+		<onPreloadComplete public="1" set="method" line="298">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Called when a preload complete event is fired</haxe_doc>
+		</onPreloadComplete>
+		<onPreloadProgress public="1" set="method" line="305">
+			<f a="loaded:total">
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a preload progress event is fired
+		@param	loaded	The number of items that are loaded
+		@param	total	The total number of items will be loaded</haxe_doc>
+		</onPreloadProgress>
+		<onRenderContextLost public="1" set="method" line="310">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Called when a render context is lost on the primary window</haxe_doc>
+		</onRenderContextLost>
+		<onRenderContextRestored public="1" set="method" line="316">
+			<f a="context">
+				<c path="lime.graphics.RenderContext"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a render context is restored on the primary window
+		@param	context	The render context relevant to the event</haxe_doc>
+		</onRenderContextRestored>
+		<onTextEdit public="1" set="method" line="324">
+			<f a="text:start:length">
+				<c path="String"/>
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a text edit event is fired on the primary window
+		@param	text	The current replacement text
+		@param	start	The starting index for the edit
+		@param	length	The length of the edit</haxe_doc>
+		</onTextEdit>
+		<onTextInput public="1" set="method" line="330">
+			<f a="text">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a text input event is fired on the primary window
+		@param	text	The current input text</haxe_doc>
+		</onTextInput>
+		<onTouchCancel public="1" set="method" line="336">
+			<f a="touch">
+				<c path="lime.ui.Touch"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a touch cancel event is fired
+		@param	touch	The current touch object</haxe_doc>
+		</onTouchCancel>
+		<onTouchEnd public="1" set="method" line="342">
+			<f a="touch">
+				<c path="lime.ui.Touch"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a touch end event is fired
+		@param	touch	The current touch object</haxe_doc>
+		</onTouchEnd>
+		<onTouchMove public="1" set="method" line="348">
+			<f a="touch">
+				<c path="lime.ui.Touch"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a touch move event is fired
+		@param	touch	The current touch object</haxe_doc>
+		</onTouchMove>
+		<onTouchStart public="1" set="method" line="354">
+			<f a="touch">
+				<c path="lime.ui.Touch"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a touch start event is fired
+		@param	touch	The current touch object</haxe_doc>
+		</onTouchStart>
+		<onWindowActivate public="1" set="method" line="359">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Called when a window activate event is fired on the primary window</haxe_doc>
+		</onWindowActivate>
+		<onWindowClose public="1" set="method" line="364">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Called when a window close event is fired on the primary window</haxe_doc>
+		</onWindowClose>
+		<onWindowCreate public="1" set="method" line="369">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Called when the primary window is created</haxe_doc>
+		</onWindowCreate>
+		<onWindowDeactivate public="1" set="method" line="374">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Called when a window deactivate event is fired on the primary window</haxe_doc>
+		</onWindowDeactivate>
+		<onWindowDropFile public="1" set="method" line="379">
+			<f a="file">
+				<c path="String"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a window drop file event is fired on the primary window</haxe_doc>
+		</onWindowDropFile>
+		<onWindowEnter public="1" set="method" line="384">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Called when a window enter event is fired on the primary window</haxe_doc>
+		</onWindowEnter>
+		<onWindowExpose public="1" set="method" line="389">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Called when a window expose event is fired on the primary window</haxe_doc>
+		</onWindowExpose>
+		<onWindowFocusIn public="1" set="method" line="394">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Called when a window focus in event is fired on the primary window</haxe_doc>
+		</onWindowFocusIn>
+		<onWindowFocusOut public="1" set="method" line="399">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Called when a window focus out event is fired on the primary window</haxe_doc>
+		</onWindowFocusOut>
+		<onWindowFullscreen public="1" set="method" line="404">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Called when the primary window enters fullscreen</haxe_doc>
+		</onWindowFullscreen>
+		<onWindowLeave public="1" set="method" line="409">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Called when a window leave event is fired on the primary window</haxe_doc>
+		</onWindowLeave>
+		<onWindowMove public="1" set="method" line="416">
+			<f a="x:y">
+				<x path="Float"/>
+				<x path="Float"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a window move event is fired on the primary window
+		@param	x	The x position of the window in desktop coordinates
+		@param	y	The y position of the window in desktop coordinates</haxe_doc>
+		</onWindowMove>
+		<onWindowMinimize public="1" set="method" line="421">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Called when the primary window is minimized</haxe_doc>
+		</onWindowMinimize>
+		<onWindowResize public="1" set="method" line="428">
+			<f a="width:height">
+				<x path="Int"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a window resize event is fired on the primary window
+		@param	width	The width of the window
+		@param	height	The height of the window</haxe_doc>
+		</onWindowResize>
+		<onWindowRestore public="1" set="method" line="433">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Called when the primary window is restored from being minimized or fullscreen</haxe_doc>
+		</onWindowRestore>
+		<removeModule public="1" set="method" line="439">
+			<f a="module">
+				<c path="lime.app.IModule"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Removes a module from the Application
+		@param	module	A module to remove</haxe_doc>
+		</removeModule>
+		<render public="1" set="method" line="452">
+			<f a="context">
+				<c path="lime.graphics.RenderContext"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when a render event is fired on the primary window
+		@param	context	The render context ready to be rendered</haxe_doc>
+		</render>
+		<update public="1" set="method" line="458">
+			<f a="deltaTime">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<haxe_doc>Called when an update event is fired on the primary window
+		@param	deltaTime	The amount of time in milliseconds that has elapsed since the last update</haxe_doc>
+		</update>
+		<__addWindow set="method" line="460">
+			<f a="window">
+				<c path="lime.ui.Window"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</__addWindow>
+		<__createWindow set="method" line="506">
+			<f a="attributes">
+				<t path="lime.ui.WindowAttributes"/>
+				<c path="lime.ui.Window"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</__createWindow>
+		<__registerLimeModule set="method" line="513" override="1">
+			<f a="application">
+				<c path="lime.app.Application"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</__registerLimeModule>
+		<__removeWindow set="method" line="539">
+			<f a="window">
+				<c path="lime.ui.Window"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</__removeWindow>
+		<__onGamepadConnect set="method" line="561">
+			<f a="gamepad">
+				<c path="lime.ui.Gamepad"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</__onGamepadConnect>
+		<__onJoystickConnect set="method" line="571">
+			<f a="joystick">
+				<c path="lime.ui.Joystick"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</__onJoystickConnect>
+		<__onModuleExit set="method" line="583">
+			<f a="code">
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</__onModuleExit>
+		<__onWindowClose set="method" line="588">
+			<f a="window">
+				<c path="lime.ui.Window"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</__onWindowClose>
+		<__unregisterLimeModule set="method" line="598" override="1">
+			<f a="application">
+				<c path="lime.app.Application"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":noCompletion"/></meta>
+		</__unregisterLimeModule>
+		<get_preloader get="inline" set="null" line="615">
+			<f a=""><c path="lime.utils.Preloader"/></f>
+			<meta><m n=":noCompletion"/></meta>
+		</get_preloader>
+		<get_window get="inline" set="null" line="620">
+			<f a=""><c path="lime.ui.Window"/></f>
+			<meta><m n=":noCompletion"/></meta>
+		</get_window>
+		<get_windows get="inline" set="null" line="625">
+			<f a=""><c path="Array"><c path="lime.ui.Window"/></c></f>
+			<meta><m n=":noCompletion"/></meta>
+		</get_windows>
+		<new public="1" set="method" line="96">
+			<f a=""><x path="Void"/></f>
+			<haxe_doc>Creates a new Application instance</haxe_doc>
+		</new>
+		<haxe_doc>The Application class forms the foundation for most Lime projects.
+	It is common to extend this class in a main class. It is then possible
+	to override "on" functions in the class in order to handle standard events
+	that are relevant.</haxe_doc>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":access"><e>lime.ui.Window</e></m>
+			<m n=":fileXml"><e>"tags=\"haxe,release\""</e></m>
+			<m n=":noDebug"/>
+		</meta>
+	</class>
+	<class path="kitGL.glLime.setup.MainLime" params="" file="src/kitGL/glLime/setup/MainLime.hx">
+		<extends path="lime.app.Application"/>
+		<ready expr="false">
+			<x path="Bool"/>
+			<meta><m n=":value"><e>false</e></m></meta>
+		</ready>
+		<runSeconds expr="0">
+			<x path="Float"/>
+			<meta><m n=":value"><e>0</e></m></meta>
+		</runSeconds>
+		<other><c path="kitGL.glLime.setup.NonGL"/></other>
+		<appGL><c path="kitGL.glLime.setup.IAppGL"/></appGL>
+		<width><x path="Int"/></width>
+		<height><x path="Int"/></height>
+		<appCreate public="1"><f a="width:heigh">
+	<x path="Float"/>
+	<x path="Float"/>
+	<c path="kitGL.glLime.setup.IAppGL"/>
+</f></appCreate>
+		<onWindowCreate public="1" set="method" line="20" override="1"><f a=""><x path="Void"/></f></onWindowCreate>
+		<update public="1" set="method" line="33" override="1"><f a="deltaTime">
+	<x path="Int"/>
+	<x path="Void"/>
+</f></update>
+		<render public="1" set="method" line="40" override="1"><f a="context">
+	<c path="lime.graphics.RenderContext"/>
+	<x path="Void"/>
+</f></render>
+		<new public="1" set="method" line="17"><f a=""><x path="Void"/></f></new>
+	</class>
+	<class path="kitGL.glLime.setup.NonGL" params="" file="src/kitGL/glLime/setup/NonGL.hx">
+		<width><x path="Int"/></width>
+		<height><x path="Int"/></height>
+		<update public="1" get="inline" set="null" line="11"><f a=""><x path="Void"/></f></update>
+		<setup public="1" get="inline" set="null" line="15"><f a="context">
+	<c path="lime.graphics.RenderContext"/>
+	<x path="Void"/>
+</f></setup>
+		<render public="1" get="inline" set="null" line="23"><f a="context">
+	<c path="lime.graphics.RenderContext"/>
+	<x path="Void"/>
+</f></render>
+		<new public="1" set="method" line="7"><f a="width_:height_">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></new>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="kitGL.glWeb.AnimateTimer" params="" file="src/kitGL/glWeb/AnimateTimer.js.hx">
 		<onFrame public="1" static="1"><f a="">
@@ -44263,64 +45000,12 @@
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="kitGL.upkeep.Doc" params="" file="src/kitGL/upkeep/Doc.js.hx">
-		<main public="1" set="method" line="36" static="1">
+		<main public="1" set="method" line="39" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
 		</main>
-		<new public="1" set="method" line="39"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="42"><f a=""><x path="Void"/></f></new>
 		<meta><m n=":dox"><e>hide</e></m></meta>
-	</class>
-	<class path="lime._internal.backend.html5.HTML5Application" params="" file="/projects/May2019/May2020/lime/src/lime/_internal/backend/html5/HTML5Application.hx">
-		<gameDeviceCache expr="new Map&lt;Int,GameDeviceData&gt;()">
-			<x path="haxe.ds.Map">
-				<x path="Int"/>
-				<c path="lime._internal.backend.html5.GameDeviceData"/>
-			</x>
-			<meta><m n=":value"><e><![CDATA[new Map<Int,GameDeviceData>()]]></e></m></meta>
-		</gameDeviceCache>
-		<accelerometer><c path="lime.system.Sensor"/></accelerometer>
-		<currentUpdate><x path="Float"/></currentUpdate>
-		<deltaTime><x path="Float"/></deltaTime>
-		<framePeriod><x path="Float"/></framePeriod>
-		<lastUpdate><x path="Float"/></lastUpdate>
-		<nextUpdate><x path="Float"/></nextUpdate>
-		<parent><c path="lime.app.Application"/></parent>
-		<convertKeyCode set="method" line="51"><f a="keyCode">
-	<x path="Int"/>
-	<x path="lime.ui.KeyCode"/>
-</f></convertKeyCode>
-		<exec public="1" set="method" line="271"><f a=""><x path="Int"/></f></exec>
-		<exit public="1" set="method" line="346"><f a=""><x path="Void"/></f></exit>
-		<handleApplicationEvent set="method" line="348"><f a="?__">
-	<unknown/>
-	<x path="Void"/>
-</f></handleApplicationEvent>
-		<handleKeyEvent set="method" line="394"><f a="event">
-	<c path="js.html.KeyboardEvent"/>
-	<x path="Void"/>
-</f></handleKeyEvent>
-		<handleSensorEvent set="method" line="432"><f a="event">
-	<c path="js.html.DeviceMotionEvent"/>
-	<x path="Void"/>
-</f></handleSensorEvent>
-		<handleWindowEvent set="method" line="437"><f a="event">
-	<c path="js.html.Event"/>
-	<x path="Void"/>
-</f></handleWindowEvent>
-		<updateGameDevices set="method" line="478"><f a=""><x path="Void"/></f></updateGameDevices>
-		<new public="1" get="inline" set="null" line="38"><f a="parent">
-	<c path="lime.app.Application"/>
-	<x path="Void"/>
-</f></new>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":access"><e>lime._internal.backend.html5.HTML5Window</e></m>
-			<m n=":access"><e>lime.app.Application</e></m>
-			<m n=":access"><e>lime.system.Sensor</e></m>
-			<m n=":access"><e>lime.ui.Gamepad</e></m>
-			<m n=":access"><e>lime.ui.Joystick</e></m>
-			<m n=":access"><e>lime.ui.Window</e></m>
-		</meta>
 	</class>
 	<class path="lime._internal.backend.html5.GameDeviceData" params="" file="/projects/May2019/May2020/lime/src/lime/_internal/backend/html5/HTML5Application.hx" module="lime._internal.backend.html5.HTML5Application">
 		<connected public="1"><x path="Bool"/></connected>
@@ -45349,628 +46034,6 @@
 			<meta><m n=":has_untyped"/></meta>
 		</code>
 		<meta><m n=":access"><e>js.Syntax.code</e></m></meta>
-	</class>
-	<class path="lime.app.IModule" params="" file="/projects/May2019/May2020/lime/src/lime/app/IModule.hx" interface="1">
-		<__registerLimeModule set="method">
-			<f a="application">
-				<c path="lime.app.Application"/>
-				<x path="Void"/>
-			</f>
-			<meta>
-				<m n=":dox"><e>show</e></m>
-				<m n=":noCompletion"/>
-			</meta>
-		</__registerLimeModule>
-		<__unregisterLimeModule set="method">
-			<f a="application">
-				<c path="lime.app.Application"/>
-				<x path="Void"/>
-			</f>
-			<meta>
-				<m n=":dox"><e>show</e></m>
-				<m n=":noCompletion"/>
-			</meta>
-		</__unregisterLimeModule>
-	</class>
-	<class path="lime.app.Module" params="" file="/projects/May2019/May2020/lime/src/lime/app/Module.hx">
-		<implements path="lime.app.IModule"/>
-		<onExit public="1" expr="new Event&lt;Int&gt;()">
-			<c path="lime.app._Event_Int_Void"><f a="">
-	<x path="Int"/>
-	<x path="Void"/>
-</f></c>
-			<meta><m n=":value"><e><![CDATA[new Event<Int>()]]></e></m></meta>
-			<haxe_doc>Exit events are dispatched when the application is exiting</haxe_doc>
-		</onExit>
-		<__registerLimeModule set="method" line="27">
-			<f a="application">
-				<c path="lime.app.Application"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":noCompletion"/></meta>
-		</__registerLimeModule>
-		<__unregisterLimeModule set="method" line="29">
-			<f a="application">
-				<c path="lime.app.Application"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":noCompletion"/></meta>
-		</__unregisterLimeModule>
-		<new public="1" set="method" line="25">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Creates a new `Module` instance</haxe_doc>
-		</new>
-		<haxe_doc>`Module` instances can be added to a running `Application`,
-	simplifying support for adding new components, such as a renderer,
-	input handler or higher-level framework.</haxe_doc>
-		<meta>
-			<m n=":fileXml"><e>"tags=\"haxe,release\""</e></m>
-			<m n=":noDebug"/>
-		</meta>
-	</class>
-	<class path="lime.app.Application" params="" file="/projects/May2019/May2020/lime/src/lime/app/Application.hx">
-		<extends path="lime.app.Module"/>
-		<current public="1" set="null" static="1">
-			<c path="lime.app.Application"/>
-			<haxe_doc>The current Application instance that is executing</haxe_doc>
-		</current>
-		<meta public="1">
-			<t path="Map">
-				<c path="String"/>
-				<c path="String"/>
-			</t>
-			<haxe_doc>Meta-data values for the application, such as a version or a package name</haxe_doc>
-		</meta>
-		<modules public="1" set="null">
-			<c path="Array"><c path="lime.app.IModule"/></c>
-			<haxe_doc>A list of currently attached Module instances</haxe_doc>
-		</modules>
-		<onUpdate public="1" expr="new Event&lt;Int&gt;()">
-			<c path="lime.app._Event_Int_Void"><f a="">
-	<x path="Int"/>
-	<x path="Void"/>
-</f></c>
-			<meta><m n=":value"><e><![CDATA[new Event<Int>()]]></e></m></meta>
-			<haxe_doc>Update events are dispatched each frame (usually just before rendering)</haxe_doc>
-		</onUpdate>
-		<onCreateWindow public="1" expr="new Event&lt;Window&gt;()">
-			<c path="lime.app._Event_lime_ui_Window_Void"><f a="">
-	<c path="lime.ui.Window"/>
-	<x path="Void"/>
-</f></c>
-			<meta><m n=":value"><e><![CDATA[new Event<Window>()]]></e></m></meta>
-			<haxe_doc>Dispatched when a new window has been created by this application</haxe_doc>
-		</onCreateWindow>
-		<preloader public="1" get="accessor" set="null">
-			<c path="lime.utils.Preloader"/>
-			<haxe_doc>The Preloader for the current Application</haxe_doc>
-		</preloader>
-		<window public="1" get="accessor" set="null">
-			<c path="lime.ui.Window"/>
-			<haxe_doc>The Window associated with this Application, or the first Window
-		if there are multiple Windows active</haxe_doc>
-		</window>
-		<windows public="1" get="accessor" set="null">
-			<c path="Array"><c path="lime.ui.Window"/></c>
-			<haxe_doc>A list of active Window instances associated with this Application</haxe_doc>
-		</windows>
-		<__backend>
-			<t path="lime.app._Application.ApplicationBackend"/>
-			<meta><m n=":noCompletion"/></meta>
-		</__backend>
-		<__preloader>
-			<c path="lime.utils.Preloader"/>
-			<meta><m n=":noCompletion"/></meta>
-		</__preloader>
-		<__window>
-			<c path="lime.ui.Window"/>
-			<meta><m n=":noCompletion"/></meta>
-		</__window>
-		<__windowByID>
-			<t path="Map">
-				<x path="Int"/>
-				<c path="lime.ui.Window"/>
-			</t>
-			<meta><m n=":noCompletion"/></meta>
-		</__windowByID>
-		<__windows>
-			<c path="Array"><c path="lime.ui.Window"/></c>
-			<meta><m n=":noCompletion"/></meta>
-		</__windows>
-		<addModule public="1" set="method" line="123">
-			<f a="module">
-				<c path="lime.app.IModule"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Adds a new module to the Application
-		@param	module	A module to add</haxe_doc>
-		</addModule>
-		<createWindow public="1" set="method" line="133">
-			<f a="attributes">
-				<t path="lime.ui.WindowAttributes"/>
-				<c path="lime.ui.Window"/>
-			</f>
-			<haxe_doc>Creates a new Window and adds it to the Application
-		@param	attributes	A set of parameters to initialize the window</haxe_doc>
-		</createWindow>
-		<exec public="1" set="method" line="146">
-			<f a=""><x path="Int"/></f>
-			<haxe_doc>Execute the Application. On native platforms, this method
-		blocks until the application is finished running. On other
-		platforms, it will return immediately
-		@return	An exit code, 0 if there was no error</haxe_doc>
-		</exec>
-		<onGamepadAxisMove public="1" set="method" line="159">
-			<f a="gamepad:axis:value">
-				<c path="lime.ui.Gamepad"/>
-				<x path="lime.ui.GamepadAxis"/>
-				<x path="Float"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a gamepad axis move event is fired
-		@param	gamepad	The current gamepad
-		@param	axis	The axis that was moved
-		@param	value	The axis value (between 0 and 1)</haxe_doc>
-		</onGamepadAxisMove>
-		<onGamepadButtonDown public="1" set="method" line="166">
-			<f a="gamepad:button">
-				<c path="lime.ui.Gamepad"/>
-				<x path="lime.ui.GamepadButton"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a gamepad button down event is fired
-		@param	gamepad	The current gamepad
-		@param	button	The button that was pressed</haxe_doc>
-		</onGamepadButtonDown>
-		<onGamepadButtonUp public="1" set="method" line="173">
-			<f a="gamepad:button">
-				<c path="lime.ui.Gamepad"/>
-				<x path="lime.ui.GamepadButton"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a gamepad button up event is fired
-		@param	gamepad	The current gamepad
-		@param	button	The button that was released</haxe_doc>
-		</onGamepadButtonUp>
-		<onGamepadConnect public="1" set="method" line="179">
-			<f a="gamepad">
-				<c path="lime.ui.Gamepad"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a gamepad is connected
-		@param	gamepad	The gamepad that was connected</haxe_doc>
-		</onGamepadConnect>
-		<onGamepadDisconnect public="1" set="method" line="185">
-			<f a="gamepad">
-				<c path="lime.ui.Gamepad"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a gamepad is disconnected
-		@param	gamepad	The gamepad that was disconnected</haxe_doc>
-		</onGamepadDisconnect>
-		<onJoystickAxisMove public="1" set="method" line="193">
-			<f a="joystick:axis:value">
-				<c path="lime.ui.Joystick"/>
-				<x path="Int"/>
-				<x path="Float"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a joystick axis move event is fired
-		@param	joystick	The current joystick
-		@param	axis	The axis that was moved
-		@param	value	The axis value (between 0 and 1)</haxe_doc>
-		</onJoystickAxisMove>
-		<onJoystickButtonDown public="1" set="method" line="200">
-			<f a="joystick:button">
-				<c path="lime.ui.Joystick"/>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a joystick button down event is fired
-		@param	joystick	The current joystick
-		@param	button	The button that was pressed</haxe_doc>
-		</onJoystickButtonDown>
-		<onJoystickButtonUp public="1" set="method" line="207">
-			<f a="joystick:button">
-				<c path="lime.ui.Joystick"/>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a joystick button up event is fired
-		@param	joystick	The current joystick
-		@param	button	The button that was released</haxe_doc>
-		</onJoystickButtonUp>
-		<onJoystickConnect public="1" set="method" line="213">
-			<f a="joystick">
-				<c path="lime.ui.Joystick"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a joystick is connected
-		@param	joystick	The joystick that was connected</haxe_doc>
-		</onJoystickConnect>
-		<onJoystickDisconnect public="1" set="method" line="219">
-			<f a="joystick">
-				<c path="lime.ui.Joystick"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a joystick is disconnected
-		@param	joystick	The joystick that was disconnected</haxe_doc>
-		</onJoystickDisconnect>
-		<onJoystickHatMove public="1" set="method" line="227">
-			<f a="joystick:hat:position">
-				<c path="lime.ui.Joystick"/>
-				<x path="Int"/>
-				<x path="lime.ui.JoystickHatPosition"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a joystick hat move event is fired
-		@param	joystick	The current joystick
-		@param	hat	The hat that was moved
-		@param	position	The current hat position</haxe_doc>
-		</onJoystickHatMove>
-		<onJoystickTrackballMove public="1" set="method" line="236">
-			<f a="joystick:trackball:x:y">
-				<c path="lime.ui.Joystick"/>
-				<x path="Int"/>
-				<x path="Float"/>
-				<x path="Float"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a joystick axis move event is fired
-		@param	joystick	The current joystick
-		@param	trackball	The trackball that was moved
-		@param	x	The x movement of the trackball (between 0 and 1)
-		@param	y	The y movement of the trackball (between 0 and 1)</haxe_doc>
-		</onJoystickTrackballMove>
-		<onKeyDown public="1" set="method" line="243">
-			<f a="keyCode:modifier">
-				<x path="lime.ui.KeyCode"/>
-				<x path="lime.ui.KeyModifier"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a key down event is fired on the primary window
-		@param	keyCode	The code of the key that was pressed
-		@param	modifier	The modifier of the key that was pressed</haxe_doc>
-		</onKeyDown>
-		<onKeyUp public="1" set="method" line="250">
-			<f a="keyCode:modifier">
-				<x path="lime.ui.KeyCode"/>
-				<x path="lime.ui.KeyModifier"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a key up event is fired on the primary window
-		@param	keyCode	The code of the key that was released
-		@param	modifier	The modifier of the key that was released</haxe_doc>
-		</onKeyUp>
-		<onModuleExit public="1" set="method" line="255">
-			<f a="code">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when the module is exiting</haxe_doc>
-		</onModuleExit>
-		<onMouseDown public="1" set="method" line="263">
-			<f a="x:y:button">
-				<x path="Float"/>
-				<x path="Float"/>
-				<x path="lime.ui.MouseButton"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a mouse down event is fired on the primary window
-		@param	x	The current x coordinate of the mouse
-		@param	y	The current y coordinate of the mouse
-		@param	button	The ID of the mouse button that was pressed</haxe_doc>
-		</onMouseDown>
-		<onMouseMove public="1" set="method" line="270">
-			<f a="x:y">
-				<x path="Float"/>
-				<x path="Float"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a mouse move event is fired on the primary window
-		@param	x	The current x coordinate of the mouse
-		@param	y	The current y coordinate of the mouse</haxe_doc>
-		</onMouseMove>
-		<onMouseMoveRelative public="1" set="method" line="277">
-			<f a="x:y">
-				<x path="Float"/>
-				<x path="Float"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a mouse move relative event is fired on the primary window
-		@param	x	The x movement of the mouse
-		@param	y	The y movement of the mouse</haxe_doc>
-		</onMouseMoveRelative>
-		<onMouseUp public="1" set="method" line="285">
-			<f a="x:y:button">
-				<x path="Float"/>
-				<x path="Float"/>
-				<x path="lime.ui.MouseButton"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a mouse up event is fired on the primary window
-		@param	x	The current x coordinate of the mouse
-		@param	y	The current y coordinate of the mouse
-		@param	button	The ID of the button that was released</haxe_doc>
-		</onMouseUp>
-		<onMouseWheel public="1" set="method" line="293">
-			<f a="deltaX:deltaY:deltaMode">
-				<x path="Float"/>
-				<x path="Float"/>
-				<e path="lime.ui.MouseWheelMode"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a mouse wheel event is fired on the primary window
-		@param	deltaX	The amount of horizontal scrolling (if applicable)
-		@param	deltaY	The amount of vertical scrolling (if applicable)
-		@param	deltaMode	The units of measurement used</haxe_doc>
-		</onMouseWheel>
-		<onPreloadComplete public="1" set="method" line="298">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Called when a preload complete event is fired</haxe_doc>
-		</onPreloadComplete>
-		<onPreloadProgress public="1" set="method" line="305">
-			<f a="loaded:total">
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a preload progress event is fired
-		@param	loaded	The number of items that are loaded
-		@param	total	The total number of items will be loaded</haxe_doc>
-		</onPreloadProgress>
-		<onRenderContextLost public="1" set="method" line="310">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Called when a render context is lost on the primary window</haxe_doc>
-		</onRenderContextLost>
-		<onRenderContextRestored public="1" set="method" line="316">
-			<f a="context">
-				<c path="lime.graphics.RenderContext"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a render context is restored on the primary window
-		@param	context	The render context relevant to the event</haxe_doc>
-		</onRenderContextRestored>
-		<onTextEdit public="1" set="method" line="324">
-			<f a="text:start:length">
-				<c path="String"/>
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a text edit event is fired on the primary window
-		@param	text	The current replacement text
-		@param	start	The starting index for the edit
-		@param	length	The length of the edit</haxe_doc>
-		</onTextEdit>
-		<onTextInput public="1" set="method" line="330">
-			<f a="text">
-				<c path="String"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a text input event is fired on the primary window
-		@param	text	The current input text</haxe_doc>
-		</onTextInput>
-		<onTouchCancel public="1" set="method" line="336">
-			<f a="touch">
-				<c path="lime.ui.Touch"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a touch cancel event is fired
-		@param	touch	The current touch object</haxe_doc>
-		</onTouchCancel>
-		<onTouchEnd public="1" set="method" line="342">
-			<f a="touch">
-				<c path="lime.ui.Touch"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a touch end event is fired
-		@param	touch	The current touch object</haxe_doc>
-		</onTouchEnd>
-		<onTouchMove public="1" set="method" line="348">
-			<f a="touch">
-				<c path="lime.ui.Touch"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a touch move event is fired
-		@param	touch	The current touch object</haxe_doc>
-		</onTouchMove>
-		<onTouchStart public="1" set="method" line="354">
-			<f a="touch">
-				<c path="lime.ui.Touch"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a touch start event is fired
-		@param	touch	The current touch object</haxe_doc>
-		</onTouchStart>
-		<onWindowActivate public="1" set="method" line="359">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Called when a window activate event is fired on the primary window</haxe_doc>
-		</onWindowActivate>
-		<onWindowClose public="1" set="method" line="364">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Called when a window close event is fired on the primary window</haxe_doc>
-		</onWindowClose>
-		<onWindowCreate public="1" set="method" line="369">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Called when the primary window is created</haxe_doc>
-		</onWindowCreate>
-		<onWindowDeactivate public="1" set="method" line="374">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Called when a window deactivate event is fired on the primary window</haxe_doc>
-		</onWindowDeactivate>
-		<onWindowDropFile public="1" set="method" line="379">
-			<f a="file">
-				<c path="String"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a window drop file event is fired on the primary window</haxe_doc>
-		</onWindowDropFile>
-		<onWindowEnter public="1" set="method" line="384">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Called when a window enter event is fired on the primary window</haxe_doc>
-		</onWindowEnter>
-		<onWindowExpose public="1" set="method" line="389">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Called when a window expose event is fired on the primary window</haxe_doc>
-		</onWindowExpose>
-		<onWindowFocusIn public="1" set="method" line="394">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Called when a window focus in event is fired on the primary window</haxe_doc>
-		</onWindowFocusIn>
-		<onWindowFocusOut public="1" set="method" line="399">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Called when a window focus out event is fired on the primary window</haxe_doc>
-		</onWindowFocusOut>
-		<onWindowFullscreen public="1" set="method" line="404">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Called when the primary window enters fullscreen</haxe_doc>
-		</onWindowFullscreen>
-		<onWindowLeave public="1" set="method" line="409">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Called when a window leave event is fired on the primary window</haxe_doc>
-		</onWindowLeave>
-		<onWindowMove public="1" set="method" line="416">
-			<f a="x:y">
-				<x path="Float"/>
-				<x path="Float"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a window move event is fired on the primary window
-		@param	x	The x position of the window in desktop coordinates
-		@param	y	The y position of the window in desktop coordinates</haxe_doc>
-		</onWindowMove>
-		<onWindowMinimize public="1" set="method" line="421">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Called when the primary window is minimized</haxe_doc>
-		</onWindowMinimize>
-		<onWindowResize public="1" set="method" line="428">
-			<f a="width:height">
-				<x path="Int"/>
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a window resize event is fired on the primary window
-		@param	width	The width of the window
-		@param	height	The height of the window</haxe_doc>
-		</onWindowResize>
-		<onWindowRestore public="1" set="method" line="433">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Called when the primary window is restored from being minimized or fullscreen</haxe_doc>
-		</onWindowRestore>
-		<removeModule public="1" set="method" line="439">
-			<f a="module">
-				<c path="lime.app.IModule"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Removes a module from the Application
-		@param	module	A module to remove</haxe_doc>
-		</removeModule>
-		<render public="1" set="method" line="452">
-			<f a="context">
-				<c path="lime.graphics.RenderContext"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when a render event is fired on the primary window
-		@param	context	The render context ready to be rendered</haxe_doc>
-		</render>
-		<update public="1" set="method" line="458">
-			<f a="deltaTime">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<haxe_doc>Called when an update event is fired on the primary window
-		@param	deltaTime	The amount of time in milliseconds that has elapsed since the last update</haxe_doc>
-		</update>
-		<__addWindow set="method" line="460">
-			<f a="window">
-				<c path="lime.ui.Window"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":noCompletion"/></meta>
-		</__addWindow>
-		<__createWindow set="method" line="506">
-			<f a="attributes">
-				<t path="lime.ui.WindowAttributes"/>
-				<c path="lime.ui.Window"/>
-			</f>
-			<meta><m n=":noCompletion"/></meta>
-		</__createWindow>
-		<__registerLimeModule set="method" line="513" override="1">
-			<f a="application">
-				<c path="lime.app.Application"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":noCompletion"/></meta>
-		</__registerLimeModule>
-		<__removeWindow set="method" line="539">
-			<f a="window">
-				<c path="lime.ui.Window"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":noCompletion"/></meta>
-		</__removeWindow>
-		<__onGamepadConnect set="method" line="561">
-			<f a="gamepad">
-				<c path="lime.ui.Gamepad"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":noCompletion"/></meta>
-		</__onGamepadConnect>
-		<__onJoystickConnect set="method" line="571">
-			<f a="joystick">
-				<c path="lime.ui.Joystick"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":noCompletion"/></meta>
-		</__onJoystickConnect>
-		<__onModuleExit set="method" line="583">
-			<f a="code">
-				<x path="Int"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":noCompletion"/></meta>
-		</__onModuleExit>
-		<__onWindowClose set="method" line="588">
-			<f a="window">
-				<c path="lime.ui.Window"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":noCompletion"/></meta>
-		</__onWindowClose>
-		<__unregisterLimeModule set="method" line="598" override="1">
-			<f a="application">
-				<c path="lime.app.Application"/>
-				<x path="Void"/>
-			</f>
-			<meta><m n=":noCompletion"/></meta>
-		</__unregisterLimeModule>
-		<get_preloader get="inline" set="null" line="615">
-			<f a=""><c path="lime.utils.Preloader"/></f>
-			<meta><m n=":noCompletion"/></meta>
-		</get_preloader>
-		<get_window get="inline" set="null" line="620">
-			<f a=""><c path="lime.ui.Window"/></f>
-			<meta><m n=":noCompletion"/></meta>
-		</get_window>
-		<get_windows get="inline" set="null" line="625">
-			<f a=""><c path="Array"><c path="lime.ui.Window"/></c></f>
-			<meta><m n=":noCompletion"/></meta>
-		</get_windows>
-		<new public="1" set="method" line="96">
-			<f a=""><x path="Void"/></f>
-			<haxe_doc>Creates a new Application instance</haxe_doc>
-		</new>
-		<haxe_doc>The Application class forms the foundation for most Lime projects.
-	It is common to extend this class in a main class. It is then possible
-	to override "on" functions in the class in order to handle standard events
-	that are relevant.</haxe_doc>
-		<meta>
-			<m n=":directlyUsed"/>
-			<m n=":access"><e>lime.ui.Window</e></m>
-			<m n=":fileXml"><e>"tags=\"haxe,release\""</e></m>
-			<m n=":noDebug"/>
-		</meta>
 	</class>
 	<typedef path="lime.app._Application.ApplicationBackend" params="" file="/projects/May2019/May2020/lime/src/lime/app/Application.hx" private="1" module="lime.app.Application">
 		<c path="lime._internal.backend.html5.HTML5Application"/>
