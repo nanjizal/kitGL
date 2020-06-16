@@ -38,15 +38,15 @@ class InterleaveAlterGL extends NmeApplication {
       GL.useProgram( program );
       // need to consider bind / unbind VertexAttrib see nme.gl.Buffer
       // especially if you mix it with normal nme?
-      GL.drawArrays( GL.TRIANGLES, 0, interleavDataGL.size );
+      GL.drawArrays( GL.TRIANGLES, 0, interleaveDataGL.size );
    }
    // override this for drawing the first frame
    public
-   function draw( pen: Pen ){
+   function draw(){
    }
    // override this for drawing every frame or changing the data.
    public
-   function renderDraw( pen: Pen ){
+   function renderDraw(){
    }
    override public 
    function onContextLost(): Void valid = false;
