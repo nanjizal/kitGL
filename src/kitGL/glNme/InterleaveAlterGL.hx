@@ -1,4 +1,4 @@
-package kitGL.nme;
+package kitGL.glNme;
 import nme.app.NmeApplication;
 import nme.app.Window;
 import nme.gl.GL;

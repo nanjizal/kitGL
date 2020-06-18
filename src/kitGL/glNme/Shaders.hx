@@ -1,4 +1,4 @@
-package kitGL.nme;
+package kitGL.glNme;
 
 inline
 var vertexString0: String =

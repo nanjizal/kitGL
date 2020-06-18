@@ -1,4 +1,4 @@
-package kitGL.nme;
+package kitGL.glNme;
 import nme.utils.Float32Array;
 typedef TInterleaveDataGL = {
     public function get_data(): Float32Array;

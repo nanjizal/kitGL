@@ -1,4 +1,4 @@
-package kitGL.nme;
+package kitGL.glNme;
 #if (!js)
 import nme.gl.GL;
 import nme.gl.GLProgram;

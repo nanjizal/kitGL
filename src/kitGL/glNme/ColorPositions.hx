@@ -1,4 +1,4 @@
-package kitGL.nme;
+package kitGL.glNme;
 import nme.utils.Float32Array;
 inline
 function tri2D(): Float32Array {
