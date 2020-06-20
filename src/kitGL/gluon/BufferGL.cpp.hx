@@ -59,6 +59,34 @@ function interleaveXY_RGB(  gl:       GLContext
     return vbo;
 }
 inline
+function interleaveXYZ_RGBA_reconnect( gl:        GLContext
+                                     , program:   GLProgram 
+                                     , inPosName: String
+                                     , inColName: String
+                                     ){
+    var posLoc   = gl.getAttribLocation( program, inPosName );
+    var colorLoc = gl.getAttribLocation( program, inColName );
+    // X Y Z   R G B A
+    gl.vertexAttribPointer(
+        posLoc, 
+        3, 
+        FLOAT, 
+        false, 
+        7 * Float32Array.BYTES_PER_ELEMENT, 
+        0
+    );
+    gl.vertexAttribPointer(
+        colorLoc,
+        4,
+        FLOAT, 
+        false, 
+        7 * Float32Array.BYTES_PER_ELEMENT,
+        3 * Float32Array.BYTES_PER_ELEMENT
+    );
+    gl.enableVertexAttribArray( posLoc );
+    gl.enableVertexAttribArray( colorLoc );
+}
+inline
 function interleaveXYZ_RGBA( gl:        GLContext
                            , program:   GLProgram 
                            , data:      Float32Array
