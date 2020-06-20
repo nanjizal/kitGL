@@ -10,11 +10,11 @@ function bufferSetup( program:      GLProgram
                     , data:         Float32Array
                     , ?isDynamic:    Bool = false ): GLBuffer {
     var buf: GLBuffer = GL.createBuffer();
-    GL.bindBuffer( GL.ARRAY_BUFFER, buf );
+    GL.bindBuffer( ARRAY_BUFFER, buf );
     if( isDynamic ){
-        GL.bufferData( GL.ARRAY_BUFFER, untyped data, GL.DYNAMIC_DRAW );
+        GL.bufferData( ARRAY_BUFFER, untyped data, DYNAMIC_DRAW );
     } else {
-        GL.bufferData( GL.ARRAY_BUFFER, untyped data, GL.STATIC_DRAW );
+        GL.bufferData( ARRAY_BUFFER, untyped data, STATIC_DRAW );
     }
     return buf;	
 }

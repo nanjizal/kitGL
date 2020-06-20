@@ -1,11 +1,16 @@
 package kitGL.glWeb;
 
-import kitGL.glWeb.Texture;
+// webgl gl stuff
 import kitGL.glWeb.Shaders;
 import kitGL.glWeb.HelpGL;
-import kitGL.glWeb.AnimateTimer;
 import kitGL.glWeb.BufferGL;
+
+// html stuff
+import kitGL.glWeb.Texture;
+import kitGL.glWeb.AnimateTimer;
 import kitGL.glWeb.DivertTrace;
+
+// js webgl 
 import js.html.webgl.Buffer;
 import js.html.webgl.RenderingContext;
 import js.html.webgl.Program;

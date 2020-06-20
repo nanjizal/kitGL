@@ -19,11 +19,11 @@ function bufferSetup( gl:           GLContext
                     , data:         Float32Array
                     , ?isDynamic:    Bool = false ): GLBuffer {
     var buf: GLBuffer = gl.createBuffer();
-    gl.bindBuffer( BufferTarget.ARRAY_BUFFER, buf );
+    gl.bindBuffer( ARRAY_BUFFER, buf );
     if( isDynamic ){
-        gl.bufferData( BufferTarget.ARRAY_BUFFER, untyped data, BufferUsage.DYNAMIC_DRAW );
+        gl.bufferData( ARRAY_BUFFER, data, DYNAMIC_DRAW );
     } else {
-        gl.bufferData( BufferTarget.ARRAY_BUFFER, untyped data, BufferUsage.STATIC_DRAW );
+        gl.bufferData( ARRAY_BUFFER, data, STATIC_DRAW );
     }
     return buf;	
 }
@@ -41,7 +41,7 @@ function interleaveXY_RGB(  gl:       GLContext
     gl.vertexAttribPointer(
         posLoc, 
         2, 
-        DataType.FLOAT, 
+        FLOAT, 
         false, 
         5 * Float32Array.BYTES_PER_ELEMENT, 
         0
@@ -49,7 +49,7 @@ function interleaveXY_RGB(  gl:       GLContext
     gl.vertexAttribPointer(
         colorLoc,
         3,
-        DataType.FLOAT, 
+        FLOAT, 
         false, 
         5 * Float32Array.BYTES_PER_ELEMENT,
         2 * Float32Array.BYTES_PER_ELEMENT
@@ -72,7 +72,7 @@ function interleaveXYZ_RGBA( gl:        GLContext
     gl.vertexAttribPointer(
         posLoc, 
         3, 
-        DataType.FLOAT, 
+        FLOAT, 
         false, 
         7 * Float32Array.BYTES_PER_ELEMENT, 
         0
@@ -80,7 +80,7 @@ function interleaveXYZ_RGBA( gl:        GLContext
     gl.vertexAttribPointer(
         colorLoc,
         4,
-        DataType.FLOAT, 
+        FLOAT, 
         false, 
         7 * Float32Array.BYTES_PER_ELEMENT,
         3 * Float32Array.BYTES_PER_ELEMENT
