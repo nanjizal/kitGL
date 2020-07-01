@@ -12,6 +12,7 @@
 -lib lime
 #-lib nme
 -lib gluon
+-lib linc_glfw
 
 --macro include('kitGL.lime')
 #--macro include('kitGL.nme')

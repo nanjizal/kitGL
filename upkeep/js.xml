@@ -1267,7 +1267,7 @@
 		</meta>
 	</class>
 	<class path="Std" params="" file="/usr/local/lib/haxe/std/js/_std/Std.hx">
-		<string public="1" set="method" line="46" static="1">
+		<string public="1" set="method" line="47" static="1">
 			<f a="s">
 				<d/>
 				<c path="String"/>
@@ -1289,7 +1289,7 @@
 
 		If s is null, "null" is returned.</haxe_doc>
 		</string>
-		<parseInt public="1" set="method" line="55" static="1">
+		<parseInt public="1" set="method" line="56" static="1">
 			<f a="x">
 				<c path="String"/>
 				<x path="Null"><x path="Int"/></x>
@@ -1623,7 +1623,7 @@
 		expected number of constructor arguments, or if any argument has an
 		invalid type, the result is unspecified.</haxe_doc>
 		</createEnum>
-		<typeof public="1" set="method" line="227" static="1">
+		<typeof public="1" set="method" line="238" static="1">
 			<f a="v">
 				<d/>
 				<e path="ValueType"/>
@@ -1638,7 +1638,7 @@
 		per platform. Assumptions regarding this should be minimized to avoid
 		surprises.</haxe_doc>
 		</typeof>
-		<enumParameters public="1" set="method" line="309" static="1">
+		<enumParameters public="1" set="method" line="319" static="1">
 			<f a="e">
 				<x path="EnumValue"/>
 				<c path="Array"><d/></c>
@@ -3868,10 +3868,12 @@
 	<e>filter</e>
 	<e>indexOf</e>
 	<e>iterator</e>
+	<e>keyValueIterator</e>
 	<e>join</e>
 	<e>lastIndexOf</e>
 	<e>map</e>
 	<e>slice</e>
+	<e>contains</e>
 	<e>toString</e>
 </m></meta>
 		<impl><class path="haxe.ds._ReadOnlyArray.ReadOnlyArray_Impl_" params="" file="/usr/local/lib/haxe/std/haxe/ds/ReadOnlyArray.hx" private="1" module="haxe.ds.ReadOnlyArray" final="1"><meta><m n=":keep"/></meta></class></impl>
@@ -4456,6 +4458,11 @@
 				<c path="String"/>
 				<haxe_doc>The name of the variable.</haxe_doc>
 			</name>
+			<meta>
+				<x path="Null"><t path="haxe.macro.Metadata"/></x>
+				<meta><m n=":optional"/></meta>
+				<haxe_doc>Metadata associatied with the variable, if available.</haxe_doc>
+			</meta>
 			<isFinal>
 				<x path="Null"><x path="Bool"/></x>
 				<meta><m n=":optional"/></meta>
@@ -40581,6 +40588,15 @@
 		or to its original fulfillment value if the promise is instead fulfilled.</haxe_doc>
 </catch></overloads>
 		</catchError>
+		<finally public="1" set="method">
+			<f a="onFinally">
+				<f a=""><x path="Void"/></f>
+				<c path="js.lib.Promise"><c path="js.lib.Promise.T"/></c>
+			</f>
+			<haxe_doc>Returns a Promise. When the promise is settled, i.e either fulfilled or rejected,
+		the specified callback function is executed. This provides a way for code to be run
+		whether the promise was fulfilled successfully or rejected once the Promise has been dealt with.</haxe_doc>
+		</finally>
 		<new public="1" set="method">
 			<f a="init">
 				<f a="resolve:reject">
@@ -44731,13 +44747,13 @@
 		<width public="1"><x path="Int"/></width>
 		<height public="1"><x path="Int"/></height>
 		<buf public="1"><c path="js.html.webgl.Buffer"/></buf>
-		<creategl get="inline" set="null" line="27"><f a=""><x path="Void"/></f></creategl>
-		<setup get="inline" set="null" line="33"><f a=""><x path="Void"/></f></setup>
-		<draw public="1" set="method" line="44"><f a=""><x path="Void"/></f></draw>
-		<render get="inline" set="null" line="46"><f a=""><x path="Void"/></f></render>
-		<renderDraw public="1" set="method" line="56"><f a=""><x path="Void"/></f></renderDraw>
-		<setAnimate get="inline" set="null" line="58"><f a=""><x path="Void"/></f></setAnimate>
-		<new public="1" set="method" line="20"><f a="width_:height_">
+		<creategl get="inline" set="null" line="32"><f a=""><x path="Void"/></f></creategl>
+		<setup get="inline" set="null" line="38"><f a=""><x path="Void"/></f></setup>
+		<draw public="1" set="method" line="49"><f a=""><x path="Void"/></f></draw>
+		<render get="inline" set="null" line="51"><f a=""><x path="Void"/></f></render>
+		<renderDraw public="1" set="method" line="61"><f a=""><x path="Void"/></f></renderDraw>
+		<setAnimate get="inline" set="null" line="63"><f a=""><x path="Void"/></f></setAnimate>
+		<new public="1" set="method" line="25"><f a="width_:height_">
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
@@ -45000,11 +45016,11 @@
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="kitGL.upkeep.Doc" params="" file="src/kitGL/upkeep/Doc.js.hx">
-		<main public="1" set="method" line="39" static="1">
+		<main public="1" set="method" line="43" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
 		</main>
-		<new public="1" set="method" line="42"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="46"><f a=""><x path="Void"/></f></new>
 		<meta><m n=":dox"><e>hide</e></m></meta>
 	</class>
 	<class path="lime._internal.backend.html5.GameDeviceData" params="" file="/projects/May2019/May2020/lime/src/lime/_internal/backend/html5/HTML5Application.hx" module="lime._internal.backend.html5.HTML5Application">
