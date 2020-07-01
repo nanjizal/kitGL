@@ -3,6 +3,7 @@ package kitGL.gluon;
 import haxe.MainLoop;
 import haxe.Timer;
 class Animate{
+    public var speedDelta: Float = 0.01;
     public var onEnterFrame: Void -> Void;
     public var onStop:       Void -> Void;
     public var onStart:      Void -> Void;
@@ -20,7 +21,7 @@ class Animate{
     }
     public function mainLoop(){
         var t_s = haxe.Timer.stamp();
-        if( t_s - lastT > 0.6 ){
+        if( t_s - lastT > speedDelta ){
             onEnterFrame();
             lastT = t_s;
         }

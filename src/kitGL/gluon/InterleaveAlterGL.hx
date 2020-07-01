@@ -48,7 +48,7 @@ class InterleaveAlterGL{
         gl.bindBuffer( ARRAY_BUFFER, buf ); 
         /*interleaveXYZ_RGBA_reconnect( gl
                                     , program
-                                    , 'vertexPosition', 'vertexColor' );*/
+                                    , 'vertexPosition', 'vertexColor' ); */
         gl.bufferSubData( ARRAY_BUFFER, 0, interleaveDataGL.data );
         gl.useProgram( program );
         gl.drawArrays( TRIANGLES, 0,  interleaveDataGL.size );
