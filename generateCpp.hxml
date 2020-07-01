@@ -17,7 +17,7 @@
 --macro include('kitGL.lime')
 #--macro include('kitGL.nme')
 #--macro include('kitGL.glWeb')
---macro include('kitGL.gluon')
+#--macro include('kitGL.gluon')
 -cp src
 -main kitGL.upkeep.Doc
 --no-output
