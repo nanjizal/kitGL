@@ -53,11 +53,53 @@ function interleaveXYZ_RGBA( gl:       RenderingContext
     return vbo;
 }
 inline
+function interleaveXYZ_RGBA_UV( gl:       RenderingContext
+                           , program:   Program 
+                           , data:      Float32Array
+                           , inPosName: String
+                           , inColName: String
+                           , inUVName: String
+                           , ?isDynamic:    Bool = false ): Buffer {
+    var vbo      = bufferSetup( gl, program, data, isDynamic );
+    var posLoc   = gl.getAttribLocation( program, inPosName );
+    var colorLoc = gl.getAttribLocation( program, inColName );
+    var uvLoc    = gl.getAttribLocation( program, inUVName ); // vertexTexture
+    // X Y Z   R G B A   UV
+    gl.vertexAttribPointer(
+        posLoc, 
+        3, 
+        RenderingContext.FLOAT, 
+        false, 
+        9 * Float32Array.BYTES_PER_ELEMENT, 
+        0
+    );
+    gl.vertexAttribPointer(
+        colorLoc,
+        4,
+        RenderingContext.FLOAT, 
+        false, 
+        9 * Float32Array.BYTES_PER_ELEMENT,
+        3 * Float32Array.BYTES_PER_ELEMENT
+    );
+    gl.vertexAttribPointer(
+        colorLoc,
+        2,
+        RenderingContext.FLOAT, 
+        false, 
+        9 * Float32Array.BYTES_PER_ELEMENT,
+        2 * Float32Array.BYTES_PER_ELEMENT
+    );
+    gl.enableVertexAttribArray( posLoc );
+    gl.enableVertexAttribArray( colorLoc );
+    gl.enableVertexAttribArray( uvLoc );
+    return vbo;
+}
+inline
 function interleaveXY_RGB( gl:       RenderingContext
                          , program:   Program 
                          , data:      Float32Array
                          , inPosName: String
-                         , inColName: String                           
+                         , inColName: String
                          , ?isDynamic:    Bool = false ): Buffer {
     var vbo      = bufferSetup( gl, program, data, isDynamic );
     var posLoc   = gl.getAttribLocation( program, inPosName );

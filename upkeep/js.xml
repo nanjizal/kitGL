@@ -44505,7 +44505,7 @@
 			</f>
 			<meta><m n=":value"><e>posColors</e></m></meta>
 		</posColors_>
-		<new public="1" set="method" line="158">
+		<new public="1" set="method" line="200">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":compilerGenerated"/></meta>
 		</new>
@@ -44536,7 +44536,20 @@
 			</f>
 			<meta><m n=":value"><e>{ isDynamic : false }</e></m></meta>
 		</interleaveXYZ_RGBA>
-		<interleaveXY_RGB public="1" get="inline" set="null" line="56" static="1">
+		<interleaveXYZ_RGBA_UV public="1" get="inline" set="null" line="56" static="1">
+			<f a="gl:program:data:inPosName:inColName:inUVName:?isDynamic" v="::::::false">
+				<c path="js.html.webgl.RenderingContext"/>
+				<c path="js.html.webgl.Program"/>
+				<x path="haxe.io.Float32Array"/>
+				<c path="String"/>
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Bool"/>
+				<c path="js.html.webgl.Buffer"/>
+			</f>
+			<meta><m n=":value"><e>{ isDynamic : false }</e></m></meta>
+		</interleaveXYZ_RGBA_UV>
+		<interleaveXY_RGB public="1" get="inline" set="null" line="98" static="1">
 			<f a="gl:program:data:inPosName:inColName:?isDynamic" v=":::::false">
 				<c path="js.html.webgl.RenderingContext"/>
 				<c path="js.html.webgl.Program"/>
@@ -44548,7 +44561,7 @@
 			</f>
 			<meta><m n=":value"><e>{ isDynamic : false }</e></m></meta>
 		</interleaveXY_RGB>
-		<colorsXYZ_RGBA public="1" get="inline" set="null" line="87" static="1"><f a="gl:program:positions:colors:inPosName:inColName">
+		<colorsXYZ_RGBA public="1" get="inline" set="null" line="129" static="1"><f a="gl:program:positions:colors:inPosName:inColName">
 	<c path="js.html.webgl.RenderingContext"/>
 	<c path="js.html.webgl.Program"/>
 	<x path="haxe.io.Float32Array"/>
@@ -44560,7 +44573,7 @@
 		<col><c path="js.html.webgl.Buffer"/></col>
 	</a>
 </f></colorsXYZ_RGBA>
-		<colorsXY_RGBA public="1" get="inline" set="null" line="96" static="1"><f a="gl:program:positions:colors:inPosName:inColName">
+		<colorsXY_RGBA public="1" get="inline" set="null" line="138" static="1"><f a="gl:program:positions:colors:inPosName:inColName">
 	<c path="js.html.webgl.RenderingContext"/>
 	<c path="js.html.webgl.Program"/>
 	<x path="haxe.io.Float32Array"/>
@@ -44572,7 +44585,7 @@
 		<col><c path="js.html.webgl.Buffer"/></col>
 	</a>
 </f></colorsXY_RGBA>
-		<colorsXYZ_RGB public="1" get="inline" set="null" line="105" static="1"><f a="gl:program:positions:colors:inPosName:inColName">
+		<colorsXYZ_RGB public="1" get="inline" set="null" line="147" static="1"><f a="gl:program:positions:colors:inPosName:inColName">
 	<c path="js.html.webgl.RenderingContext"/>
 	<c path="js.html.webgl.Program"/>
 	<x path="haxe.io.Float32Array"/>
@@ -44584,7 +44597,7 @@
 		<col><c path="js.html.webgl.Buffer"/></col>
 	</a>
 </f></colorsXYZ_RGB>
-		<colorsXY_RGB public="1" get="inline" set="null" line="114" static="1"><f a="gl:program:positions:colors:inPosName:inColName">
+		<colorsXY_RGB public="1" get="inline" set="null" line="156" static="1"><f a="gl:program:positions:colors:inPosName:inColName">
 	<c path="js.html.webgl.RenderingContext"/>
 	<c path="js.html.webgl.Program"/>
 	<x path="haxe.io.Float32Array"/>
@@ -44596,7 +44609,7 @@
 		<col><c path="js.html.webgl.Buffer"/></col>
 	</a>
 </f></colorsXY_RGB>
-		<posColors public="1" get="inline" set="null" line="123" static="1">
+		<posColors public="1" get="inline" set="null" line="165" static="1">
 			<f a="gl:program:positions:colors:inPosName:inColName:?noPos:?noCols" v="::::::3:4">
 				<c path="js.html.webgl.RenderingContext"/>
 				<c path="js.html.webgl.Program"/>
@@ -44841,7 +44854,7 @@
 		<this><c path="String"/></this>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="kitGL.glWeb._Shaders.Shaders_Impl_" params="" file="src/kitGL/glWeb/Shaders.js.hx" private="1" module="kitGL.glWeb.Shaders" extern="1" final="1">
-	<vertexString0_ public="1" get="inline" set="null" expr="cast vertexString0" line="22" static="1">
+	<vertexString0_ public="1" get="inline" set="null" expr="cast vertexString0" line="60" static="1">
 		<x path="kitGL.glWeb.Shaders"/>
 		<meta>
 			<m n=":value"><e>cast vertexString0</e></m>
@@ -44849,7 +44862,7 @@
 			<m n=":impl"/>
 		</meta>
 	</vertexString0_>
-	<fragmentString0_ public="1" get="inline" set="null" expr="cast fragmentString0" line="23" static="1">
+	<fragmentString0_ public="1" get="inline" set="null" expr="cast fragmentString0" line="61" static="1">
 		<x path="kitGL.glWeb.Shaders"/>
 		<meta>
 			<m n=":value"><e>cast fragmentString0</e></m>
@@ -44857,11 +44870,27 @@
 			<m n=":impl"/>
 		</meta>
 	</fragmentString0_>
+	<vertexString1_ public="1" get="inline" set="null" expr="cast vertexString1" line="62" static="1">
+		<x path="kitGL.glWeb.Shaders"/>
+		<meta>
+			<m n=":value"><e>cast vertexString1</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</vertexString1_>
+	<fragmentString1_ public="1" get="inline" set="null" expr="cast fragmentString1" line="63" static="1">
+		<x path="kitGL.glWeb.Shaders"/>
+		<meta>
+			<m n=":value"><e>cast fragmentString1</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</fragmentString1_>
 	<meta><m n=":enum"/></meta>
 </class></impl>
 	</abstract>
 	<class path="kitGL.glWeb._Shaders.Shaders_Impl_" params="" file="src/kitGL/glWeb/Shaders.js.hx" private="1" module="kitGL.glWeb.Shaders" extern="1" final="1">
-		<vertexString0_ public="1" get="inline" set="null" expr="cast vertexString0" line="22" static="1">
+		<vertexString0_ public="1" get="inline" set="null" expr="cast vertexString0" line="60" static="1">
 			<x path="kitGL.glWeb.Shaders"/>
 			<meta>
 				<m n=":value"><e>cast vertexString0</e></m>
@@ -44869,7 +44898,7 @@
 				<m n=":impl"/>
 			</meta>
 		</vertexString0_>
-		<fragmentString0_ public="1" get="inline" set="null" expr="cast fragmentString0" line="23" static="1">
+		<fragmentString0_ public="1" get="inline" set="null" expr="cast fragmentString0" line="61" static="1">
 			<x path="kitGL.glWeb.Shaders"/>
 			<meta>
 				<m n=":value"><e>cast fragmentString0</e></m>
@@ -44877,6 +44906,22 @@
 				<m n=":impl"/>
 			</meta>
 		</fragmentString0_>
+		<vertexString1_ public="1" get="inline" set="null" expr="cast vertexString1" line="62" static="1">
+			<x path="kitGL.glWeb.Shaders"/>
+			<meta>
+				<m n=":value"><e>cast vertexString1</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</vertexString1_>
+		<fragmentString1_ public="1" get="inline" set="null" expr="cast fragmentString1" line="63" static="1">
+			<x path="kitGL.glWeb.Shaders"/>
+			<meta>
+				<m n=":value"><e>cast fragmentString1</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</fragmentString1_>
 		<meta><m n=":enum"/></meta>
 	</class>
 	<class path="kitGL.glWeb._Shaders.Shaders_Fields_" params="" file="src/kitGL/glWeb/Shaders.js.hx" private="1" module="kitGL.glWeb.Shaders" final="1">
@@ -44888,6 +44933,14 @@
 			<c path="String"/>
 			<meta><m n=":value"><e>"precision mediump float;" + "varying vec4 vcol;" + "void main(void) {" + " gl_FragColor = vcol;" + "}"</e></m></meta>
 		</fragmentString0>
+		<vertexString1 public="1" get="inline" set="null" expr="&quot;attribute vec3 vertexPosition;&quot; + &quot;attribute vec4 vertexColor;&quot; + &quot;attribute vec2 vertexTexture;&quot; + &quot;varying vec4 vcol;&quot; + &quot;varying vec2 texture;&quot; + &quot;uniform mat4 modelViewProjection;&quot; + &quot;void main(void) {&quot; + &quot; gl_Position = modelViewProjection * vec4( vertexPosition, 1.0);&quot; + &quot; texture = vec2( aTexture.x , 1.-aTexture.y );&quot; + &quot; vcol = vertexColor;&quot; + &quot;}&quot;" line="23" static="1">
+			<c path="String"/>
+			<meta><m n=":value"><e>"attribute vec3 vertexPosition;" + "attribute vec4 vertexColor;" + "attribute vec2 vertexTexture;" + "varying vec4 vcol;" + "varying vec2 texture;" + "uniform mat4 modelViewProjection;" + "void main(void) {" + " gl_Position = modelViewProjection * vec4( vertexPosition, 1.0);" + " texture = vec2( aTexture.x , 1.-aTexture.y );" + " vcol = vertexColor;" + "}"</e></m></meta>
+		</vertexString1>
+		<fragmentString1 public="1" get="inline" set="null" expr="&quot;precision mediump float;&quot; + &quot;varying vec4 vcol;&quot; + &quot;varying vec2 texture;&quot; + &quot;uniform sampler2D image;&quot; + &quot;void main(void) {&quot; + &quot;float bound =   step( texture.s, 1. ) *&quot; + &quot;step( texture.t, 1. ) *&quot; + &quot; ( 1. - step( texture.s, 0. ) ) * &quot; + &quot; ( 1. - step( texture.t, 0. ) );&quot; + &quot;vec4 texcolor = texture2D( image, vec2( texture.s, texture.t ) ) * color;&quot; + &quot;texcolor.rgb *= color.a; &quot; + &quot;gl_FragColor = bound * texcolor;&quot; + &quot;}&quot;" line="39" static="1">
+			<c path="String"/>
+			<meta><m n=":value"><e>"precision mediump float;" + "varying vec4 vcol;" + "varying vec2 texture;" + "uniform sampler2D image;" + "void main(void) {" + "float bound =   step( texture.s, 1. ) *" + "step( texture.t, 1. ) *" + " ( 1. - step( texture.s, 0. ) ) * " + " ( 1. - step( texture.t, 0. ) );" + "vec4 texcolor = texture2D( image, vec2( texture.s, texture.t ) ) * color;" + "texcolor.rgb *= color.a; " + "gl_FragColor = bound * texcolor;" + "}"</e></m></meta>
+		</fragmentString1>
 	</class>
 	<class path="kitGL.glWeb.Texture" params="" file="src/kitGL/glWeb/Texture.js.hx">
 		<width public="1"><x path="Int"/></width>
