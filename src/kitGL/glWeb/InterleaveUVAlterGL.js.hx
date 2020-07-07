@@ -19,9 +19,9 @@ class InterleaveUVAlterGL{
     public var gl: RenderingContext;
     public var interleaveDataGL: InterleaveDataGL;
     public var program: Program;
-    public var width:  Int;
-    public var height: Int;
-    public var buf: Buffer;
+    public var width:   Int;
+    public var height:  Int;
+    public var buf:     Buffer;
     public
     function new( width_: Int, height_: Int ){
         width = width_;
@@ -37,12 +37,13 @@ class InterleaveUVAlterGL{
     }
     inline
     function setup(){
-        program = programSetup( gl, vertexString1, fragmentString1 );
+        // don't use projection matrix for now
+        program = programSetup( gl, vertexString1, fragmentString2 );
         draw();
-        buf = interleaveXYZ_RGBA( gl
+        buf = interleaveXYZ_RGBA_UV( gl
                                 , program
                                 , cast interleaveDataGL.data
-                                , 'vertexPosition', 'vertexColor', vertexTexture, true );
+                                , 'vertexPosition', 'vertexColor', 'vertexTexture', true );
         setAnimate();
     }
     // override this for drawing initial scene

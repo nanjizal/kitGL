@@ -16,9 +16,23 @@ var fragmentString0: String =
     'void main(void) {' +
         ' gl_FragColor = vcol;' +
     '}';
-
 inline
 var vertexString1: String =
+
+    'attribute vec3 vertexPosition;' +
+    'attribute vec4 vertexColor;' +
+    'attribute vec2 vertexTexture;' +
+
+    'varying vec4 vcol;' +
+    'varying vec2 texture;' +
+
+    'void main(void) {' +
+        ' gl_Position = vec4( vertexPosition, 1.0);' +
+        ' texture = vec2( aTexture.x , 1.-aTexture.y );' +
+        ' vcol = vertexColor;' +
+    '}';
+inline
+var vertexString2: String =
 
     'attribute vec3 vertexPosition;' +
     'attribute vec4 vertexColor;' +
@@ -35,7 +49,7 @@ var vertexString1: String =
         ' vcol = vertexColor;' +
     '}';
 inline
-var fragmentString1: String =
+var fragmentString2: String =
     'precision mediump float;' +
     
     'varying vec4 vcol;' +
@@ -60,5 +74,6 @@ enum abstract Shaders( String ){
     var vertexString0_ = vertexString0;
     var fragmentString0_ = fragmentString0;
     var vertexString1_ = vertexString1;
-    var fragmentString1_ = fragmentString1;
+    var vertexString2_ = vertexString2;
+    var fragmentString2_ = fragmentString2;
 }
