@@ -44455,6 +44455,19 @@
 			</f>
 			<meta><m n=":value"><e>interleaveXYZ_RGBA</e></m></meta>
 		</interleaveXYZ_RGBA_>
+		<interleaveXYZ_RGBA_UV_ public="1" expr="interleaveXYZ_RGBA_UV">
+			<f a="gl:program:data:inPosName:inColName:inUVName:?isDynamic">
+				<c path="js.html.webgl.RenderingContext"/>
+				<c path="js.html.webgl.Program"/>
+				<x path="haxe.io.Float32Array"/>
+				<c path="String"/>
+				<c path="String"/>
+				<c path="String"/>
+				<x path="Bool"/>
+				<c path="js.html.webgl.Buffer"/>
+			</f>
+			<meta><m n=":value"><e>interleaveXYZ_RGBA_UV</e></m></meta>
+		</interleaveXYZ_RGBA_UV_>
 		<interleaveXY_RGB_ public="1" expr="interleaveXY_RGB">
 			<f a="gl:program:data:inPosName:inColName:?isDynamic">
 				<c path="js.html.webgl.RenderingContext"/>

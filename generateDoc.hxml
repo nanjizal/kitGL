@@ -2,6 +2,6 @@
 -D haxe4
 -cmd haxe generateJS.hxml
 -cmd haxe generateCpp.hxml
--cmd haxelib run dox -i upkeep --title "kitGL API documentation" -D themeColor 0x8884FF --toplevel-package kitGL
+-cmd haxelib run dox -i upkeep --title "kitGL API documentation" -D themeColor 0x8884FF -D source-path https://github.com/nanjizal/kitGL/tree/master/src/ --toplevel-package kitGL 
 -cmd cd pages
 -cmd open index.html

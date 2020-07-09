@@ -208,6 +208,14 @@ class BufferGL{
                                     , inPosName: String
                                     , inColName: String
                                     , ?isDynamic: Bool )->Buffer = interleaveXYZ_RGBA;
+    public var interleaveXYZ_RGBA_UV_: 
+                   ( gl:         RenderingContext
+                   , program:    Program 
+                   , data:       Float32Array
+                   , inPosName:  String
+                   , inColName:  String
+                   , inUVName:   String
+                   , ?isDynamic: Bool ) -> Buffer = interleaveXYZ_RGBA_UV;
     public var interleaveXY_RGB_: ( gl:       RenderingContext
                                   , program:   Program 
                                   , data:      Float32Array
