@@ -6,6 +6,7 @@ import kitGL.glWeb.BufferGL;
 import kitGL.glWeb.ColorPositions;
 import kitGL.glWeb.HelpGL;
 import kitGL.glWeb.Shaders;
+import kitGL.glWeb.ImageLoader;
 import kitGL.glWeb.InterleaveDataGL;
 import kitGL.glWeb.InterleaveAlterGL;
 import kitGL.glWeb.InterleaveUVAlterGL;

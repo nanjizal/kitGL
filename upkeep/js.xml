@@ -44405,18 +44405,18 @@
 	<x path="Int"/>
 	<x path="Void"/>
 </f></onFrame>
-		<counter public="1" expr="0" line="8" static="1">
+		<counter public="1" expr="0" line="9" static="1">
 			<x path="Int"/>
 			<meta><m n=":value"><e>0</e></m></meta>
 		</counter>
 		<s static="1"><c path="js.html.StyleElement"/></s>
-		<create public="1" get="inline" set="null" line="12" static="1"><f a=""><x path="Void"/></f></create>
-		<loop set="method" line="21" static="1"><f a="tim">
+		<create public="1" get="inline" set="null" line="13" static="1"><f a=""><x path="Void"/></f></create>
+		<loop set="method" line="22" static="1"><f a="tim">
 	<x path="Float"/>
 	<x path="Bool"/>
 </f></loop>
-		<kill public="1" get="inline" set="null" line="28" static="1"><f a=""><x path="Void"/></f></kill>
-		<tween public="1" get="inline" set="null" line="36" static="1"><f a="t:b:e:d:f">
+		<kill public="1" get="inline" set="null" line="29" static="1"><f a=""><x path="Void"/></f></kill>
+		<tween public="1" get="inline" set="null" line="37" static="1"><f a="t:b:e:d:f">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
@@ -44740,31 +44740,101 @@
 			</f>
 			<meta><m n=":value"><e>shaderSetup</e></m></meta>
 		</shaderSetup_>
-		<new public="1" set="method" line="50">
+		<uploadImage_ public="1" expr="uploadImage">
+			<f a="gl:imageIndex:image">
+				<c path="js.html.webgl.RenderingContext"/>
+				<x path="Int"/>
+				<c path="js.html.Image"/>
+				<c path="js.html.webgl.Texture"/>
+			</f>
+			<meta><m n=":value"><e>uploadImage</e></m></meta>
+		</uploadImage_>
+		<activateTexture_ public="1" expr="activateTexture">
+			<f a="gl:imageIndex">
+				<c path="js.html.webgl.RenderingContext"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>activateTexture</e></m></meta>
+		</activateTexture_>
+		<textureStandard_ public="1" expr="textureStandard">
+			<f a="gl">
+				<c path="js.html.webgl.RenderingContext"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>textureStandard</e></m></meta>
+		</textureStandard_>
+		<new public="1" set="method" line="94">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":compilerGenerated"/></meta>
 		</new>
 	</class>
 	<class path="kitGL.glWeb._HelpGL.HelpGL_Fields_" params="" file="src/kitGL/glWeb/HelpGL.js.hx" private="1" module="kitGL.glWeb.HelpGL" final="1">
-		<clearAll public="1" get="inline" set="null" line="10" static="1"><f a="gl:width:height">
+		<clearAll public="1" get="inline" set="null" line="12" static="1"><f a="gl:width:height">
 	<c path="js.html.webgl.RenderingContext"/>
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></clearAll>
-		<programSetup public="1" get="inline" set="null" line="16" static="1"><f a="gl:strVertex:strFragment">
+		<programSetup public="1" get="inline" set="null" line="18" static="1"><f a="gl:strVertex:strFragment">
 	<c path="js.html.webgl.RenderingContext"/>
 	<c path="String"/>
 	<c path="String"/>
 	<c path="js.html.webgl.Program"/>
 </f></programSetup>
-		<shaderSetup public="1" get="inline" set="null" line="36" static="1"><f a="gl:shaderType:str">
+		<shaderSetup public="1" get="inline" set="null" line="38" static="1"><f a="gl:shaderType:str">
 	<c path="js.html.webgl.RenderingContext"/>
 	<x path="Int"/>
 	<c path="String"/>
 	<c path="js.html.webgl.Shader"/>
 </f></shaderSetup>
+		<uploadImage public="1" get="inline" set="null" line="51" static="1"><f a="gl:imageIndex:image">
+	<c path="js.html.webgl.RenderingContext"/>
+	<x path="Int"/>
+	<c path="js.html.Image"/>
+	<c path="js.html.webgl.Texture"/>
+</f></uploadImage>
+		<activateTexture public="1" get="inline" set="null" line="62" static="1"><f a="gl:imageIndex">
+	<c path="js.html.webgl.RenderingContext"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></activateTexture>
+		<textureStandard public="1" get="inline" set="null" line="83" static="1"><f a="gl">
+	<c path="js.html.webgl.RenderingContext"/>
+	<x path="Void"/>
+</f></textureStandard>
 		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<typedef path="kitGL.glWeb.Hash" params="T" file="src/kitGL/glWeb/ImageLoader.js.hx" module="kitGL.glWeb.ImageLoader"><c path="haxe.ds.StringMap"><c path="kitGL.glWeb.Hash.T"/></c></typedef>
+	<class path="kitGL.glWeb.ImageLoader" params="" file="src/kitGL/glWeb/ImageLoader.js.hx">
+		<images public="1"><t path="kitGL.glWeb.Hash"><c path="js.html.ImageElement"/></t></images>
+		<loaded><f a=""><x path="Void"/></f></loaded>
+		<count><x path="Int"/></count>
+		<load set="method" line="20"><f a="img">
+	<c path="String"/>
+	<x path="Void"/>
+</f></load>
+		<loadEncoded public="1" set="method" line="32"><f a="imageEncoded:imageNames">
+	<c path="Array"><c path="String"/></c>
+	<c path="Array"><c path="String"/></c>
+	<x path="Void"/>
+</f></loadEncoded>
+		<encodedLoad set="method" line="40"><f a="imgStr:name">
+	<c path="String"/>
+	<c path="String"/>
+	<x path="Void"/>
+</f></encodedLoad>
+		<store set="method" line="51"><f a="image:name:e">
+	<c path="js.html.ImageElement"/>
+	<c path="String"/>
+	<c path="js.html.Event"/>
+	<x path="Void"/>
+</f></store>
+		<new public="1" set="method" line="13"><f a="imageNames:loaded_">
+	<c path="Array"><c path="String"/></c>
+	<f a=""><x path="Void"/></f>
+	<x path="Void"/>
+</f></new>
 	</class>
 	<class path="kitGL.glWeb.InterleaveAlterGL" params="" file="src/kitGL/glWeb/InterleaveAlterGL.js.hx">
 		<gl public="1"><c path="js.html.webgl.RenderingContext"/></gl>
@@ -45121,11 +45191,11 @@
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="kitGL.upkeep.Doc" params="" file="src/kitGL/upkeep/Doc.js.hx">
-		<main public="1" set="method" line="44" static="1">
+		<main public="1" set="method" line="45" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
 		</main>
-		<new public="1" set="method" line="47"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="48"><f a=""><x path="Void"/></f></new>
 		<meta><m n=":dox"><e>hide</e></m></meta>
 	</class>
 	<class path="lime._internal.backend.html5.GameDeviceData" params="" file="/projects/May2019/May2020/lime/src/lime/_internal/backend/html5/HTML5Application.hx" module="lime._internal.backend.html5.HTML5Application">
