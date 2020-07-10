@@ -9,6 +9,7 @@ import kitGL.glWeb.BufferGL;
 import kitGL.glWeb.Texture;
 import kitGL.glWeb.AnimateTimer;
 import kitGL.glWeb.DivertTrace;
+import js.html.Image;
 
 // js webgl 
 import js.html.webgl.Buffer;
@@ -18,6 +19,7 @@ import js.html.webgl.Program;
 class InterleaveUVAlterGL{
     public var gl: RenderingContext;
     public var interleaveDataGL: InterleaveDataGL;
+    public var imageLoader: ImageLoader;
     public var program: Program;
     public var width:   Int;
     public var height:  Int;
@@ -27,7 +29,7 @@ class InterleaveUVAlterGL{
         width = width_;
         height = height_;
         creategl();
-        setup();
+        imageLoader = new ImageLoader( [], setup );
     }
     inline
     function creategl( ){
@@ -44,6 +46,13 @@ class InterleaveUVAlterGL{
                                 , program
                                 , cast interleaveDataGL.data
                                 , 'vertexPosition', 'vertexColor', 'vertexTexture', true );
+        // reverse order so that it activates image 0 for now.
+        var len = imageLoader.imageArr.length;
+        var j = len - 1;
+        for( i in 0...len ){
+            uploadImage( gl, j, cast( imageLoader.imageArr[ j ], Image ) );
+            j--;
+        }
         setAnimate();
     }
     // override this for drawing initial scene

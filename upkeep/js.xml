@@ -44808,33 +44808,37 @@
 	<typedef path="kitGL.glWeb.Hash" params="T" file="src/kitGL/glWeb/ImageLoader.js.hx" module="kitGL.glWeb.ImageLoader"><c path="haxe.ds.StringMap"><c path="kitGL.glWeb.Hash.T"/></c></typedef>
 	<class path="kitGL.glWeb.ImageLoader" params="" file="src/kitGL/glWeb/ImageLoader.js.hx">
 		<images public="1"><t path="kitGL.glWeb.Hash"><c path="js.html.ImageElement"/></t></images>
+		<imageArr public="1"><c path="Array"><c path="js.html.ImageElement"/></c></imageArr>
 		<loaded><f a=""><x path="Void"/></f></loaded>
 		<count><x path="Int"/></count>
-		<load set="method" line="20"><f a="img">
+		<load set="method" line="22"><f a="img">
 	<c path="String"/>
 	<x path="Void"/>
 </f></load>
-		<loadEncoded public="1" set="method" line="32"><f a="imageEncoded:imageNames">
+		<loadEncoded public="1" set="method" line="34"><f a="imageEncoded:imageNames">
 	<c path="Array"><c path="String"/></c>
 	<c path="Array"><c path="String"/></c>
 	<x path="Void"/>
 </f></loadEncoded>
-		<encodedLoad set="method" line="40"><f a="imgStr:name">
+		<encodedLoad set="method" line="42"><f a="imgStr:name:index">
 	<c path="String"/>
 	<c path="String"/>
+	<x path="Int"/>
 	<x path="Void"/>
 </f></encodedLoad>
-		<store set="method" line="51"><f a="image:name:e">
+		<store set="method" line="53"><f a="image:name:index:e">
 	<c path="js.html.ImageElement"/>
 	<c path="String"/>
+	<x path="Int"/>
 	<c path="js.html.Event"/>
 	<x path="Void"/>
 </f></store>
-		<new public="1" set="method" line="13"><f a="imageNames:loaded_">
+		<new public="1" set="method" line="14"><f a="imageNames:loaded_">
 	<c path="Array"><c path="String"/></c>
 	<f a=""><x path="Void"/></f>
 	<x path="Void"/>
 </f></new>
+		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="kitGL.glWeb.InterleaveAlterGL" params="" file="src/kitGL/glWeb/InterleaveAlterGL.js.hx">
 		<gl public="1"><c path="js.html.webgl.RenderingContext"/></gl>
@@ -44936,17 +44940,18 @@
 	<class path="kitGL.glWeb.InterleaveUVAlterGL" params="" file="src/kitGL/glWeb/InterleaveUVAlterGL.js.hx">
 		<gl public="1"><c path="js.html.webgl.RenderingContext"/></gl>
 		<interleaveDataGL public="1"><x path="kitGL.glWeb.InterleaveDataGL"/></interleaveDataGL>
+		<imageLoader public="1"><c path="kitGL.glWeb.ImageLoader"/></imageLoader>
 		<program public="1"><c path="js.html.webgl.Program"/></program>
 		<width public="1"><x path="Int"/></width>
 		<height public="1"><x path="Int"/></height>
 		<buf public="1"><c path="js.html.webgl.Buffer"/></buf>
-		<creategl get="inline" set="null" line="32"><f a=""><x path="Void"/></f></creategl>
-		<setup get="inline" set="null" line="38"><f a=""><x path="Void"/></f></setup>
-		<draw public="1" set="method" line="50"><f a=""><x path="Void"/></f></draw>
-		<render get="inline" set="null" line="52"><f a=""><x path="Void"/></f></render>
-		<renderDraw public="1" set="method" line="62"><f a=""><x path="Void"/></f></renderDraw>
-		<setAnimate get="inline" set="null" line="64"><f a=""><x path="Void"/></f></setAnimate>
-		<new public="1" set="method" line="25"><f a="width_:height_">
+		<creategl get="inline" set="null" line="34"><f a=""><x path="Void"/></f></creategl>
+		<setup get="inline" set="null" line="40"><f a=""><x path="Void"/></f></setup>
+		<draw public="1" set="method" line="59"><f a=""><x path="Void"/></f></draw>
+		<render get="inline" set="null" line="61"><f a=""><x path="Void"/></f></render>
+		<renderDraw public="1" set="method" line="71"><f a=""><x path="Void"/></f></renderDraw>
+		<setAnimate get="inline" set="null" line="73"><f a=""><x path="Void"/></f></setAnimate>
+		<new public="1" set="method" line="27"><f a="width_:height_">
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
