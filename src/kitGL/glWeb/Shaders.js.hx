@@ -28,7 +28,7 @@ var vertexString1: String =
 
     'void main(void) {' +
         ' gl_Position = vec4( vertexPosition, 1.0);' +
-        ' texture = vec2( aTexture.x , 1.-aTexture.y );' +
+        ' texture = vec2( vertexTexture.x , 1.-vertexTexture.y );' +
         ' vcol = vertexColor;' +
     '}';
 inline
@@ -45,7 +45,7 @@ var vertexString2: String =
     
     'void main(void) {' +
         ' gl_Position = modelViewProjection * vec4( vertexPosition, 1.0);' +
-        ' texture = vec2( aTexture.x , 1.-aTexture.y );' +
+        ' texture = vec2( vertexTexture.x , 1.-vertexTexture.y );' +
         ' vcol = vertexColor;' +
     '}';
 inline
@@ -63,8 +63,8 @@ var fragmentString2: String =
                     ' ( 1. - step( texture.s, 0. ) ) * ' +
                     ' ( 1. - step( texture.t, 0. ) );' +
                     
-        'vec4 texcolor = texture2D( image, vec2( texture.s, texture.t ) ) * color;' +
-        'texcolor.rgb *= color.a; ' + 
+        'vec4 texcolor = texture2D( image, vec2( texture.s, texture.t ) ) * vcol;' +
+        'texcolor.rgb *= vcol.a; ' + 
         'gl_FragColor = bound * texcolor;' +
     '}';
 

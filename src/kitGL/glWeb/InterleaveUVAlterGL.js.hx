@@ -29,6 +29,7 @@ class InterleaveUVAlterGL{
         width = width_;
         height = height_;
         creategl();
+        trace('InterleavUVAlterGL ');
         imageLoader = new ImageLoader( [], setup );
     }
     inline
@@ -40,12 +41,16 @@ class InterleaveUVAlterGL{
     inline
     function setup(){
         // don't use projection matrix for now
+        trace( 'setup' );
         program = programSetup( gl, vertexString1, fragmentString2 );
+        trace( 'create program' );
         draw();
+        trace( 'call draw ' );
         buf = interleaveXYZ_RGBA_UV( gl
-                                , program
-                                , cast interleaveDataGL.data
-                                , 'vertexPosition', 'vertexColor', 'vertexTexture', true );
+                        , program
+                        , cast interleaveDataGL.data
+                        , 'vertexPosition', 'vertexColor', 'vertexTexture', true );
+                        trace(' buffer interleave');
         // reverse order so that it activates image 0 for now.
         var len = imageLoader.imageArr.length;
         var j = len - 1;
@@ -53,11 +58,14 @@ class InterleaveUVAlterGL{
             uploadImage( gl, j, cast( imageLoader.imageArr[ j ], Image ) );
             j--;
         }
+
         setAnimate();
     }
     // override this for drawing initial scene
     public
-    function draw(){}
+    function draw(){
+        trace('parent draw');
+    }
     inline
     function render(){
         clearAll( gl, width, height );

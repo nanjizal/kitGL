@@ -44820,13 +44820,13 @@
 	<c path="Array"><c path="String"/></c>
 	<x path="Void"/>
 </f></loadEncoded>
-		<encodedLoad set="method" line="42"><f a="imgStr:name:index">
+		<encodedLoad set="method" line="43"><f a="imgStr:name:index">
 	<c path="String"/>
 	<c path="String"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></encodedLoad>
-		<store set="method" line="53"><f a="image:name:index:e">
+		<store set="method" line="55"><f a="image:name:index:e">
 	<c path="js.html.ImageElement"/>
 	<c path="String"/>
 	<x path="Int"/>
@@ -44945,12 +44945,12 @@
 		<width public="1"><x path="Int"/></width>
 		<height public="1"><x path="Int"/></height>
 		<buf public="1"><c path="js.html.webgl.Buffer"/></buf>
-		<creategl get="inline" set="null" line="34"><f a=""><x path="Void"/></f></creategl>
-		<setup get="inline" set="null" line="40"><f a=""><x path="Void"/></f></setup>
-		<draw public="1" set="method" line="59"><f a=""><x path="Void"/></f></draw>
-		<render get="inline" set="null" line="61"><f a=""><x path="Void"/></f></render>
-		<renderDraw public="1" set="method" line="71"><f a=""><x path="Void"/></f></renderDraw>
-		<setAnimate get="inline" set="null" line="73"><f a=""><x path="Void"/></f></setAnimate>
+		<creategl get="inline" set="null" line="35"><f a=""><x path="Void"/></f></creategl>
+		<setup get="inline" set="null" line="41"><f a=""><x path="Void"/></f></setup>
+		<draw public="1" set="method" line="65"><f a=""><x path="Void"/></f></draw>
+		<render get="inline" set="null" line="69"><f a=""><x path="Void"/></f></render>
+		<renderDraw public="1" set="method" line="79"><f a=""><x path="Void"/></f></renderDraw>
+		<setAnimate get="inline" set="null" line="81"><f a=""><x path="Void"/></f></setAnimate>
 		<new public="1" set="method" line="27"><f a="width_:height_">
 	<x path="Int"/>
 	<x path="Int"/>
@@ -45056,17 +45056,17 @@
 			<c path="String"/>
 			<meta><m n=":value"><e>"precision mediump float;" + "varying vec4 vcol;" + "void main(void) {" + " gl_FragColor = vcol;" + "}"</e></m></meta>
 		</fragmentString0>
-		<vertexString1 public="1" get="inline" set="null" expr="&quot;attribute vec3 vertexPosition;&quot; + &quot;attribute vec4 vertexColor;&quot; + &quot;attribute vec2 vertexTexture;&quot; + &quot;varying vec4 vcol;&quot; + &quot;varying vec2 texture;&quot; + &quot;void main(void) {&quot; + &quot; gl_Position = vec4( vertexPosition, 1.0);&quot; + &quot; texture = vec2( aTexture.x , 1.-aTexture.y );&quot; + &quot; vcol = vertexColor;&quot; + &quot;}&quot;" line="22" static="1">
+		<vertexString1 public="1" get="inline" set="null" expr="&quot;attribute vec3 vertexPosition;&quot; + &quot;attribute vec4 vertexColor;&quot; + &quot;attribute vec2 vertexTexture;&quot; + &quot;varying vec4 vcol;&quot; + &quot;varying vec2 texture;&quot; + &quot;void main(void) {&quot; + &quot; gl_Position = vec4( vertexPosition, 1.0);&quot; + &quot; texture = vec2( vertexTexture.x , 1.-vertexTexture.y );&quot; + &quot; vcol = vertexColor;&quot; + &quot;}&quot;" line="22" static="1">
 			<c path="String"/>
-			<meta><m n=":value"><e>"attribute vec3 vertexPosition;" + "attribute vec4 vertexColor;" + "attribute vec2 vertexTexture;" + "varying vec4 vcol;" + "varying vec2 texture;" + "void main(void) {" + " gl_Position = vec4( vertexPosition, 1.0);" + " texture = vec2( aTexture.x , 1.-aTexture.y );" + " vcol = vertexColor;" + "}"</e></m></meta>
+			<meta><m n=":value"><e>"attribute vec3 vertexPosition;" + "attribute vec4 vertexColor;" + "attribute vec2 vertexTexture;" + "varying vec4 vcol;" + "varying vec2 texture;" + "void main(void) {" + " gl_Position = vec4( vertexPosition, 1.0);" + " texture = vec2( vertexTexture.x , 1.-vertexTexture.y );" + " vcol = vertexColor;" + "}"</e></m></meta>
 		</vertexString1>
-		<vertexString2 public="1" get="inline" set="null" expr="&quot;attribute vec3 vertexPosition;&quot; + &quot;attribute vec4 vertexColor;&quot; + &quot;attribute vec2 vertexTexture;&quot; + &quot;varying vec4 vcol;&quot; + &quot;varying vec2 texture;&quot; + &quot;uniform mat4 modelViewProjection;&quot; + &quot;void main(void) {&quot; + &quot; gl_Position = modelViewProjection * vec4( vertexPosition, 1.0);&quot; + &quot; texture = vec2( aTexture.x , 1.-aTexture.y );&quot; + &quot; vcol = vertexColor;&quot; + &quot;}&quot;" line="37" static="1">
+		<vertexString2 public="1" get="inline" set="null" expr="&quot;attribute vec3 vertexPosition;&quot; + &quot;attribute vec4 vertexColor;&quot; + &quot;attribute vec2 vertexTexture;&quot; + &quot;varying vec4 vcol;&quot; + &quot;varying vec2 texture;&quot; + &quot;uniform mat4 modelViewProjection;&quot; + &quot;void main(void) {&quot; + &quot; gl_Position = modelViewProjection * vec4( vertexPosition, 1.0);&quot; + &quot; texture = vec2( vertexTexture.x , 1.-vertexTexture.y );&quot; + &quot; vcol = vertexColor;&quot; + &quot;}&quot;" line="37" static="1">
 			<c path="String"/>
-			<meta><m n=":value"><e>"attribute vec3 vertexPosition;" + "attribute vec4 vertexColor;" + "attribute vec2 vertexTexture;" + "varying vec4 vcol;" + "varying vec2 texture;" + "uniform mat4 modelViewProjection;" + "void main(void) {" + " gl_Position = modelViewProjection * vec4( vertexPosition, 1.0);" + " texture = vec2( aTexture.x , 1.-aTexture.y );" + " vcol = vertexColor;" + "}"</e></m></meta>
+			<meta><m n=":value"><e>"attribute vec3 vertexPosition;" + "attribute vec4 vertexColor;" + "attribute vec2 vertexTexture;" + "varying vec4 vcol;" + "varying vec2 texture;" + "uniform mat4 modelViewProjection;" + "void main(void) {" + " gl_Position = modelViewProjection * vec4( vertexPosition, 1.0);" + " texture = vec2( vertexTexture.x , 1.-vertexTexture.y );" + " vcol = vertexColor;" + "}"</e></m></meta>
 		</vertexString2>
-		<fragmentString2 public="1" get="inline" set="null" expr="&quot;precision mediump float;&quot; + &quot;varying vec4 vcol;&quot; + &quot;varying vec2 texture;&quot; + &quot;uniform sampler2D image;&quot; + &quot;void main(void) {&quot; + &quot;float bound =   step( texture.s, 1. ) *&quot; + &quot;step( texture.t, 1. ) *&quot; + &quot; ( 1. - step( texture.s, 0. ) ) * &quot; + &quot; ( 1. - step( texture.t, 0. ) );&quot; + &quot;vec4 texcolor = texture2D( image, vec2( texture.s, texture.t ) ) * color;&quot; + &quot;texcolor.rgb *= color.a; &quot; + &quot;gl_FragColor = bound * texcolor;&quot; + &quot;}&quot;" line="53" static="1">
+		<fragmentString2 public="1" get="inline" set="null" expr="&quot;precision mediump float;&quot; + &quot;varying vec4 vcol;&quot; + &quot;varying vec2 texture;&quot; + &quot;uniform sampler2D image;&quot; + &quot;void main(void) {&quot; + &quot;float bound =   step( texture.s, 1. ) *&quot; + &quot;step( texture.t, 1. ) *&quot; + &quot; ( 1. - step( texture.s, 0. ) ) * &quot; + &quot; ( 1. - step( texture.t, 0. ) );&quot; + &quot;vec4 texcolor = texture2D( image, vec2( texture.s, texture.t ) ) * vcol;&quot; + &quot;texcolor.rgb *= vcol.a; &quot; + &quot;gl_FragColor = bound * texcolor;&quot; + &quot;}&quot;" line="53" static="1">
 			<c path="String"/>
-			<meta><m n=":value"><e>"precision mediump float;" + "varying vec4 vcol;" + "varying vec2 texture;" + "uniform sampler2D image;" + "void main(void) {" + "float bound =   step( texture.s, 1. ) *" + "step( texture.t, 1. ) *" + " ( 1. - step( texture.s, 0. ) ) * " + " ( 1. - step( texture.t, 0. ) );" + "vec4 texcolor = texture2D( image, vec2( texture.s, texture.t ) ) * color;" + "texcolor.rgb *= color.a; " + "gl_FragColor = bound * texcolor;" + "}"</e></m></meta>
+			<meta><m n=":value"><e>"precision mediump float;" + "varying vec4 vcol;" + "varying vec2 texture;" + "uniform sampler2D image;" + "void main(void) {" + "float bound =   step( texture.s, 1. ) *" + "step( texture.t, 1. ) *" + " ( 1. - step( texture.s, 0. ) ) * " + " ( 1. - step( texture.t, 0. ) );" + "vec4 texcolor = texture2D( image, vec2( texture.s, texture.t ) ) * vcol;" + "texcolor.rgb *= vcol.a; " + "gl_FragColor = bound * texcolor;" + "}"</e></m></meta>
 		</fragmentString2>
 	</class>
 	<class path="kitGL.glWeb.Texture" params="" file="src/kitGL/glWeb/Texture.js.hx">

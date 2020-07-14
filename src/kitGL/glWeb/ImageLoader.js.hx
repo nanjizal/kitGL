@@ -35,11 +35,13 @@ class ImageLoader{
     function loadEncoded( imageEncoded: Array<String>, imageNames: Array<String> ){
         count = imageNames.length;
         for( i in 0...count ){ 
+            trace( 'loadEncoded ' + i + 'imageNames ' + imageNames[i] );
             encodedLoad( imageEncoded[ i ],  imageNames[ i ], i ); 
         }
     }
     // for use when image is base64 encoded to a string.
     function encodedLoad( imgStr: String, name: String, index: Int ){
+        trace(' load encode ');
         var image: ImageElement     = js.Browser.document.createImageElement();
         var imgStyle                = image.style;
         imgStyle.left               = '0px';
@@ -57,6 +59,7 @@ class ImageLoader{
         imageArr[ index ] = image;
         if( count == 0 ){
             loaded();
+            trace('finish');
         }
     }
 }
