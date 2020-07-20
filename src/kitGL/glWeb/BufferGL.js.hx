@@ -82,7 +82,7 @@ function interleaveXYZ_RGBA_UV( gl:       RenderingContext
         3 * Float32Array.BYTES_PER_ELEMENT
     );
     gl.vertexAttribPointer(
-        colorLoc,
+        uvLoc,
         2,
         RenderingContext.FLOAT, 
         false, 
