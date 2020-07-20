@@ -24,6 +24,7 @@ class InterleaveUVAlterGL{
     public var width:   Int;
     public var height:  Int;
     public var buf:     Buffer;
+    public var mainTexture: Texture;
     public
     function new( width_: Int, height_: Int ){
         width = width_;
@@ -34,7 +35,7 @@ class InterleaveUVAlterGL{
     }
     inline
     function creategl( ){
-        var mainTexture = new Texture();
+        mainTexture = new Texture();
         mainTexture.create( width, height, true );
         gl = mainTexture.gl;
     }

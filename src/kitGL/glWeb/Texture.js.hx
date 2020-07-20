@@ -17,8 +17,10 @@ class Texture {
     public var penX:           Float;
     public var penY:           Float;
     public var dom:            Element;
+    public var dom2:           Element;
     public var onReady:        Void->Void;
     public var canvasElement:  CanvasElement;
+    public var canvasElement2: CanvasElement;
     public var gl:             RenderingContext;
     public var cx:             CanvasRenderingContext2D;
     public inline function new(){}
@@ -32,12 +34,27 @@ class Texture {
         dom               = cast canvasElement;
         styleZero();
         if( autoChild ) Browser.document.body.appendChild( cast canvasElement );
+        canvasElement2            = Browser.document.createCanvasElement();
+        canvasElement2.width      = width;
+        canvasElement2.height     = height;
+        dom2               = cast canvasElement;
+        styleZero2();
+        if( autoChild ) Browser.document.body.appendChild( cast canvasElement2 );
         gl = canvasElement.getContextWebGL();
-        cx = canvasElement.getContext('2d');
+        cx = canvasElement2.getContext('2d');
     }
     public inline
     function styleZero(){
         var style         = dom.style;
+        style.paddingLeft = px( 0 );
+        style.paddingTop  = px( 0 );
+        style.left        = px( 0 );
+        style.top         = px( 0 );
+        style.position    = "absolute";
+    }
+    public inline
+    function styleZero2(){
+        var style         = dom2.style;
         style.paddingLeft = px( 0 );
         style.paddingTop  = px( 0 );
         style.left        = px( 0 );
