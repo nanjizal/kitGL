@@ -6,7 +6,7 @@ import kitGL.glWeb.HelpGL;
 import kitGL.glWeb.BufferGL;
 
 // html stuff
-import kitGL.glWeb.Texture;
+import kitGL.glWeb.Sheet;
 import kitGL.glWeb.AnimateTimer;
 import kitGL.glWeb.DivertTrace;
 
@@ -15,13 +15,15 @@ import js.html.webgl.Buffer;
 import js.html.webgl.RenderingContext;
 import js.html.webgl.Program;
 
-class InterleaveAlterGL{
+class Ply{
     public var gl: RenderingContext;
-    public var interleaveDataGL: InterleaveDataGL;
+    public var dataGL: DataGL;
     public var program: Program;
     public var width:  Int;
     public var height: Int;
     public var buf: Buffer;
+    final vertexPosition = 'vertexPosition';
+    final vertexColor    = 'vertexColor';
     public
     function new( width_: Int, height_: Int ){
         width = width_;
@@ -31,9 +33,9 @@ class InterleaveAlterGL{
     }
     inline
     function creategl( ){
-        var mainTexture = new Texture();
-        mainTexture.create( width, height, true );
-        gl = mainTexture.gl;
+        var mainSheet = new Sheet();
+        mainSheet.create( width, height, true );
+        gl = mainSheet.gl;
     }
     inline
     function setup(){
@@ -41,8 +43,8 @@ class InterleaveAlterGL{
         draw();
         buf = interleaveXYZ_RGBA( gl
                                 , program
-                                , cast interleaveDataGL.data
-                                , 'vertexPosition', 'vertexColor', true );
+                                , cast dataGL.data
+                                , vertexPosition, vertexColor, true );
         setAnimate();
     }
     // override this for drawing initial scene
@@ -52,10 +54,10 @@ class InterleaveAlterGL{
     function render(){
         clearAll( gl, width, height );
         renderDraw();
-        gl.bindBuffer(RenderingContext.ARRAY_BUFFER, buf );
-        gl.bufferSubData(RenderingContext.ARRAY_BUFFER, 0, cast interleaveDataGL.data );
+        gl.bindBuffer( RenderingContext.ARRAY_BUFFER, buf );
+        gl.bufferSubData( RenderingContext.ARRAY_BUFFER, 0, cast dataGL.data );
         gl.useProgram( program );
-        gl.drawArrays( RenderingContext.TRIANGLES, 0, interleaveDataGL.size );
+        gl.drawArrays( RenderingContext.TRIANGLES, 0, dataGL.size );
     }
     // override this for drawing every frame or changing the data.
     public

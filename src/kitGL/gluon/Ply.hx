@@ -11,8 +11,8 @@ import kitGL.gluon.ColorPositions;
 import kitGL.gluon.HelpGL;
 import kitGL.gluon.Shaders;
 
-class InterleaveAlterGL{
-    public var interleaveDataGL: InterleaveDataGL;
+class Ply{
+    public var dataGL: DataGL;
     public var posLoc:           Int;
     public var colorLoc:         Int;
     final gl:                    GLContext;
@@ -30,7 +30,7 @@ class InterleaveAlterGL{
         draw();
         buf = interleaveXYZ_RGBA( gl
                                 , program
-                                , cast interleaveDataGL.data
+                                , cast dataGL.data
                                 , 'vertexPosition', 'vertexColor', true );
         gl.disable(    CULL_FACE );
         posLoc   = gl.getAttribLocation( program, 'vertexPosition' );
@@ -49,9 +49,9 @@ class InterleaveAlterGL{
         /*interleaveXYZ_RGBA_reconnect( gl
                                     , program
                                     , 'vertexPosition', 'vertexColor' ); */
-        gl.bufferSubData( ARRAY_BUFFER, 0, interleaveDataGL.data );
+        gl.bufferSubData( ARRAY_BUFFER, 0, dataGL.data );
         gl.useProgram( program );
-        gl.drawArrays( TRIANGLES, 0,  interleaveDataGL.size );
+        gl.drawArrays( TRIANGLES, 0,  dataGL.size );
     }
     // override this for drawing every frame or changing the data.
     public

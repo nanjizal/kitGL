@@ -1,13 +1,13 @@
-package kitGL.glWeb;
-import haxe.io.Float32Array;
-typedef TInterleaveDataGL = {
+package kitGL.gluon;
+import typedarray.Float32Array;
+typedef TDataGL = {
     public function get_data(): Float32Array;
     public function get_size(): Int;
 }
 @:forward
-abstract InterleaveDataGL( TInterleaveDataGL ) to TInterleaveDataGL from TInterleaveDataGL {
-    public inline function new( tInterleaveDataGL: TInterleaveDataGL ){
-        this = tInterleaveDataGL;
+abstract DataGL( TDataGL ) to TDataGL from TDataGL {
+    public inline function new( tDataGL: TDataGL ){
+        this = tDataGL;
     }
     public var data( get, never ): Float32Array ;
     inline function get_data(): Float32Array {

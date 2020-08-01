@@ -10,51 +10,41 @@ import js.html.CanvasRenderingContext2D;
 import js.html.webgl.ContextAttributes;
 import js.html.CanvasElement;
 import js.Browser;
-// TODO: change name
-class Texture {
+class Sheet {
     public var width:          Int;
     public var height:         Int;
     public var penX:           Float;
     public var penY:           Float;
-    public var dom:            Element;
-    public var dom2:           Element;
+    public var domGL:            Element;
+    public var domGL2D:           Element;
     public var onReady:        Void->Void;
-    public var canvasElement:  CanvasElement;
-    public var canvasElement2: CanvasElement;
+    public var canvasGL:       CanvasElement;
+    public var canvas2D:       CanvasElement;
     public var gl:             RenderingContext;
     public var cx:             CanvasRenderingContext2D;
     public inline function new(){}
     public
     function create( width_: Int = 600, height_: Int = 600, autoChild: Bool = false ){
-        width             = width_;
-        height            = height_;
-        canvasElement            = Browser.document.createCanvasElement();
-        canvasElement.width      = width;
-        canvasElement.height     = height;
-        dom               = cast canvasElement;
-        styleZero();
-        if( autoChild ) Browser.document.body.appendChild( cast canvasElement );
-        canvasElement2            = Browser.document.createCanvasElement();
-        canvasElement2.width      = width;
-        canvasElement2.height     = height;
-        dom2               = cast canvasElement;
-        styleZero2();
-        if( autoChild ) Browser.document.body.appendChild( cast canvasElement2 );
-        gl = canvasElement.getContextWebGL();
-        cx = canvasElement2.getContext('2d');
+        width               = width_;
+        height              = height_;
+        canvasGL            = Browser.document.createCanvasElement();
+        canvasGL.width      = width;
+        canvasGL.height     = height;
+        domGL               = cast canvasGL;
+        styleZero( domGL );
+        if( autoChild ) Browser.document.body.appendChild( cast canvasGL );
+        canvas2D            = Browser.document.createCanvasElement();
+        canvas2D.width      = width;
+        canvas2D.height     = height;
+        domGL2D             = cast canvasGL;
+        styleZero( domGL );
+        if( autoChild ) Browser.document.body.appendChild( cast canvas2D );
+        gl                  = canvasGL.getContextWebGL();
+        cx                  = canvas2D.getContext('2d');
     }
     public inline
-    function styleZero(){
-        var style         = dom.style;
-        style.paddingLeft = px( 0 );
-        style.paddingTop  = px( 0 );
-        style.left        = px( 0 );
-        style.top         = px( 0 );
-        style.position    = "absolute";
-    }
-    public inline
-    function styleZero2(){
-        var style         = dom2.style;
+    function styleZero( domGL: Element ){
+        var style         = domGL.style;
         style.paddingLeft = px( 0 );
         style.paddingTop  = px( 0 );
         style.left        = px( 0 );
@@ -63,7 +53,7 @@ class Texture {
     }
     public inline
     function styleLeft( left: Int ){
-        var style      = dom.style;
+        var style      = domGL.style;
         style.left     = px( left );
         style.height   = px( 500 );
         style.width    = px( 500 );
@@ -71,8 +61,8 @@ class Texture {
         style.overflow = 'auto';
     }
     public inline
-    function draw( texture: Texture, dx: Int = 0, dy: Int = 0 ){
-        cx.drawImage( texture.canvasElement, dx, dy, texture.width, texture.height );
+    function draw( sheet: Sheet, dx: Int = 0, dy: Int = 0 ){
+        cx.drawImage( sheet.canvasGL, dx, dy, sheet.width, sheet.height );
     }
     public inline
     function clear(){

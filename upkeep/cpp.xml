@@ -21052,6 +21052,84 @@
 		<colors3 public="1" get="inline" set="null" line="57" static="1"><f a=""><x path="lime.utils.Float32Array"/></f></colors3>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
+	<typedef path="kitGL.glLime.TDataGL" params="" file="src/kitGL/glLime/DataGL.hx" module="kitGL.glLime.DataGL"><a>
+	<get_size set="method"><f a=""><x path="Int"/></f></get_size>
+	<get_data set="method"><f a=""><x path="lime.utils.Float32Array"/></f></get_data>
+</a></typedef>
+	<abstract path="kitGL.glLime.DataGL" params="" file="src/kitGL/glLime/DataGL.hx">
+		<from><icast><t path="kitGL.glLime.TDataGL"/></icast></from>
+		<this><t path="kitGL.glLime.TDataGL"/></this>
+		<to><icast><t path="kitGL.glLime.TDataGL"/></icast></to>
+		<meta><m n=":forward"/></meta>
+		<impl><class path="kitGL.glLime._DataGL.DataGL_Impl_" params="" file="src/kitGL/glLime/DataGL.hx" private="1" module="kitGL.glLime.DataGL" final="1">
+	<_new public="1" get="inline" set="null" line="9" static="1">
+		<f a="tDataGL">
+			<t path="kitGL.glLime.TDataGL"/>
+			<x path="kitGL.glLime.DataGL"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+	</_new>
+	<data public="1" get="accessor" set="null" static="1">
+		<x path="lime.utils.Float32Array"/>
+		<meta><m n=":impl"/></meta>
+	</data>
+	<get_data get="inline" set="null" line="13" static="1">
+		<f a="this">
+			<t path="kitGL.glLime.TDataGL"/>
+			<x path="lime.utils.Float32Array"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</get_data>
+	<size public="1" get="accessor" set="null" static="1">
+		<x path="Int"/>
+		<meta><m n=":impl"/></meta>
+	</size>
+	<get_size get="inline" set="null" line="17" static="1">
+		<f a="this">
+			<t path="kitGL.glLime.TDataGL"/>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</get_size>
+</class></impl>
+	</abstract>
+	<class path="kitGL.glLime._DataGL.DataGL_Impl_" params="" file="src/kitGL/glLime/DataGL.hx" private="1" module="kitGL.glLime.DataGL" final="1">
+		<_new public="1" get="inline" set="null" line="9" static="1">
+			<f a="tDataGL">
+				<t path="kitGL.glLime.TDataGL"/>
+				<x path="kitGL.glLime.DataGL"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</_new>
+		<data public="1" get="accessor" set="null" static="1">
+			<x path="lime.utils.Float32Array"/>
+			<meta><m n=":impl"/></meta>
+		</data>
+		<get_data get="inline" set="null" line="13" static="1">
+			<f a="this">
+				<t path="kitGL.glLime.TDataGL"/>
+				<x path="lime.utils.Float32Array"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</get_data>
+		<size public="1" get="accessor" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":impl"/></meta>
+		</size>
+		<get_size get="inline" set="null" line="17" static="1">
+			<f a="this">
+				<t path="kitGL.glLime.TDataGL"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</get_size>
+	</class>
 	<class path="kitGL.glLime.HelpGL" params="" file="src/kitGL/glLime/HelpGL.hx">
 		<clearAll_ public="1" expr="clearAll">
 			<f a="gl:width:height">
@@ -21119,10 +21197,10 @@
 </f></render>
 		<renderDraw public="1" set="method"><f a=""><x path="Void"/></f></renderDraw>
 	</class>
-	<class path="kitGL.glLime.InterleaveAlterGL" params="" file="src/kitGL/glLime/InterleaveAlterGL.hx">
+	<class path="kitGL.glLime.Ply" params="" file="src/kitGL/glLime/Ply.hx">
 		<implements path="kitGL.glLime.setup.IAppGL"/>
 		<program><x path="lime.graphics.opengl.GLProgram"/></program>
-		<interleaveDataGL public="1"><x path="kitGL.glLime.InterleaveDataGL"/></interleaveDataGL>
+		<dataGL public="1"><x path="kitGL.glLime.DataGL"/></dataGL>
 		<width public="1"><x path="Int"/></width>
 		<height public="1"><x path="Int"/></height>
 		<buf public="1"><t path="lime.graphics.opengl.GLBuffer"/></buf>
@@ -21142,84 +21220,6 @@
 	<x path="Int"/>
 	<x path="Void"/>
 </f></new>
-	</class>
-	<typedef path="kitGL.glLime.TInterleaveDataGL" params="" file="src/kitGL/glLime/InterleaveDataGL.hx" module="kitGL.glLime.InterleaveDataGL"><a>
-	<get_size set="method"><f a=""><x path="Int"/></f></get_size>
-	<get_data set="method"><f a=""><x path="lime.utils.Float32Array"/></f></get_data>
-</a></typedef>
-	<abstract path="kitGL.glLime.InterleaveDataGL" params="" file="src/kitGL/glLime/InterleaveDataGL.hx">
-		<from><icast><t path="kitGL.glLime.TInterleaveDataGL"/></icast></from>
-		<this><t path="kitGL.glLime.TInterleaveDataGL"/></this>
-		<to><icast><t path="kitGL.glLime.TInterleaveDataGL"/></icast></to>
-		<meta><m n=":forward"/></meta>
-		<impl><class path="kitGL.glLime._InterleaveDataGL.InterleaveDataGL_Impl_" params="" file="src/kitGL/glLime/InterleaveDataGL.hx" private="1" module="kitGL.glLime.InterleaveDataGL" final="1">
-	<_new public="1" get="inline" set="null" line="9" static="1">
-		<f a="tInterleaveDataGL">
-			<t path="kitGL.glLime.TInterleaveDataGL"/>
-			<x path="kitGL.glLime.InterleaveDataGL"/>
-		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":noCompletion"/>
-		</meta>
-	</_new>
-	<data public="1" get="accessor" set="null" static="1">
-		<x path="lime.utils.Float32Array"/>
-		<meta><m n=":impl"/></meta>
-	</data>
-	<get_data get="inline" set="null" line="13" static="1">
-		<f a="this">
-			<t path="kitGL.glLime.TInterleaveDataGL"/>
-			<x path="lime.utils.Float32Array"/>
-		</f>
-		<meta><m n=":impl"/></meta>
-	</get_data>
-	<size public="1" get="accessor" set="null" static="1">
-		<x path="Int"/>
-		<meta><m n=":impl"/></meta>
-	</size>
-	<get_size get="inline" set="null" line="17" static="1">
-		<f a="this">
-			<t path="kitGL.glLime.TInterleaveDataGL"/>
-			<x path="Int"/>
-		</f>
-		<meta><m n=":impl"/></meta>
-	</get_size>
-</class></impl>
-	</abstract>
-	<class path="kitGL.glLime._InterleaveDataGL.InterleaveDataGL_Impl_" params="" file="src/kitGL/glLime/InterleaveDataGL.hx" private="1" module="kitGL.glLime.InterleaveDataGL" final="1">
-		<_new public="1" get="inline" set="null" line="9" static="1">
-			<f a="tInterleaveDataGL">
-				<t path="kitGL.glLime.TInterleaveDataGL"/>
-				<x path="kitGL.glLime.InterleaveDataGL"/>
-			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":noCompletion"/>
-			</meta>
-		</_new>
-		<data public="1" get="accessor" set="null" static="1">
-			<x path="lime.utils.Float32Array"/>
-			<meta><m n=":impl"/></meta>
-		</data>
-		<get_data get="inline" set="null" line="13" static="1">
-			<f a="this">
-				<t path="kitGL.glLime.TInterleaveDataGL"/>
-				<x path="lime.utils.Float32Array"/>
-			</f>
-			<meta><m n=":impl"/></meta>
-		</get_data>
-		<size public="1" get="accessor" set="null" static="1">
-			<x path="Int"/>
-			<meta><m n=":impl"/></meta>
-		</size>
-		<get_size get="inline" set="null" line="17" static="1">
-			<f a="this">
-				<t path="kitGL.glLime.TInterleaveDataGL"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":impl"/></meta>
-		</get_size>
 	</class>
 	<class path="kitGL.glLime.Shader" params="" file="src/kitGL/glLime/Shaders.hx" module="kitGL.glLime.Shaders">
 		<vertexSimpleColor_ public="1" expr="vertexSimpleColor">
@@ -28829,6 +28829,84 @@
 		<colors3 public="1" get="inline" set="null" line="57" static="1"><f a=""><x path="typedarray.Float32Array"/></f></colors3>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
+	<typedef path="kitGL.gluon.TDataGL" params="" file="src/kitGL/gluon/DataGL.hx" module="kitGL.gluon.DataGL"><a>
+	<get_size set="method"><f a=""><x path="Int"/></f></get_size>
+	<get_data set="method"><f a=""><x path="typedarray.Float32Array"/></f></get_data>
+</a></typedef>
+	<abstract path="kitGL.gluon.DataGL" params="" file="src/kitGL/gluon/DataGL.hx">
+		<from><icast><t path="kitGL.gluon.TDataGL"/></icast></from>
+		<this><t path="kitGL.gluon.TDataGL"/></this>
+		<to><icast><t path="kitGL.gluon.TDataGL"/></icast></to>
+		<meta><m n=":forward"/></meta>
+		<impl><class path="kitGL.gluon._DataGL.DataGL_Impl_" params="" file="src/kitGL/gluon/DataGL.hx" private="1" module="kitGL.gluon.DataGL" final="1">
+	<_new public="1" get="inline" set="null" line="9" static="1">
+		<f a="tDataGL">
+			<t path="kitGL.gluon.TDataGL"/>
+			<x path="kitGL.gluon.DataGL"/>
+		</f>
+		<meta>
+			<m n=":impl"/>
+			<m n=":noCompletion"/>
+		</meta>
+	</_new>
+	<data public="1" get="accessor" set="null" static="1">
+		<x path="typedarray.Float32Array"/>
+		<meta><m n=":impl"/></meta>
+	</data>
+	<get_data get="inline" set="null" line="13" static="1">
+		<f a="this">
+			<t path="kitGL.gluon.TDataGL"/>
+			<x path="typedarray.Float32Array"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</get_data>
+	<size public="1" get="accessor" set="null" static="1">
+		<x path="Int"/>
+		<meta><m n=":impl"/></meta>
+	</size>
+	<get_size get="inline" set="null" line="17" static="1">
+		<f a="this">
+			<t path="kitGL.gluon.TDataGL"/>
+			<x path="Int"/>
+		</f>
+		<meta><m n=":impl"/></meta>
+	</get_size>
+</class></impl>
+	</abstract>
+	<class path="kitGL.gluon._DataGL.DataGL_Impl_" params="" file="src/kitGL/gluon/DataGL.hx" private="1" module="kitGL.gluon.DataGL" final="1">
+		<_new public="1" get="inline" set="null" line="9" static="1">
+			<f a="tDataGL">
+				<t path="kitGL.gluon.TDataGL"/>
+				<x path="kitGL.gluon.DataGL"/>
+			</f>
+			<meta>
+				<m n=":impl"/>
+				<m n=":noCompletion"/>
+			</meta>
+		</_new>
+		<data public="1" get="accessor" set="null" static="1">
+			<x path="typedarray.Float32Array"/>
+			<meta><m n=":impl"/></meta>
+		</data>
+		<get_data get="inline" set="null" line="13" static="1">
+			<f a="this">
+				<t path="kitGL.gluon.TDataGL"/>
+				<x path="typedarray.Float32Array"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</get_data>
+		<size public="1" get="accessor" set="null" static="1">
+			<x path="Int"/>
+			<meta><m n=":impl"/></meta>
+		</size>
+		<get_size get="inline" set="null" line="17" static="1">
+			<f a="this">
+				<t path="kitGL.gluon.TDataGL"/>
+				<x path="Int"/>
+			</f>
+			<meta><m n=":impl"/></meta>
+		</get_size>
+	</class>
 	<class path="kitGL.gluon.Glwrapper" params="" file="src/kitGL/gluon/Glwrapper.hx">
 		<startupFullscreen final="1" expr="false">
 			<x path="Bool"/>
@@ -28930,8 +29008,8 @@
 	<t path="gluon.webgl.GLShader"/>
 </f></shaderSetup>
 	</class>
-	<class path="kitGL.gluon.InterleaveAlterGL" params="" file="src/kitGL/gluon/InterleaveAlterGL.hx">
-		<interleaveDataGL public="1"><x path="kitGL.gluon.InterleaveDataGL"/></interleaveDataGL>
+	<class path="kitGL.gluon.Ply" params="" file="src/kitGL/gluon/Ply.hx">
+		<dataGL public="1"><x path="kitGL.gluon.DataGL"/></dataGL>
 		<posLoc public="1"><x path="Int"/></posLoc>
 		<colorLoc public="1"><x path="Int"/></colorLoc>
 		<gl final="1"><x path="gluon.webgl.GLContext"/></gl>
@@ -28949,84 +29027,6 @@
 	<x path="gluon.webgl.GLContext"/>
 	<x path="Void"/>
 </f></new>
-	</class>
-	<typedef path="kitGL.gluon.TInterleaveDataGL" params="" file="src/kitGL/gluon/InterleaveDataGL.hx" module="kitGL.gluon.InterleaveDataGL"><a>
-	<get_size set="method"><f a=""><x path="Int"/></f></get_size>
-	<get_data set="method"><f a=""><x path="typedarray.Float32Array"/></f></get_data>
-</a></typedef>
-	<abstract path="kitGL.gluon.InterleaveDataGL" params="" file="src/kitGL/gluon/InterleaveDataGL.hx">
-		<from><icast><t path="kitGL.gluon.TInterleaveDataGL"/></icast></from>
-		<this><t path="kitGL.gluon.TInterleaveDataGL"/></this>
-		<to><icast><t path="kitGL.gluon.TInterleaveDataGL"/></icast></to>
-		<meta><m n=":forward"/></meta>
-		<impl><class path="kitGL.gluon._InterleaveDataGL.InterleaveDataGL_Impl_" params="" file="src/kitGL/gluon/InterleaveDataGL.hx" private="1" module="kitGL.gluon.InterleaveDataGL" final="1">
-	<_new public="1" get="inline" set="null" line="9" static="1">
-		<f a="tInterleaveDataGL">
-			<t path="kitGL.gluon.TInterleaveDataGL"/>
-			<x path="kitGL.gluon.InterleaveDataGL"/>
-		</f>
-		<meta>
-			<m n=":impl"/>
-			<m n=":noCompletion"/>
-		</meta>
-	</_new>
-	<data public="1" get="accessor" set="null" static="1">
-		<x path="typedarray.Float32Array"/>
-		<meta><m n=":impl"/></meta>
-	</data>
-	<get_data get="inline" set="null" line="13" static="1">
-		<f a="this">
-			<t path="kitGL.gluon.TInterleaveDataGL"/>
-			<x path="typedarray.Float32Array"/>
-		</f>
-		<meta><m n=":impl"/></meta>
-	</get_data>
-	<size public="1" get="accessor" set="null" static="1">
-		<x path="Int"/>
-		<meta><m n=":impl"/></meta>
-	</size>
-	<get_size get="inline" set="null" line="17" static="1">
-		<f a="this">
-			<t path="kitGL.gluon.TInterleaveDataGL"/>
-			<x path="Int"/>
-		</f>
-		<meta><m n=":impl"/></meta>
-	</get_size>
-</class></impl>
-	</abstract>
-	<class path="kitGL.gluon._InterleaveDataGL.InterleaveDataGL_Impl_" params="" file="src/kitGL/gluon/InterleaveDataGL.hx" private="1" module="kitGL.gluon.InterleaveDataGL" final="1">
-		<_new public="1" get="inline" set="null" line="9" static="1">
-			<f a="tInterleaveDataGL">
-				<t path="kitGL.gluon.TInterleaveDataGL"/>
-				<x path="kitGL.gluon.InterleaveDataGL"/>
-			</f>
-			<meta>
-				<m n=":impl"/>
-				<m n=":noCompletion"/>
-			</meta>
-		</_new>
-		<data public="1" get="accessor" set="null" static="1">
-			<x path="typedarray.Float32Array"/>
-			<meta><m n=":impl"/></meta>
-		</data>
-		<get_data get="inline" set="null" line="13" static="1">
-			<f a="this">
-				<t path="kitGL.gluon.TInterleaveDataGL"/>
-				<x path="typedarray.Float32Array"/>
-			</f>
-			<meta><m n=":impl"/></meta>
-		</get_data>
-		<size public="1" get="accessor" set="null" static="1">
-			<x path="Int"/>
-			<meta><m n=":impl"/></meta>
-		</size>
-		<get_size get="inline" set="null" line="17" static="1">
-			<f a="this">
-				<t path="kitGL.gluon.TInterleaveDataGL"/>
-				<x path="Int"/>
-			</f>
-			<meta><m n=":impl"/></meta>
-		</get_size>
 	</class>
 	<abstract path="kitGL.gluon.Shaders" params="" file="src/kitGL/gluon/Shaders.cpp.hx">
 		<this><c path="String"/></this>

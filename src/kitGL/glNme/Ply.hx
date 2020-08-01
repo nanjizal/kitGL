@@ -11,11 +11,11 @@ import kitGL.nme.HelpGL;
 import kitGL.nme.Shaders;
 
 
-class InterleaveAlterGL extends NmeApplication {
+class Ply extends NmeApplication {
    var valid:Bool;
    var program: GLProgram;
    public var buf:    GLBuffer;
-   public var interleaveDataGL: InterleaveDataGL;
+   public var dataGL: DataGL;
    public
    function new( window: Window ){
       super( window );
@@ -28,17 +28,17 @@ class InterleaveAlterGL extends NmeApplication {
          program = programSetup( vertexString0, fragmentString0 );
          draw();
          buf = interleaveXYZ_RGBA( program
-                                 , cast interleaveDataGL.data
+                                 , cast dataGL.data
                                  , 'vertexPosition', 'vertexColor' );
       }
       clearAll( width, height );
       renderDraw();
       GL.bindBuffer( GL.ARRAY_BUFFER, buf );
-      GL.bufferSubData( GL.ARRAY_BUFFER, 0, cast interleaveDataGL.data );
+      GL.bufferSubData( GL.ARRAY_BUFFER, 0, cast dataGL.data );
       GL.useProgram( program );
       // need to consider bind / unbind VertexAttrib see nme.gl.Buffer
       // especially if you mix it with normal nme?
-      GL.drawArrays( GL.TRIANGLES, 0, interleaveDataGL.size );
+      GL.drawArrays( GL.TRIANGLES, 0, dataGL.size );
    }
    // override this for drawing the first frame
    public

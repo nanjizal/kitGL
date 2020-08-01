@@ -55,17 +55,27 @@ var fragmentString2: String =
     'varying vec4 vcol;' +
     'varying vec2 texture;' +
     
-    'uniform sampler2D image;' +
+    'uniform sampler2D uImage0;' +
     
     'void main(void) {' +
+    /*'float bound =   step( texture.s, 1. ) *' +
+                    'step( texture.t, 1. ) *' +
+                ' ( 1. - step( texture.s, 0. ) ) * ' +
+                ' ( 1. - step( texture.t, 0. ) );' + 
+        'vec2 clampedUv = clamp(texture, 0., 1.);'+*/
+        'vec4 texcolor = texture2D( uImage0, vec2( texture.s, texture.t ) ) * vcol;'+
+        //'vec4 texcolor = texture2D( image, vec2( clampedUv.s, clampedUv.t + 0.5 ) ) * vcol;'+
+        'texcolor.rgb *= vcol.a; ' + 
+        'gl_FragColor = texcolor;' + /*bound*texcolor;' + */
+    /*
         'float bound =   step( texture.s, 1. ) *' +
                         'step( texture.t, 1. ) *' +
                     ' ( 1. - step( texture.s, 0. ) ) * ' +
-                    ' ( 1. - step( texture.t, 0. ) );' +
-                    
-        'vec4 texcolor = texture2D( image, vec2( texture.s, texture.t ) ) * vcol;' +
+                    ' ( 1. - step( texture.t, 0. ) );' + 
+                   
+        'vec4 texcolor = texture2D( image, vec2( texture.s, texture.t ) ) * vcol;' + 
         'texcolor.rgb *= vcol.a; ' + 
-        'gl_FragColor = bound * texcolor;' +
+        'gl_FragColor = bound * texcolor;' +*/
     '}';
 
 

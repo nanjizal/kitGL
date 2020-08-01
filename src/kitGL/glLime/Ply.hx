@@ -15,9 +15,9 @@ import kitGL.glLime.BufferGL;
 import kitGL.glLime.setup.IAppGL;
 import lime.graphics.opengl.GLBuffer;
 
-class InterleaveAlterGL implements IAppGL{
+class Ply implements IAppGL{
     var program: GLProgram;
-    public var interleaveDataGL: InterleaveDataGL;
+    public var dataGL: DataGL;
     public var width:  Int;
     public var height: Int;
     public var buf:    GLBuffer;
@@ -35,7 +35,7 @@ class InterleaveAlterGL implements IAppGL{
         draw();
         buf = interleaveXYZ_RGBA( gl
                                 , program
-                                , cast interleaveDataGL.data
+                                , cast dataGL.data
                                 , 'vertexPosition', 'vertexColor' );
     }
     // override this for drawing the first frame
@@ -47,9 +47,9 @@ class InterleaveAlterGL implements IAppGL{
         clearAll( gl, width, height );
         renderDraw();
         gl.bindBuffer(gl.ARRAY_BUFFER, buf );
-        gl.bufferSubData(gl.ARRAY_BUFFER, 0, cast interleaveDataGL.data );
+        gl.bufferSubData(gl.ARRAY_BUFFER, 0, cast dataGL.data );
         gl.useProgram( program );
-        gl.drawArrays( gl.TRIANGLES, 0, interleaveDataGL.size );
+        gl.drawArrays( gl.TRIANGLES, 0, dataGL.size );
     }
     // override this for drawing every frame or changing the data.
     public

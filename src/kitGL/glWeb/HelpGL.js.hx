@@ -4,6 +4,7 @@ import js.html.webgl.RenderingContext;
 import js.html.webgl.ContextAttributes;
 import js.html.webgl.Texture;
 import js.html.webgl.Shader;
+import js.html.webgl.UniformLocation;
 import js.html.webgl.Program;
 import js.html.webgl.UniformLocation;
 import js.html.Image;
@@ -47,36 +48,51 @@ function shaderSetup( gl: RenderingContext
      }
      return shader;
 }
+
 inline
-function uploadImage( gl: RenderingContext, imageIndex: Int, image: Image ){
+function imageUniform( gl:      RenderingContext
+                     , program: Program
+                     , name:    String ): UniformLocation {
+    var imageUniform = gl.getUniformLocation( program, name );
+    gl.uniform1i( imageUniform, 0 );
+    //gl.blendFunc( RenderingContext.SRC_ALPHA, RenderingContext.ONE_MINUS_SRC_ALPHA );
+    //gl.enable( RenderingContext.BLEND );
+    return imageUniform;
+}
+
+inline
+function updateTexture( gl: RenderingContext, texture: Texture, image: Image ){
     var _2D     = RenderingContext.TEXTURE_2D;
     var rgba    = RenderingContext.RGBA;
     var texture = gl.createTexture();
+    var srcType = RenderingContext.UNSIGNED_BYTE;
+    gl.bindTexture( _2D, texture );
+    gl.texImage2D( _2D, 0, rgba, rgba, srcType, image );
+}
+
+inline
+function uploadImage( gl: RenderingContext, imageIndex: Int, image: Image ): Texture {
+    var _2D     = RenderingContext.TEXTURE_2D;
+    var rgba    = RenderingContext.RGBA;
+    var texture = gl.createTexture();
+    var srcType = RenderingContext.UNSIGNED_BYTE;
     activateTexture( gl, imageIndex );
     gl.bindTexture( _2D, texture );
     textureStandard( gl ); // hard coded for now
-    gl.texImage2D( _2D, 0, rgba, rgba, RenderingContext.UNSIGNED_BYTE, image );
+    gl.texImage2D( _2D, 0, rgba, rgba, srcType, image );
     return texture;
 }
 inline
 function activateTexture( gl: RenderingContext, imageIndex: Int ){
     switch( imageIndex ){
-        case 0:
-            gl.activeTexture( RenderingContext.TEXTURE0 );
-        case 1:
-            gl.activeTexture( RenderingContext.TEXTURE1 );
-        case 2:
-            gl.activeTexture( RenderingContext.TEXTURE2 );
-        case 3:
-            gl.activeTexture( RenderingContext.TEXTURE3 );
-        case 4:
-            gl.activeTexture( RenderingContext.TEXTURE4 );
-        case 5: 
-            gl.activeTexture( RenderingContext.TEXTURE5 );
-        case 6:
-            gl.activeTexture( RenderingContext.TEXTURE6 );
-        default:
-            gl.activeTexture( RenderingContext.TEXTURE7 );
+        case 0: gl.activeTexture( RenderingContext.TEXTURE0 );
+        case 1: gl.activeTexture( RenderingContext.TEXTURE1 );
+        case 2: gl.activeTexture( RenderingContext.TEXTURE2 );
+        case 3: gl.activeTexture( RenderingContext.TEXTURE3 );
+        case 4: gl.activeTexture( RenderingContext.TEXTURE4 );
+        case 5: gl.activeTexture( RenderingContext.TEXTURE5 );
+        case 6: gl.activeTexture( RenderingContext.TEXTURE6 );
+        default: gl.activeTexture( RenderingContext.TEXTURE7 );
     }
 }
 inline
@@ -84,25 +100,38 @@ function textureStandard( gl: RenderingContext ){
     var _2D     = RenderingContext.TEXTURE_2D;
     var clamp   = RenderingContext.CLAMP_TO_EDGE;
     var nearest = RenderingContext.NEAREST;
+    var linear  = RenderingContext.LINEAR;
     gl.pixelStorei( RenderingContext.UNPACK_FLIP_Y_WEBGL, 1 );
+    
     gl.texParameteri( _2D, RenderingContext.TEXTURE_WRAP_S, clamp );
     gl.texParameteri( _2D, RenderingContext.TEXTURE_WRAP_T, clamp );
     gl.texParameteri( _2D, RenderingContext.TEXTURE_MIN_FILTER, nearest );
     gl.texParameteri( _2D, RenderingContext.TEXTURE_MAG_FILTER, nearest );
+    
+    /*
+     gl.texParameteri( _2D, RenderingContext.TEXTURE_MAG_FILTER, linear );
+     gl.texParameteri( _2D, RenderingContext.TEXTURE_MIN_FILTER, linear );
+     gl.texParameteri( _2D, RenderingContext.TEXTURE_WRAP_S, clamp );
+     gl.texParameteri( _2D, RenderingContext.TEXTURE_WRAP_T, clamp );
+    */
 }
 // just used for docs
 class HelpGL {
     public var clearAll_:( gl: RenderingContext, width: Int, height: Int ) -> Void = clearAll;
-    public var programSetup_:(  gl:          RenderingContext
-                              , strVertex:   String
-                              , strFragment: String ) -> Program = programSetup;
-    public var shaderSetup_: ( gl:           RenderingContext
-                             , shaderType:   Int
-                             , str:          String ) -> Shader  = shaderSetup;
-    public var uploadImage_: ( gl:           RenderingContext
-                             , imageIndex:   Int
-                             , image:        Image ) -> Texture   = uploadImage;
-    public var activateTexture_: ( gl: RenderingContext, imageIndex: Int ) -> Void = activateTexture;
-    public var textureStandard_: ( gl: RenderingContext ) -> Void = textureStandard;
+    public var programSetup_:    ( gl:           RenderingContext
+                                 , strVertex:    String
+                                 , strFragment:  String ) -> Program = programSetup;
+    public var shaderSetup_:     ( gl:           RenderingContext
+                                 , shaderType:   Int
+                                 , str:          String ) -> Shader  = shaderSetup;
+    public var uploadImage_:     ( gl:           RenderingContext
+                                 , imageIndex:   Int
+                                 , image:        Image ) -> Texture   = uploadImage;
+    public var updateTexture_:   ( gl:           RenderingContext
+                                 , texture:      Texture
+                                 , image:        Image ) -> Void   = updateTexture;
+    public var activateTexture_: ( gl:           RenderingContext
+                                 , imageIndex:   Int ) -> Void = activateTexture;
+    public var textureStandard_: ( gl:           RenderingContext ) -> Void = textureStandard;
 }
 #end
