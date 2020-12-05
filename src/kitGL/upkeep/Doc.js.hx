@@ -10,6 +10,9 @@ import kitGL.glWeb.ImageLoader;
 import kitGL.glWeb.DataGL;
 import kitGL.glWeb.Ply;
 import kitGL.glWeb.PlyUV;
+import kitGL.glWeb.ImageGL;
+import kitGL.glWeb.TextureShader;
+
 
 //import kitGL.nme.BufferGL;
 //import kitGL.nme.ColorPositions;

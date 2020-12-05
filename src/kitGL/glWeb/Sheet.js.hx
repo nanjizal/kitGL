@@ -39,7 +39,9 @@ class Sheet {
         domGL2D             = cast canvasGL;
         styleZero( domGL );
         if( autoChild ) Browser.document.body.appendChild( cast canvas2D );
-        gl                  = canvasGL.getContextWebGL();
+        //gl                  = canvasGL.getContextWebGL();
+        //gl                  = canvas.getContext("webgl", { alpha: false }};
+        gl                  = canvasGL.getContext("webgl", { premultipliedAlpha: false } );
         cx                  = canvas2D.getContext('2d');
     }
     public inline

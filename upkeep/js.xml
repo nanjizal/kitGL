@@ -9809,17 +9809,6 @@
 			<m n=":native"><e>"HTMLCanvasElement"</e></m>
 		</meta>
 	</class>
-	<class path="js.html._CanvasElement.CanvasUtil" params="" file="/usr/local/lib/haxe/std/js/html/CanvasElement.hx" private="1" module="js.html.CanvasElement">
-		<getContextWebGL public="1" set="method" line="87" static="1"><f a="canvas:attribs">
-	<c path="js.html.CanvasElement"/>
-	<a/>
-	<c path="js.html.webgl.RenderingContext"/>
-</f></getContextWebGL>
-		<meta>
-			<m n=":keep"/>
-			<m n=":directlyUsed"/>
-		</meta>
-	</class>
 	<class path="js.html.CanvasGradient" params="" file="/usr/local/lib/haxe/std/js/html/CanvasGradient.hx" extern="1">
 		<addColorStop public="1" set="method">
 			<f a="offset:color">
@@ -40618,7 +40607,10 @@
 	asynchronous operation and its resulting value.
 
 	Documentation [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
-		<meta><m n=":native"><e>"Promise"</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"Promise"</e></m>
+		</meta>
 	</class>
 	<abstract path="js.lib.PromiseHandler" params="T:TOut" file="/usr/local/lib/haxe/std/js/lib/Promise.hx" module="js.lib.Promise">
 		<from>
@@ -41476,7 +41468,10 @@
 	methods, or using standard array index syntax (that is, using bracket notation).
 
 	Documentation [Uint16Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array) by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array$history), licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).</haxe_doc>
-		<meta><m n=":native"><e>"Uint16Array"</e></m></meta>
+		<meta>
+			<m n=":directlyUsed"/>
+			<m n=":native"><e>"Uint16Array"</e></m>
+		</meta>
 	</class>
 	<class path="js.lib.Uint32Array" params="" file="/usr/local/lib/haxe/std/js/lib/Uint32Array.hx" extern="1">
 		<implements path="js.lib.ArrayBufferView"/>
@@ -44435,7 +44430,7 @@
 	<class path="kitGL.glWeb.BufferGL" params="" file="src/kitGL/glWeb/BufferGL.js.hx">
 		<bufferSetup_ public="1" expr="bufferSetup">
 			<f a="gl:program:data:?isDynamic">
-				<c path="js.html.webgl.RenderingContext"/>
+				<t path="kitGL.glWeb.GL"/>
 				<c path="js.html.webgl.Program"/>
 				<x path="haxe.io.Float32Array"/>
 				<x path="Bool"/>
@@ -44457,7 +44452,7 @@
 		</interleaveXYZ_RGBA_>
 		<interleaveXYZ_RGBA_UV_ public="1" expr="interleaveXYZ_RGBA_UV">
 			<f a="gl:program:data:inPosName:inColName:inUVName:?isDynamic">
-				<c path="js.html.webgl.RenderingContext"/>
+				<t path="kitGL.glWeb.GL"/>
 				<c path="js.html.webgl.Program"/>
 				<x path="haxe.io.Float32Array"/>
 				<c path="String"/>
@@ -44470,7 +44465,7 @@
 		</interleaveXYZ_RGBA_UV_>
 		<interleaveXY_RGB_ public="1" expr="interleaveXY_RGB">
 			<f a="gl:program:data:inPosName:inColName:?isDynamic">
-				<c path="js.html.webgl.RenderingContext"/>
+				<t path="kitGL.glWeb.GL"/>
 				<c path="js.html.webgl.Program"/>
 				<x path="haxe.io.Float32Array"/>
 				<c path="String"/>
@@ -44482,7 +44477,7 @@
 		</interleaveXY_RGB_>
 		<colorsXYZ_RGBA_ public="1" expr="colorsXYZ_RGBA">
 			<f a="gl:program:positions:colors:inPosName:inColName">
-				<c path="js.html.webgl.RenderingContext"/>
+				<t path="kitGL.glWeb.GL"/>
 				<c path="js.html.webgl.Program"/>
 				<x path="haxe.io.Float32Array"/>
 				<x path="haxe.io.Float32Array"/>
@@ -44494,7 +44489,7 @@
 		</colorsXYZ_RGBA_>
 		<colorsXY_RGBA_ public="1" expr="colorsXY_RGBA">
 			<f a="gl:program:positions:colors:inPosName:inColName">
-				<c path="js.html.webgl.RenderingContext"/>
+				<t path="kitGL.glWeb.GL"/>
 				<c path="js.html.webgl.Program"/>
 				<x path="haxe.io.Float32Array"/>
 				<x path="haxe.io.Float32Array"/>
@@ -44506,7 +44501,7 @@
 		</colorsXY_RGBA_>
 		<posColors_ public="1" expr="posColors">
 			<f a="gl:program:positions:colors:inPosName:inColName:?noPos:?noCols">
-				<c path="js.html.webgl.RenderingContext"/>
+				<t path="kitGL.glWeb.GL"/>
 				<c path="js.html.webgl.Program"/>
 				<x path="haxe.io.Float32Array"/>
 				<x path="haxe.io.Float32Array"/>
@@ -44518,15 +44513,15 @@
 			</f>
 			<meta><m n=":value"><e>posColors</e></m></meta>
 		</posColors_>
-		<new public="1" set="method" line="200">
+		<new public="1" set="method" line="144">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":compilerGenerated"/></meta>
 		</new>
 	</class>
 	<class path="kitGL.glWeb._BufferGL.BufferGL_Fields_" params="" file="src/kitGL/glWeb/BufferGL.js.hx" private="1" module="kitGL.glWeb.BufferGL" final="1">
-		<bufferSetup public="1" get="inline" set="null" line="11" static="1">
+		<bufferSetup public="1" get="inline" set="null" line="12" static="1">
 			<f a="gl:program:data:?isDynamic" v=":::false">
-				<c path="js.html.webgl.RenderingContext"/>
+				<t path="kitGL.glWeb.GL"/>
 				<c path="js.html.webgl.Program"/>
 				<x path="haxe.io.Float32Array"/>
 				<x path="Bool"/>
@@ -44537,9 +44532,33 @@
 				<m n=":value"><e>{ isDynamic : false }</e></m>
 			</meta>
 		</bufferSetup>
-		<interleaveXYZ_RGBA public="1" get="inline" set="null" line="25" static="1">
-			<f a="gl:program:data:inPosName:inColName:?isDynamic" v=":::::false">
-				<c path="js.html.webgl.RenderingContext"/>
+		<dataSet public="1" get="inline" set="null" line="27" static="1">
+			<f a="gl:data:isDraw">
+				<t path="kitGL.glWeb.GL"/>
+				<x path="haxe.io.Float32Array"/>
+				<x path="Int"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":has_untyped"/></meta>
+		</dataSet>
+		<inputAttribute public="1" get="inline" set="null" line="33" static="1"><f a="gl:program:name">
+	<t path="kitGL.glWeb.GL"/>
+	<c path="js.html.webgl.Program"/>
+	<c path="String"/>
+	<x path="Int"/>
+</f></inputAttribute>
+		<inputAttEnable public="1" get="inline" set="null" line="38" static="1"><f a="gl:program:name:size:stride:off">
+	<t path="kitGL.glWeb.GL"/>
+	<c path="js.html.webgl.Program"/>
+	<c path="String"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+</f></inputAttEnable>
+		<interleaveXYZ_RGBA public="1" get="inline" set="null" line="50" static="1">
+			<f a="gl:program:data:xyzName:rgbaName:?isDynamic" v=":::::false">
+				<t path="kitGL.glWeb.GL"/>
 				<c path="js.html.webgl.Program"/>
 				<x path="haxe.io.Float32Array"/>
 				<c path="String"/>
@@ -44549,9 +44568,9 @@
 			</f>
 			<meta><m n=":value"><e>{ isDynamic : false }</e></m></meta>
 		</interleaveXYZ_RGBA>
-		<interleaveXYZ_RGBA_UV public="1" get="inline" set="null" line="56" static="1">
-			<f a="gl:program:data:inPosName:inColName:inUVName:?isDynamic" v="::::::false">
-				<c path="js.html.webgl.RenderingContext"/>
+		<interleaveXYZ_RGBA_UV public="1" get="inline" set="null" line="63" static="1">
+			<f a="gl:program:data:xyzName:rgbaName:uvName:?isDynamic" v="::::::false">
+				<t path="kitGL.glWeb.GL"/>
 				<c path="js.html.webgl.Program"/>
 				<x path="haxe.io.Float32Array"/>
 				<c path="String"/>
@@ -44562,9 +44581,9 @@
 			</f>
 			<meta><m n=":value"><e>{ isDynamic : false }</e></m></meta>
 		</interleaveXYZ_RGBA_UV>
-		<interleaveXY_RGB public="1" get="inline" set="null" line="98" static="1">
-			<f a="gl:program:data:inPosName:inColName:?isDynamic" v=":::::false">
-				<c path="js.html.webgl.RenderingContext"/>
+		<interleaveXY_RGB public="1" get="inline" set="null" line="78" static="1">
+			<f a="gl:program:data:xyName:rgbName:?isDynamic" v=":::::false">
+				<t path="kitGL.glWeb.GL"/>
 				<c path="js.html.webgl.Program"/>
 				<x path="haxe.io.Float32Array"/>
 				<c path="String"/>
@@ -44574,8 +44593,8 @@
 			</f>
 			<meta><m n=":value"><e>{ isDynamic : false }</e></m></meta>
 		</interleaveXY_RGB>
-		<colorsXYZ_RGBA public="1" get="inline" set="null" line="129" static="1"><f a="gl:program:positions:colors:inPosName:inColName">
-	<c path="js.html.webgl.RenderingContext"/>
+		<colorsXYZ_RGBA public="1" get="inline" set="null" line="90" static="1"><f a="gl:program:positions:colors:inPosName:inColName">
+	<t path="kitGL.glWeb.GL"/>
 	<c path="js.html.webgl.Program"/>
 	<x path="haxe.io.Float32Array"/>
 	<x path="haxe.io.Float32Array"/>
@@ -44586,8 +44605,8 @@
 		<col><c path="js.html.webgl.Buffer"/></col>
 	</a>
 </f></colorsXYZ_RGBA>
-		<colorsXY_RGBA public="1" get="inline" set="null" line="138" static="1"><f a="gl:program:positions:colors:inPosName:inColName">
-	<c path="js.html.webgl.RenderingContext"/>
+		<colorsXY_RGBA public="1" get="inline" set="null" line="99" static="1"><f a="gl:program:positions:colors:inPosName:inColName">
+	<t path="kitGL.glWeb.GL"/>
 	<c path="js.html.webgl.Program"/>
 	<x path="haxe.io.Float32Array"/>
 	<x path="haxe.io.Float32Array"/>
@@ -44598,8 +44617,8 @@
 		<col><c path="js.html.webgl.Buffer"/></col>
 	</a>
 </f></colorsXY_RGBA>
-		<colorsXYZ_RGB public="1" get="inline" set="null" line="147" static="1"><f a="gl:program:positions:colors:inPosName:inColName">
-	<c path="js.html.webgl.RenderingContext"/>
+		<colorsXYZ_RGB public="1" get="inline" set="null" line="108" static="1"><f a="gl:program:positions:colors:inPosName:inColName">
+	<t path="kitGL.glWeb.GL"/>
 	<c path="js.html.webgl.Program"/>
 	<x path="haxe.io.Float32Array"/>
 	<x path="haxe.io.Float32Array"/>
@@ -44610,8 +44629,8 @@
 		<col><c path="js.html.webgl.Buffer"/></col>
 	</a>
 </f></colorsXYZ_RGB>
-		<colorsXY_RGB public="1" get="inline" set="null" line="156" static="1"><f a="gl:program:positions:colors:inPosName:inColName">
-	<c path="js.html.webgl.RenderingContext"/>
+		<colorsXY_RGB public="1" get="inline" set="null" line="117" static="1"><f a="gl:program:positions:colors:inPosName:inColName">
+	<t path="kitGL.glWeb.GL"/>
 	<c path="js.html.webgl.Program"/>
 	<x path="haxe.io.Float32Array"/>
 	<x path="haxe.io.Float32Array"/>
@@ -44622,9 +44641,9 @@
 		<col><c path="js.html.webgl.Buffer"/></col>
 	</a>
 </f></colorsXY_RGB>
-		<posColors public="1" get="inline" set="null" line="165" static="1">
+		<posColors public="1" get="inline" set="null" line="126" static="1">
 			<f a="gl:program:positions:colors:inPosName:inColName:?noPos:?noCols" v="::::::3:4">
-				<c path="js.html.webgl.RenderingContext"/>
+				<t path="kitGL.glWeb.GL"/>
 				<c path="js.html.webgl.Program"/>
 				<x path="haxe.io.Float32Array"/>
 				<x path="haxe.io.Float32Array"/>
@@ -44790,10 +44809,11 @@
 			<meta><m n=":value"><e>{ left_ : 610 }</e></m></meta>
 		</new>
 	</class>
+	<typedef path="kitGL.glWeb.GL" params="" file="src/kitGL/glWeb/GL.js.hx"><c path="js.html.webgl.RenderingContext"/></typedef>
 	<class path="kitGL.glWeb.HelpGL" params="" file="src/kitGL/glWeb/HelpGL.js.hx">
 		<clearAll_ public="1" expr="clearAll">
 			<f a="gl:width:height">
-				<c path="js.html.webgl.RenderingContext"/>
+				<t path="kitGL.glWeb.GL"/>
 				<x path="Int"/>
 				<x path="Int"/>
 				<x path="Void"/>
@@ -44802,7 +44822,7 @@
 		</clearAll_>
 		<programSetup_ public="1" expr="programSetup">
 			<f a="gl:strVertex:strFragment">
-				<c path="js.html.webgl.RenderingContext"/>
+				<t path="kitGL.glWeb.GL"/>
 				<c path="String"/>
 				<c path="String"/>
 				<c path="js.html.webgl.Program"/>
@@ -44811,16 +44831,65 @@
 		</programSetup_>
 		<shaderSetup_ public="1" expr="shaderSetup">
 			<f a="gl:shaderType:str">
-				<c path="js.html.webgl.RenderingContext"/>
+				<t path="kitGL.glWeb.GL"/>
 				<x path="Int"/>
 				<c path="String"/>
 				<c path="js.html.webgl.Shader"/>
 			</f>
 			<meta><m n=":value"><e>shaderSetup</e></m></meta>
 		</shaderSetup_>
+		<passIndicesToShader_ public="1" expr="passIndicesToShader">
+			<f a="gl:indices">
+				<t path="kitGL.glWeb.GL"/>
+				<c path="Array"><x path="Int"/></c>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>passIndicesToShader</e></m></meta>
+		</passIndicesToShader_>
+		<new public="1" set="method" line="71">
+			<f a=""><x path="Void"/></f>
+			<meta><m n=":compilerGenerated"/></meta>
+		</new>
+	</class>
+	<class path="kitGL.glWeb._HelpGL.HelpGL_Fields_" params="" file="src/kitGL/glWeb/HelpGL.js.hx" private="1" module="kitGL.glWeb.HelpGL" final="1">
+		<clearAll public="1" get="inline" set="null" line="14" static="1"><f a="gl:width:height">
+	<t path="kitGL.glWeb.GL"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></clearAll>
+		<programSetup public="1" get="inline" set="null" line="29" static="1"><f a="gl:strVertex:strFragment">
+	<t path="kitGL.glWeb.GL"/>
+	<c path="String"/>
+	<c path="String"/>
+	<c path="js.html.webgl.Program"/>
+</f></programSetup>
+		<shaderSetup public="1" get="inline" set="null" line="49" static="1"><f a="gl:shaderType:str">
+	<t path="kitGL.glWeb.GL"/>
+	<x path="Int"/>
+	<c path="String"/>
+	<c path="js.html.webgl.Shader"/>
+</f></shaderSetup>
+		<passIndicesToShader public="1" get="inline" set="null" line="62" static="1"><f a="gl:indices">
+	<t path="kitGL.glWeb.GL"/>
+	<c path="Array"><x path="Int"/></c>
+	<x path="Void"/>
+</f></passIndicesToShader>
+		<meta><m n=":directlyUsed"/></meta>
+	</class>
+	<class path="kitGL.glWeb.ImageGL" params="" file="src/kitGL/glWeb/ImageGL.js.hx">
+		<imageUniform_ public="1" expr="imageUniform">
+			<f a="gl:program:name">
+				<t path="kitGL.glWeb.GL"/>
+				<c path="js.html.webgl.Program"/>
+				<c path="String"/>
+				<c path="js.html.webgl.UniformLocation"/>
+			</f>
+			<meta><m n=":value"><e>imageUniform</e></m></meta>
+		</imageUniform_>
 		<uploadImage_ public="1" expr="uploadImage">
 			<f a="gl:imageIndex:image">
-				<c path="js.html.webgl.RenderingContext"/>
+				<t path="kitGL.glWeb.GL"/>
 				<x path="Int"/>
 				<c path="js.html.Image"/>
 				<c path="js.html.webgl.Texture"/>
@@ -44829,7 +44898,7 @@
 		</uploadImage_>
 		<updateTexture_ public="1" expr="updateTexture">
 			<f a="gl:texture:image">
-				<c path="js.html.webgl.RenderingContext"/>
+				<t path="kitGL.glWeb.GL"/>
 				<c path="js.html.webgl.Texture"/>
 				<c path="js.html.Image"/>
 				<x path="Void"/>
@@ -44837,8 +44906,9 @@
 			<meta><m n=":value"><e>updateTexture</e></m></meta>
 		</updateTexture_>
 		<activateTexture_ public="1" expr="activateTexture">
-			<f a="gl:imageIndex">
-				<c path="js.html.webgl.RenderingContext"/>
+			<f a="gl:texture:imageIndex">
+				<t path="kitGL.glWeb.GL"/>
+				<c path="js.html.webgl.Texture"/>
 				<x path="Int"/>
 				<x path="Void"/>
 			</f>
@@ -44846,97 +44916,142 @@
 		</activateTexture_>
 		<textureStandard_ public="1" expr="textureStandard">
 			<f a="gl">
-				<c path="js.html.webgl.RenderingContext"/>
+				<t path="kitGL.glWeb.GL"/>
 				<x path="Void"/>
 			</f>
 			<meta><m n=":value"><e>textureStandard</e></m></meta>
 		</textureStandard_>
-		<new public="1" set="method" line="119">
+		<new public="1" set="method" line="144">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":compilerGenerated"/></meta>
 		</new>
 	</class>
-	<class path="kitGL.glWeb._HelpGL.HelpGL_Fields_" params="" file="src/kitGL/glWeb/HelpGL.js.hx" private="1" module="kitGL.glWeb.HelpGL" final="1">
-		<clearAll public="1" get="inline" set="null" line="13" static="1"><f a="gl:width:height">
-	<c path="js.html.webgl.RenderingContext"/>
-	<x path="Int"/>
-	<x path="Int"/>
+	<class path="kitGL.glWeb._ImageGL.ImageGL_Fields_" params="" file="src/kitGL/glWeb/ImageGL.js.hx" private="1" module="kitGL.glWeb.ImageGL" final="1">
+		<setAsRGBA public="1" get="inline" set="null" line="15" static="1"><f a="gl:img">
+	<t path="kitGL.glWeb.GL"/>
+	<c path="js.html.Image"/>
 	<x path="Void"/>
-</f></clearAll>
-		<programSetup public="1" get="inline" set="null" line="19" static="1"><f a="gl:strVertex:strFragment">
-	<c path="js.html.webgl.RenderingContext"/>
-	<c path="String"/>
-	<c path="String"/>
+</f></setAsRGBA>
+		<setAsRGB public="1" get="inline" set="null" line="20" static="1"><f a="gl:img">
+	<t path="kitGL.glWeb.GL"/>
+	<c path="js.html.Image"/>
+	<x path="Void"/>
+</f></setAsRGB>
+		<transformUV public="1" get="inline" set="null" line="25" static="1"><f a="gl:program:name:?val">
+	<t path="kitGL.glWeb.GL"/>
 	<c path="js.html.webgl.Program"/>
-</f></programSetup>
-		<shaderSetup public="1" get="inline" set="null" line="39" static="1"><f a="gl:shaderType:str">
-	<c path="js.html.webgl.RenderingContext"/>
-	<x path="Int"/>
 	<c path="String"/>
-	<c path="js.html.webgl.Shader"/>
-</f></shaderSetup>
-		<imageUniform public="1" get="inline" set="null" line="53" static="1"><f a="gl:program:name">
-	<c path="js.html.webgl.RenderingContext"/>
+	<c path="Array"><x path="Float"/></c>
+	<c path="js.html.webgl.UniformLocation"/>
+</f></transformUV>
+		<imageUniform public="1" get="inline" set="null" line="39" static="1"><f a="gl:program:name">
+	<t path="kitGL.glWeb.GL"/>
 	<c path="js.html.webgl.Program"/>
 	<c path="String"/>
 	<c path="js.html.webgl.UniformLocation"/>
 </f></imageUniform>
-		<updateTexture public="1" get="inline" set="null" line="64" static="1"><f a="gl:texture:image">
-	<c path="js.html.webgl.RenderingContext"/>
+		<colorUniform public="1" get="inline" set="null" line="53" static="1"><f a="gl:program:name:int">
+	<t path="kitGL.glWeb.GL"/>
+	<c path="js.html.webgl.Program"/>
+	<c path="String"/>
+	<x path="Int"/>
+	<c path="js.html.webgl.UniformLocation"/>
+</f></colorUniform>
+		<rgbaUniform public="1" get="inline" set="null" line="66" static="1"><f a="gl:program:name:red:green:blue:alpha">
+	<t path="kitGL.glWeb.GL"/>
+	<c path="js.html.webgl.Program"/>
+	<c path="String"/>
+	<x path="Float"/>
+	<x path="Float"/>
+	<x path="Float"/>
+	<x path="Float"/>
+	<c path="js.html.webgl.UniformLocation"/>
+</f></rgbaUniform>
+		<updateTexture public="1" get="inline" set="null" line="80" static="1"><f a="gl:texture:image">
+	<t path="kitGL.glWeb.GL"/>
 	<c path="js.html.webgl.Texture"/>
 	<c path="js.html.Image"/>
 	<x path="Void"/>
 </f></updateTexture>
-		<uploadImage public="1" get="inline" set="null" line="74" static="1"><f a="gl:imageIndex:image">
-	<c path="js.html.webgl.RenderingContext"/>
+		<uploadImage public="1" get="inline" set="null" line="91" static="1"><f a="gl:imageIndex:image">
+	<t path="kitGL.glWeb.GL"/>
 	<x path="Int"/>
 	<c path="js.html.Image"/>
 	<c path="js.html.webgl.Texture"/>
 </f></uploadImage>
-		<activateTexture public="1" get="inline" set="null" line="86" static="1"><f a="gl:imageIndex">
-	<c path="js.html.webgl.RenderingContext"/>
+		<activateTexture public="1" get="inline" set="null" line="105" static="1"><f a="gl:texture:imageIndex">
+	<t path="kitGL.glWeb.GL"/>
+	<c path="js.html.webgl.Texture"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></activateTexture>
-		<textureStandard public="1" get="inline" set="null" line="99" static="1"><f a="gl">
-	<c path="js.html.webgl.RenderingContext"/>
+		<textureStandard public="1" get="inline" set="null" line="120" static="1"><f a="gl">
+	<t path="kitGL.glWeb.GL"/>
 	<x path="Void"/>
 </f></textureStandard>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<typedef path="kitGL.glWeb.Hash" params="T" file="src/kitGL/glWeb/ImageLoader.js.hx" module="kitGL.glWeb.ImageLoader"><c path="haxe.ds.StringMap"><c path="kitGL.glWeb.Hash.T"/></c></typedef>
 	<class path="kitGL.glWeb.ImageLoader" params="" file="src/kitGL/glWeb/ImageLoader.js.hx">
-		<images public="1"><t path="kitGL.glWeb.Hash"><c path="js.html.ImageElement"/></t></images>
-		<imageArr public="1"><c path="Array"><c path="js.html.ImageElement"/></c></imageArr>
+		<loadImagePromise public="1" get="inline" set="null" line="82" static="1"><f a="url:drawn">
+	<c path="String"/>
+	<f a="">
+		<c path="js.html.Image"/>
+		<unknown/>
+	</f>
+	<c path="js.lib.Promise"><unknown/></c>
+</f></loadImagePromise>
+		<images public="1"><t path="kitGL.glWeb.Hash"><c path="js.html.Image"/></t></images>
+		<imageArr public="1"><c path="Array"><c path="js.html.Image"/></c></imageArr>
+		<imageLoaded><f a=":">
+	<c path="String"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></imageLoaded>
+		<imageFinish><f a=""><x path="Void"/></f></imageFinish>
 		<loaded><f a=""><x path="Void"/></f></loaded>
 		<count><x path="Int"/></count>
-		<load set="method" line="22"><f a="img">
+		<traceImageLoad set="method" line="31"><f a="name:count">
+	<c path="String"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></traceImageLoad>
+		<traceFinish set="method" line="34"><f a=""><x path="Void"/></f></traceFinish>
+		<load set="method" line="37"><f a="img">
 	<c path="String"/>
 	<x path="Void"/>
 </f></load>
-		<loadEncoded public="1" set="method" line="34"><f a="imageEncoded:imageNames">
+		<loadEncoded public="1" set="method" line="46"><f a="imageEncoded:imageNames">
 	<c path="Array"><c path="String"/></c>
 	<c path="Array"><c path="String"/></c>
 	<x path="Void"/>
 </f></loadEncoded>
-		<encodedLoad set="method" line="43"><f a="imgStr:name:index">
+		<encodedLoad set="method" line="55"><f a="imgStr:name:index">
 	<c path="String"/>
 	<c path="String"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></encodedLoad>
-		<store set="method" line="55"><f a="image:name:index:e">
+		<topLeft set="method" line="64"><f a="image">
 	<c path="js.html.ImageElement"/>
+	<x path="Void"/>
+</f></topLeft>
+		<store set="method" line="72"><f a="image:name:index:e">
+	<c path="js.html.Image"/>
 	<c path="String"/>
 	<x path="Int"/>
 	<c path="js.html.Event"/>
 	<x path="Void"/>
 </f></store>
-		<new public="1" set="method" line="14"><f a="imageNames:loaded_">
-	<c path="Array"><c path="String"/></c>
-	<f a=""><x path="Void"/></f>
-	<x path="Void"/>
-</f></new>
+		<new public="1" set="method" line="19">
+			<f a="imageNames:loaded_:?traceOut" v="::false">
+				<c path="Array"><c path="String"/></c>
+				<f a=""><x path="Void"/></f>
+				<x path="Bool"/>
+				<x path="Void"/>
+			</f>
+			<meta><m n=":value"><e>{ traceOut : false }</e></m></meta>
+		</new>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<class path="kitGL.glWeb.Ply" params="" file="src/kitGL/glWeb/Ply.js.hx">
@@ -44975,6 +45090,10 @@
 		<height public="1"><x path="Int"/></height>
 		<buf public="1"><c path="js.html.webgl.Buffer"/></buf>
 		<mainSheet public="1"><c path="kitGL.glWeb.Sheet"/></mainSheet>
+		<indices expr="new Array&lt;Int&gt;()">
+			<c path="Array"><x path="Int"/></c>
+			<meta><m n=":value"><e><![CDATA[new Array<Int>()]]></e></m></meta>
+		</indices>
 		<textureArr public="1" expr="new Array&lt;Texture&gt;()">
 			<c path="Array"><c path="js.html.webgl.Texture"/></c>
 			<meta><m n=":value"><e><![CDATA[new Array<Texture>()]]></e></m></meta>
@@ -44991,13 +45110,42 @@
 			<c path="String"/>
 			<meta><m n=":value"><e>"vertexTexture"</e></m></meta>
 		</vertexTexture>
-		<creategl get="inline" set="null" line="41"><f a=""><x path="Void"/></f></creategl>
-		<setup get="inline" set="null" line="47"><f a=""><x path="Void"/></f></setup>
-		<draw public="1" set="method" line="76"><f a=""><x path="Void"/></f></draw>
-		<render get="inline" set="null" line="80"><f a=""><x path="Void"/></f></render>
-		<renderDraw public="1" set="method" line="109"><f a=""><x path="Void"/></f></renderDraw>
-		<setAnimate get="inline" set="null" line="111"><f a=""><x path="Void"/></f></setAnimate>
-		<new public="1" set="method" line="33"><f a="width_:height_">
+		<uniformImage final="1" expr="&quot;uImage0&quot;">
+			<c path="String"/>
+			<meta><m n=":value"><e>"uImage0"</e></m></meta>
+		</uniformImage>
+		<uniformColor final="1" expr="&quot;bgColor&quot;">
+			<c path="String"/>
+			<meta><m n=":value"><e>"bgColor"</e></m></meta>
+		</uniformColor>
+		<uvTransform final="1" expr="&quot;uvTransform&quot;">
+			<c path="String"/>
+			<meta><m n=":value"><e>"uvTransform"</e></m></meta>
+		</uvTransform>
+		<creategl get="inline" set="null" line="47"><f a=""><x path="Void"/></f></creategl>
+		<tex><c path="js.html.webgl.Texture"/></tex>
+		<img public="1"><c path="js.html.Image"/></img>
+		<setup get="inline" set="null" line="55"><f a=""><x path="Void"/></f></setup>
+		<setBackgroundShapeColor public="1" set="method" line="80"><f a="red:green:blue:alpha">
+	<x path="Float"/>
+	<x path="Float"/>
+	<x path="Float"/>
+	<x path="Float"/>
+	<x path="Void"/>
+</f></setBackgroundShapeColor>
+		<draw public="1" set="method" line="84"><f a=""><x path="Void"/></f></draw>
+		<render get="inline" set="null" line="88"><f a=""><x path="Void"/></f></render>
+		<drawShape public="1" set="method" line="107"><f a="start:end:bgColor">
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Int"/>
+	<x path="Void"/>
+</f></drawShape>
+		<withAlpha public="1" get="inline" set="null" line="125"><f a=""><x path="Void"/></f></withAlpha>
+		<notAlpha public="1" get="inline" set="null" line="130"><f a=""><x path="Void"/></f></notAlpha>
+		<renderDraw public="1" set="method" line="136"><f a=""><x path="Void"/></f></renderDraw>
+		<setAnimate get="inline" set="null" line="138"><f a=""><x path="Void"/></f></setAnimate>
+		<new public="1" set="method" line="40"><f a="width_:height_">
 	<x path="Int"/>
 	<x path="Int"/>
 	<x path="Void"/>
@@ -45007,7 +45155,7 @@
 		<this><c path="String"/></this>
 		<meta><m n=":enum"/></meta>
 		<impl><class path="kitGL.glWeb._Shaders.Shaders_Impl_" params="" file="src/kitGL/glWeb/Shaders.js.hx" private="1" module="kitGL.glWeb.Shaders" extern="1" final="1">
-	<vertexString0_ public="1" get="inline" set="null" expr="cast vertexString0" line="84" static="1">
+	<vertexString0_ public="1" get="inline" set="null" expr="cast vertexString0" line="21" static="1">
 		<x path="kitGL.glWeb.Shaders"/>
 		<meta>
 			<m n=":value"><e>cast vertexString0</e></m>
@@ -45015,7 +45163,7 @@
 			<m n=":impl"/>
 		</meta>
 	</vertexString0_>
-	<fragmentString0_ public="1" get="inline" set="null" expr="cast fragmentString0" line="85" static="1">
+	<fragmentString0_ public="1" get="inline" set="null" expr="cast fragmentString0" line="22" static="1">
 		<x path="kitGL.glWeb.Shaders"/>
 		<meta>
 			<m n=":value"><e>cast fragmentString0</e></m>
@@ -45023,35 +45171,11 @@
 			<m n=":impl"/>
 		</meta>
 	</fragmentString0_>
-	<vertexString1_ public="1" get="inline" set="null" expr="cast vertexString1" line="86" static="1">
-		<x path="kitGL.glWeb.Shaders"/>
-		<meta>
-			<m n=":value"><e>cast vertexString1</e></m>
-			<m n=":enum"/>
-			<m n=":impl"/>
-		</meta>
-	</vertexString1_>
-	<vertexString2_ public="1" get="inline" set="null" expr="cast vertexString2" line="87" static="1">
-		<x path="kitGL.glWeb.Shaders"/>
-		<meta>
-			<m n=":value"><e>cast vertexString2</e></m>
-			<m n=":enum"/>
-			<m n=":impl"/>
-		</meta>
-	</vertexString2_>
-	<fragmentString2_ public="1" get="inline" set="null" expr="cast fragmentString2" line="88" static="1">
-		<x path="kitGL.glWeb.Shaders"/>
-		<meta>
-			<m n=":value"><e>cast fragmentString2</e></m>
-			<m n=":enum"/>
-			<m n=":impl"/>
-		</meta>
-	</fragmentString2_>
 	<meta><m n=":enum"/></meta>
 </class></impl>
 	</abstract>
 	<class path="kitGL.glWeb._Shaders.Shaders_Impl_" params="" file="src/kitGL/glWeb/Shaders.js.hx" private="1" module="kitGL.glWeb.Shaders" extern="1" final="1">
-		<vertexString0_ public="1" get="inline" set="null" expr="cast vertexString0" line="84" static="1">
+		<vertexString0_ public="1" get="inline" set="null" expr="cast vertexString0" line="21" static="1">
 			<x path="kitGL.glWeb.Shaders"/>
 			<meta>
 				<m n=":value"><e>cast vertexString0</e></m>
@@ -45059,7 +45183,7 @@
 				<m n=":impl"/>
 			</meta>
 		</vertexString0_>
-		<fragmentString0_ public="1" get="inline" set="null" expr="cast fragmentString0" line="85" static="1">
+		<fragmentString0_ public="1" get="inline" set="null" expr="cast fragmentString0" line="22" static="1">
 			<x path="kitGL.glWeb.Shaders"/>
 			<meta>
 				<m n=":value"><e>cast fragmentString0</e></m>
@@ -45067,30 +45191,6 @@
 				<m n=":impl"/>
 			</meta>
 		</fragmentString0_>
-		<vertexString1_ public="1" get="inline" set="null" expr="cast vertexString1" line="86" static="1">
-			<x path="kitGL.glWeb.Shaders"/>
-			<meta>
-				<m n=":value"><e>cast vertexString1</e></m>
-				<m n=":enum"/>
-				<m n=":impl"/>
-			</meta>
-		</vertexString1_>
-		<vertexString2_ public="1" get="inline" set="null" expr="cast vertexString2" line="87" static="1">
-			<x path="kitGL.glWeb.Shaders"/>
-			<meta>
-				<m n=":value"><e>cast vertexString2</e></m>
-				<m n=":enum"/>
-				<m n=":impl"/>
-			</meta>
-		</vertexString2_>
-		<fragmentString2_ public="1" get="inline" set="null" expr="cast fragmentString2" line="88" static="1">
-			<x path="kitGL.glWeb.Shaders"/>
-			<meta>
-				<m n=":value"><e>cast fragmentString2</e></m>
-				<m n=":enum"/>
-				<m n=":impl"/>
-			</meta>
-		</fragmentString2_>
 		<meta><m n=":enum"/></meta>
 	</class>
 	<class path="kitGL.glWeb._Shaders.Shaders_Fields_" params="" file="src/kitGL/glWeb/Shaders.js.hx" private="1" module="kitGL.glWeb.Shaders" final="1">
@@ -45102,18 +45202,6 @@
 			<c path="String"/>
 			<meta><m n=":value"><e>"precision mediump float;" + "varying vec4 vcol;" + "void main(void) {" + " gl_FragColor = vcol;" + "}"</e></m></meta>
 		</fragmentString0>
-		<vertexString1 public="1" get="inline" set="null" expr="&quot;attribute vec3 vertexPosition;&quot; + &quot;attribute vec4 vertexColor;&quot; + &quot;attribute vec2 vertexTexture;&quot; + &quot;varying vec4 vcol;&quot; + &quot;varying vec2 texture;&quot; + &quot;void main(void) {&quot; + &quot; gl_Position = vec4( vertexPosition, 1.0);&quot; + &quot; texture = vec2( vertexTexture.x , 1.-vertexTexture.y );&quot; + &quot; vcol = vertexColor;&quot; + &quot;}&quot;" line="22" static="1">
-			<c path="String"/>
-			<meta><m n=":value"><e>"attribute vec3 vertexPosition;" + "attribute vec4 vertexColor;" + "attribute vec2 vertexTexture;" + "varying vec4 vcol;" + "varying vec2 texture;" + "void main(void) {" + " gl_Position = vec4( vertexPosition, 1.0);" + " texture = vec2( vertexTexture.x , 1.-vertexTexture.y );" + " vcol = vertexColor;" + "}"</e></m></meta>
-		</vertexString1>
-		<vertexString2 public="1" get="inline" set="null" expr="&quot;attribute vec3 vertexPosition;&quot; + &quot;attribute vec4 vertexColor;&quot; + &quot;attribute vec2 vertexTexture;&quot; + &quot;varying vec4 vcol;&quot; + &quot;varying vec2 texture;&quot; + &quot;uniform mat4 modelViewProjection;&quot; + &quot;void main(void) {&quot; + &quot; gl_Position = modelViewProjection * vec4( vertexPosition, 1.0);&quot; + &quot; texture = vec2( vertexTexture.x , 1.-vertexTexture.y );&quot; + &quot; vcol = vertexColor;&quot; + &quot;}&quot;" line="37" static="1">
-			<c path="String"/>
-			<meta><m n=":value"><e>"attribute vec3 vertexPosition;" + "attribute vec4 vertexColor;" + "attribute vec2 vertexTexture;" + "varying vec4 vcol;" + "varying vec2 texture;" + "uniform mat4 modelViewProjection;" + "void main(void) {" + " gl_Position = modelViewProjection * vec4( vertexPosition, 1.0);" + " texture = vec2( vertexTexture.x , 1.-vertexTexture.y );" + " vcol = vertexColor;" + "}"</e></m></meta>
-		</vertexString2>
-		<fragmentString2 public="1" get="inline" set="null" expr="&quot;precision mediump float;&quot; + &quot;varying vec4 vcol;&quot; + &quot;varying vec2 texture;&quot; + &quot;uniform sampler2D uImage0;&quot; + &quot;void main(void) {&quot; + &quot;vec4 texcolor = texture2D( uImage0, vec2( texture.s, texture.t ) ) * vcol;&quot; + &quot;texcolor.rgb *= vcol.a; &quot; + &quot;gl_FragColor = texcolor;&quot; + &quot;}&quot;" line="53" static="1">
-			<c path="String"/>
-			<meta><m n=":value"><e>"precision mediump float;" + "varying vec4 vcol;" + "varying vec2 texture;" + "uniform sampler2D uImage0;" + "void main(void) {" + "vec4 texcolor = texture2D( uImage0, vec2( texture.s, texture.t ) ) * vcol;" + "texcolor.rgb *= vcol.a; " + "gl_FragColor = texcolor;" + "}"</e></m></meta>
-		</fragmentString2>
 	</class>
 	<class path="kitGL.glWeb.Sheet" params="" file="src/kitGL/glWeb/Sheet.js.hx">
 		<width public="1"><x path="Int"/></width>
@@ -45136,15 +45224,15 @@
 			</f>
 			<meta><m n=":value"><e>{ autoChild : false, height_ : 600, width_ : 600 }</e></m></meta>
 		</create>
-		<styleZero public="1" get="inline" set="null" line="45"><f a="domGL">
+		<styleZero public="1" get="inline" set="null" line="47"><f a="domGL">
 	<c path="js.html.Element"/>
 	<x path="Void"/>
 </f></styleZero>
-		<styleLeft public="1" get="inline" set="null" line="54"><f a="left">
+		<styleLeft public="1" get="inline" set="null" line="56"><f a="left">
 	<x path="Int"/>
 	<x path="Void"/>
 </f></styleLeft>
-		<draw public="1" get="inline" set="null" line="63">
+		<draw public="1" get="inline" set="null" line="65">
 			<f a="sheet:?dx:?dy" v=":0:0">
 				<c path="kitGL.glWeb.Sheet"/>
 				<x path="Int"/>
@@ -45153,21 +45241,21 @@
 			</f>
 			<meta><m n=":value"><e>{ dy : 0, dx : 0 }</e></m></meta>
 		</draw>
-		<clear public="1" get="inline" set="null" line="67"><f a=""><x path="Void"/></f></clear>
-		<px get="inline" set="null" line="71"><f a="v">
+		<clear public="1" get="inline" set="null" line="69"><f a=""><x path="Void"/></f></clear>
+		<px get="inline" set="null" line="73"><f a="v">
 	<x path="Int"/>
 	<c path="String"/>
 </f></px>
-		<extractPx get="inline" set="null" line="75"><f a="s">
+		<extractPx get="inline" set="null" line="77"><f a="s">
 	<c path="String"/>
 	<x path="Int"/>
 </f></extractPx>
-		<rgbaString get="inline" set="null" line="80"><f a="col:?alpha">
+		<rgbaString get="inline" set="null" line="82"><f a="col:?alpha">
 	<x path="Int"/>
 	<x path="Float"/>
 	<c path="String"/>
 </f></rgbaString>
-		<rgbaFloat public="1" get="inline" set="null" line="91">
+		<rgbaFloat public="1" get="inline" set="null" line="93">
 			<f a="col:?alpha" v=":1.">
 				<x path="Int"/>
 				<x path="Float"/>
@@ -45181,60 +45269,60 @@
 			<meta><m n=":value"><e>{ alpha : 1. }</e></m></meta>
 		</rgbaFloat>
 		<x public="1" get="accessor" set="accessor"><x path="Int"/></x>
-		<set_x get="inline" set="null" line="99"><f a="x_">
+		<set_x get="inline" set="null" line="101"><f a="x_">
 	<x path="Int"/>
 	<x path="Int"/>
 </f></set_x>
-		<get_x get="inline" set="null" line="104"><f a=""><x path="Int"/></f></get_x>
+		<get_x get="inline" set="null" line="106"><f a=""><x path="Int"/></f></get_x>
 		<y public="1" get="accessor" set="accessor"><x path="Int"/></y>
-		<set_y get="inline" set="null" line="110"><f a="y_">
+		<set_y get="inline" set="null" line="112"><f a="y_">
 	<x path="Int"/>
 	<x path="Int"/>
 </f></set_y>
-		<get_y get="inline" set="null" line="115"><f a=""><x path="Int"/></f></get_y>
-		<lineStyle public="1" get="inline" set="null" line="120"><f a="wid:col:?alpha">
+		<get_y get="inline" set="null" line="117"><f a=""><x path="Int"/></f></get_y>
+		<lineStyle public="1" get="inline" set="null" line="122"><f a="wid:col:?alpha">
 	<x path="Float"/>
 	<x path="Int"/>
 	<x path="Float"/>
 	<x path="Void"/>
 </f></lineStyle>
-		<beginFill public="1" get="inline" set="null" line="125"><f a="col:?alpha">
+		<beginFill public="1" get="inline" set="null" line="127"><f a="col:?alpha">
 	<x path="Int"/>
 	<x path="Float"/>
 	<x path="Void"/>
 </f></beginFill>
-		<endFill public="1" get="inline" set="null" line="130"><f a=""><x path="Void"/></f></endFill>
-		<moveTo public="1" get="inline" set="null" line="136"><f a="x:y">
+		<endFill public="1" get="inline" set="null" line="132"><f a=""><x path="Void"/></f></endFill>
+		<moveTo public="1" get="inline" set="null" line="138"><f a="x:y">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Void"/>
 </f></moveTo>
-		<lineTo public="1" get="inline" set="null" line="142"><f a="x:y">
+		<lineTo public="1" get="inline" set="null" line="144"><f a="x:y">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Void"/>
 </f></lineTo>
-		<midBezier get="inline" set="null" line="148"><f a="s:c:e">
+		<midBezier get="inline" set="null" line="150"><f a="s:c:e">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 </f></midBezier>
-		<quadThru public="1" get="inline" set="null" line="152"><f a="x1:y1:x2:y2">
+		<quadThru public="1" get="inline" set="null" line="154"><f a="x1:y1:x2:y2">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Void"/>
 </f></quadThru>
-		<quadTo public="1" get="inline" set="null" line="159"><f a="x1:y1:x2:y2">
+		<quadTo public="1" get="inline" set="null" line="161"><f a="x1:y1:x2:y2">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Void"/>
 </f></quadTo>
-		<curveTo public="1" get="inline" set="null" line="166"><f a="x1:y1:x2:y2:x3:y3">
+		<curveTo public="1" get="inline" set="null" line="168"><f a="x1:y1:x2:y2:x3:y3">
 	<x path="Float"/>
 	<x path="Float"/>
 	<x path="Float"/>
@@ -45246,12 +45334,84 @@
 		<new public="1" get="inline" set="null" line="25"><f a=""><x path="Void"/></f></new>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
+	<abstract path="kitGL.glWeb.TextureShaders" params="" file="src/kitGL/glWeb/TextureShader.js.hx" module="kitGL.glWeb.TextureShader">
+		<this><c path="String"/></this>
+		<meta><m n=":enum"/></meta>
+		<impl><class path="kitGL.glWeb._TextureShader.TextureShaders_Impl_" params="" file="src/kitGL/glWeb/TextureShader.js.hx" private="1" module="kitGL.glWeb.TextureShader" extern="1" final="1">
+	<textureVertexString1_ public="1" get="inline" set="null" expr="cast textureVertexString1" line="66" static="1">
+		<x path="kitGL.glWeb.TextureShaders"/>
+		<meta>
+			<m n=":value"><e>cast textureVertexString1</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</textureVertexString1_>
+	<textureVertexString2_ public="1" get="inline" set="null" expr="cast textureVertexString2" line="67" static="1">
+		<x path="kitGL.glWeb.TextureShaders"/>
+		<meta>
+			<m n=":value"><e>cast textureVertexString2</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</textureVertexString2_>
+	<textureFragmentString_ public="1" get="inline" set="null" expr="cast textureFragmentString" line="68" static="1">
+		<x path="kitGL.glWeb.TextureShaders"/>
+		<meta>
+			<m n=":value"><e>cast textureFragmentString</e></m>
+			<m n=":enum"/>
+			<m n=":impl"/>
+		</meta>
+	</textureFragmentString_>
+	<meta><m n=":enum"/></meta>
+</class></impl>
+	</abstract>
+	<class path="kitGL.glWeb._TextureShader.TextureShaders_Impl_" params="" file="src/kitGL/glWeb/TextureShader.js.hx" private="1" module="kitGL.glWeb.TextureShader" extern="1" final="1">
+		<textureVertexString1_ public="1" get="inline" set="null" expr="cast textureVertexString1" line="66" static="1">
+			<x path="kitGL.glWeb.TextureShaders"/>
+			<meta>
+				<m n=":value"><e>cast textureVertexString1</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</textureVertexString1_>
+		<textureVertexString2_ public="1" get="inline" set="null" expr="cast textureVertexString2" line="67" static="1">
+			<x path="kitGL.glWeb.TextureShaders"/>
+			<meta>
+				<m n=":value"><e>cast textureVertexString2</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</textureVertexString2_>
+		<textureFragmentString_ public="1" get="inline" set="null" expr="cast textureFragmentString" line="68" static="1">
+			<x path="kitGL.glWeb.TextureShaders"/>
+			<meta>
+				<m n=":value"><e>cast textureFragmentString</e></m>
+				<m n=":enum"/>
+				<m n=":impl"/>
+			</meta>
+		</textureFragmentString_>
+		<meta><m n=":enum"/></meta>
+	</class>
+	<class path="kitGL.glWeb._TextureShader.TextureShader_Fields_" params="" file="src/kitGL/glWeb/TextureShader.js.hx" private="1" module="kitGL.glWeb.TextureShader" final="1">
+		<textureVertexString1 public="1" get="inline" set="null" expr="&quot;attribute vec3 vertexPosition;&quot; + &quot;attribute vec4 vertexColor;&quot; + &quot;attribute vec2 vertexTexture;&quot; + &quot;varying vec4 vcol;&quot; + &quot;varying vec2 vtexture;&quot; + &quot;uniform mat3 uvTransform;&quot; + &quot;void main(void) {&quot; + &quot; gl_Position = vec4( vertexPosition, 1.0);&quot; + &quot; vec3 texChange = uvTransform * vec3(vertexTexture, 1.0);&quot; + &quot; vtexture = vec2( texChange );&quot; + &quot; vcol = vertexColor;&quot; + &quot;}&quot;" line="5" static="1">
+			<c path="String"/>
+			<meta><m n=":value"><e>"attribute vec3 vertexPosition;" + "attribute vec4 vertexColor;" + "attribute vec2 vertexTexture;" + "varying vec4 vcol;" + "varying vec2 vtexture;" + "uniform mat3 uvTransform;" + "void main(void) {" + " gl_Position = vec4( vertexPosition, 1.0);" + " vec3 texChange = uvTransform * vec3(vertexTexture, 1.0);" + " vtexture = vec2( texChange );" + " vcol = vertexColor;" + "}"</e></m></meta>
+		</textureVertexString1>
+		<textureVertexString2 public="1" get="inline" set="null" expr="&quot;attribute vec3 vertexPosition;&quot; + &quot;attribute vec4 vertexColor;&quot; + &quot;attribute vec2 vertexTexture;&quot; + &quot;varying vec4 vcol;&quot; + &quot;varying vec2 vtexture;&quot; + &quot;uniform mat3 uvTransform;&quot; + &quot;uniform mat4 modelViewProjection;&quot; + &quot;void main(void) {&quot; + &quot; gl_Position = modelViewProjection * vec4( vertexPosition, 1.0);&quot; + &quot; vec3 texChange = uvTransform * vec3(vertexTexture, 1.0);&quot; + &quot; vtexture = vec2( texChange );&quot; + &quot; vcol = vertexColor;&quot; + &quot;}&quot;" line="23" static="1">
+			<c path="String"/>
+			<meta><m n=":value"><e>"attribute vec3 vertexPosition;" + "attribute vec4 vertexColor;" + "attribute vec2 vertexTexture;" + "varying vec4 vcol;" + "varying vec2 vtexture;" + "uniform mat3 uvTransform;" + "uniform mat4 modelViewProjection;" + "void main(void) {" + " gl_Position = modelViewProjection * vec4( vertexPosition, 1.0);" + " vec3 texChange = uvTransform * vec3(vertexTexture, 1.0);" + " vtexture = vec2( texChange );" + " vcol = vertexColor;" + "}"</e></m></meta>
+		</textureVertexString2>
+		<textureFragmentString public="1" get="inline" set="null" expr="&quot;precision mediump float;&quot; + &quot;precision mediump int;&quot; + &quot;varying vec4 vcol;&quot; + &quot;varying vec2 vtexture;&quot; + &quot;uniform sampler2D uImage0;&quot; + &quot;uniform vec4 bgColor;&quot; + &quot;void main(void) {&quot; + &quot;if (vtexture.x &lt; 0.0 || vtexture.y &lt; 0.0 || vtexture.x &gt; 1.0 || vtexture.y &gt; 1.0) {&quot; + &quot; gl_FragColor = bgColor; &quot; + &quot;} else {&quot; + &quot;vec4 texcolor = texture2D( uImage0, vec2( vtexture.s, vtexture.t ) ).rgba * vcol;&quot; + &quot;texcolor.rgb *= vcol.a; &quot; + &quot;if( texcolor.a &lt; 1. ){&quot; + &quot;texcolor = mix( bgColor, texcolor, texcolor.a ); &quot; + &quot;}&quot; + &quot;gl_FragColor = texcolor;&quot; + &quot;}&quot; + &quot;}&quot;" line="43" static="1">
+			<c path="String"/>
+			<meta><m n=":value"><e><![CDATA["precision mediump float;" + "precision mediump int;" + "varying vec4 vcol;" + "varying vec2 vtexture;" + "uniform sampler2D uImage0;" + "uniform vec4 bgColor;" + "void main(void) {" + "if (vtexture.x < 0.0 || vtexture.y < 0.0 || vtexture.x > 1.0 || vtexture.y > 1.0) {" + " gl_FragColor = bgColor; " + "} else {" + "vec4 texcolor = texture2D( uImage0, vec2( vtexture.s, vtexture.t ) ).rgba * vcol;" + "texcolor.rgb *= vcol.a; " + "if( texcolor.a < 1. ){" + "texcolor = mix( bgColor, texcolor, texcolor.a ); " + "}" + "gl_FragColor = texcolor;" + "}" + "}"]]></e></m></meta>
+		</textureFragmentString>
+	</class>
 	<class path="kitGL.upkeep.Doc" params="" file="src/kitGL/upkeep/Doc.js.hx">
-		<main public="1" set="method" line="45" static="1">
+		<main public="1" set="method" line="48" static="1">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":keep"/></meta>
 		</main>
-		<new public="1" set="method" line="48"><f a=""><x path="Void"/></f></new>
+		<new public="1" set="method" line="51"><f a=""><x path="Void"/></f></new>
 		<meta><m n=":dox"><e>hide</e></m></meta>
 	</class>
 	<class path="lime._internal.backend.html5.GameDeviceData" params="" file="/projects/May2019/May2020/lime/src/lime/_internal/backend/html5/HTML5Application.hx" module="lime._internal.backend.html5.HTML5Application">
