@@ -61,11 +61,12 @@ function shaderSetup( gl: GL
 inline 
 function passIndicesToShader( gl: GL, indices: Array<Int> ){
         var indexBuffer = gl.createBuffer(); // triangle indicies data 
-        gl.bindBuffer( GL.ELEMENT_ARRAY_BUFFER, indexBuffer );
-        gl.bufferData( GL.ELEMENT_ARRAY_BUFFER
+        var arrBuffer = GL.ELEMENT_ARRAY_BUFFER;
+        gl.bindBuffer( arrBuffer, indexBuffer );
+        gl.bufferData( arrBuffer
                      , new Uint16Array( indices )
                      , GL.STATIC_DRAW );
-        gl.bindBuffer( GL.ELEMENT_ARRAY_BUFFER, null );
+        gl.bindBuffer( arrBuffer, null );
 }
 // just used for docs
 class HelpGL {

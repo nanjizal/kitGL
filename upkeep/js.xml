@@ -44846,7 +44846,7 @@
 			</f>
 			<meta><m n=":value"><e>passIndicesToShader</e></m></meta>
 		</passIndicesToShader_>
-		<new public="1" set="method" line="71">
+		<new public="1" set="method" line="72">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":compilerGenerated"/></meta>
 		</new>
@@ -44921,43 +44921,47 @@
 			</f>
 			<meta><m n=":value"><e>textureStandard</e></m></meta>
 		</textureStandard_>
-		<new public="1" set="method" line="144">
+		<new public="1" set="method" line="170">
 			<f a=""><x path="Void"/></f>
 			<meta><m n=":compilerGenerated"/></meta>
 		</new>
 	</class>
 	<class path="kitGL.glWeb._ImageGL.ImageGL_Fields_" params="" file="src/kitGL/glWeb/ImageGL.js.hx" private="1" module="kitGL.glWeb.ImageGL" final="1">
-		<setAsRGBA public="1" get="inline" set="null" line="15" static="1"><f a="gl:img">
+		<setAsRGBA public="1" get="inline" set="null" line="16" static="1"><f a="gl:img">
 	<t path="kitGL.glWeb.GL"/>
 	<c path="js.html.Image"/>
 	<x path="Void"/>
 </f></setAsRGBA>
-		<setAsRGB public="1" get="inline" set="null" line="20" static="1"><f a="gl:img">
+		<setAsRGB public="1" get="inline" set="null" line="21" static="1"><f a="gl:img">
 	<t path="kitGL.glWeb.GL"/>
 	<c path="js.html.Image"/>
 	<x path="Void"/>
 </f></setAsRGB>
-		<transformUV public="1" get="inline" set="null" line="25" static="1"><f a="gl:program:name:?val">
+		<setAsPixel public="1" get="inline" set="null" line="25" static="1"><f a="gl">
+	<t path="kitGL.glWeb.GL"/>
+	<x path="Void"/>
+</f></setAsPixel>
+		<transformUV public="1" get="inline" set="null" line="31" static="1"><f a="gl:program:name:?val">
 	<t path="kitGL.glWeb.GL"/>
 	<c path="js.html.webgl.Program"/>
 	<c path="String"/>
 	<c path="Array"><x path="Float"/></c>
 	<c path="js.html.webgl.UniformLocation"/>
 </f></transformUV>
-		<imageUniform public="1" get="inline" set="null" line="39" static="1"><f a="gl:program:name">
+		<imageUniform public="1" get="inline" set="null" line="45" static="1"><f a="gl:program:name">
 	<t path="kitGL.glWeb.GL"/>
 	<c path="js.html.webgl.Program"/>
 	<c path="String"/>
 	<c path="js.html.webgl.UniformLocation"/>
 </f></imageUniform>
-		<colorUniform public="1" get="inline" set="null" line="53" static="1"><f a="gl:program:name:int">
+		<colorUniform public="1" get="inline" set="null" line="59" static="1"><f a="gl:program:name:int">
 	<t path="kitGL.glWeb.GL"/>
 	<c path="js.html.webgl.Program"/>
 	<c path="String"/>
 	<x path="Int"/>
 	<c path="js.html.webgl.UniformLocation"/>
 </f></colorUniform>
-		<rgbaUniform public="1" get="inline" set="null" line="66" static="1"><f a="gl:program:name:red:green:blue:alpha">
+		<rgbaUniform public="1" get="inline" set="null" line="67" static="1"><f a="gl:program:name:red:green:blue:alpha">
 	<t path="kitGL.glWeb.GL"/>
 	<c path="js.html.webgl.Program"/>
 	<c path="String"/>
@@ -44967,28 +44971,52 @@
 	<x path="Float"/>
 	<c path="js.html.webgl.UniformLocation"/>
 </f></rgbaUniform>
-		<updateTexture public="1" get="inline" set="null" line="80" static="1"><f a="gl:texture:image">
+		<updateTexture public="1" get="inline" set="null" line="81" static="1"><f a="gl:texture:image">
 	<t path="kitGL.glWeb.GL"/>
 	<c path="js.html.webgl.Texture"/>
 	<c path="js.html.Image"/>
 	<x path="Void"/>
 </f></updateTexture>
-		<uploadImage public="1" get="inline" set="null" line="91" static="1"><f a="gl:imageIndex:image">
+		<uploadImage public="1" get="inline" set="null" line="92" static="1"><f a="gl:imageIndex:image">
 	<t path="kitGL.glWeb.GL"/>
 	<x path="Int"/>
 	<c path="js.html.Image"/>
 	<c path="js.html.webgl.Texture"/>
 </f></uploadImage>
-		<activateTexture public="1" get="inline" set="null" line="105" static="1"><f a="gl:texture:imageIndex">
+		<activateTexture public="1" get="inline" set="null" line="104" static="1"><f a="gl:texture:imageIndex">
 	<t path="kitGL.glWeb.GL"/>
 	<c path="js.html.webgl.Texture"/>
 	<x path="Int"/>
 	<x path="Void"/>
 </f></activateTexture>
-		<textureStandard public="1" get="inline" set="null" line="120" static="1"><f a="gl">
+		<textureStandard public="1" get="inline" set="null" line="119" static="1"><f a="gl">
 	<t path="kitGL.glWeb.GL"/>
 	<x path="Void"/>
 </f></textureStandard>
+		<unpackAlign public="1" get="inline" set="null" line="126" static="1"><f a="gl">
+	<t path="kitGL.glWeb.GL"/>
+	<x path="Void"/>
+</f></unpackAlign>
+		<unpackPremultiplyAlpha public="1" get="inline" set="null" line="130" static="1"><f a="gl">
+	<t path="kitGL.glWeb.GL"/>
+	<x path="Void"/>
+</f></unpackPremultiplyAlpha>
+		<clampTexture public="1" get="inline" set="null" line="134" static="1"><f a="gl">
+	<t path="kitGL.glWeb.GL"/>
+	<x path="Void"/>
+</f></clampTexture>
+		<linearTexture public="1" get="inline" set="null" line="143" static="1"><f a="gl">
+	<t path="kitGL.glWeb.GL"/>
+	<x path="Void"/>
+</f></linearTexture>
+		<nearestTexture public="1" get="inline" set="null" line="152" static="1"><f a="gl">
+	<t path="kitGL.glWeb.GL"/>
+	<x path="Void"/>
+</f></nearestTexture>
+		<repeatTexture public="1" get="inline" set="null" line="161" static="1"><f a="gl">
+	<t path="kitGL.glWeb.GL"/>
+	<x path="Void"/>
+</f></repeatTexture>
 		<meta><m n=":directlyUsed"/></meta>
 	</class>
 	<typedef path="kitGL.glWeb.Hash" params="T" file="src/kitGL/glWeb/ImageLoader.js.hx" module="kitGL.glWeb.ImageLoader"><c path="haxe.ds.StringMap"><c path="kitGL.glWeb.Hash.T"/></c></typedef>
@@ -45141,10 +45169,14 @@
 	<x path="Int"/>
 	<x path="Void"/>
 </f></drawShape>
-		<withAlpha public="1" get="inline" set="null" line="125"><f a=""><x path="Void"/></f></withAlpha>
-		<notAlpha public="1" get="inline" set="null" line="130"><f a=""><x path="Void"/></f></notAlpha>
-		<renderDraw public="1" set="method" line="136"><f a=""><x path="Void"/></f></renderDraw>
-		<setAnimate get="inline" set="null" line="138"><f a=""><x path="Void"/></f></setAnimate>
+		<changeTexture public="1" set="method" line="124"><f a="img">
+	<c path="js.html.Image"/>
+	<x path="Void"/>
+</f></changeTexture>
+		<withAlpha public="1" get="inline" set="null" line="128"><f a=""><x path="Void"/></f></withAlpha>
+		<notAlpha public="1" get="inline" set="null" line="133"><f a=""><x path="Void"/></f></notAlpha>
+		<renderDraw public="1" set="method" line="139"><f a=""><x path="Void"/></f></renderDraw>
+		<setAnimate get="inline" set="null" line="141"><f a=""><x path="Void"/></f></setAnimate>
 		<new public="1" set="method" line="40"><f a="width_:height_">
 	<x path="Int"/>
 	<x path="Int"/>
@@ -45413,6 +45445,28 @@
 		</main>
 		<new public="1" set="method" line="51"><f a=""><x path="Void"/></f></new>
 		<meta><m n=":dox"><e>hide</e></m></meta>
+	</class>
+	<class path="kitGL.util._ARGB.ARGB_Fields_" params="" file="src/kitGL/util/ARGB.hx" private="1" module="kitGL.util.ARGB" final="1">
+		<toHexInt public="1" get="inline" set="null" line="4" static="1"><f a="c">
+	<x path="Float"/>
+	<x path="Int"/>
+</f></toHexInt>
+		<toHexColor public="1" get="inline" set="null" line="7" static="1"><f a="alpha:red:green:blue">
+	<x path="Float"/>
+	<x path="Float"/>
+	<x path="Float"/>
+	<x path="Float"/>
+	<x path="Int"/>
+</f></toHexColor>
+		<hexToFloat public="1" get="inline" set="null" line="13" static="1"><f a="int">
+	<x path="Int"/>
+	<a>
+		<r><x path="Float"/></r>
+		<g><x path="Float"/></g>
+		<b><x path="Float"/></b>
+		<a><x path="Float"/></a>
+	</a>
+</f></hexToFloat>
 	</class>
 	<class path="lime._internal.backend.html5.GameDeviceData" params="" file="/projects/May2019/May2020/lime/src/lime/_internal/backend/html5/HTML5Application.hx" module="lime._internal.backend.html5.HTML5Application">
 		<connected public="1"><x path="Bool"/></connected>

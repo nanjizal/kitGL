@@ -10,6 +10,7 @@ import js.html.Image;
 import js.lib.Uint16Array;
 import js.lib.Uint8Array;
 import kitGL.glWeb.GL;
+import kitGL.util.ARGB;
 
 inline
 function setAsRGBA( gl: GL, img: Image ){
@@ -20,7 +21,12 @@ inline
 function setAsRGB( gl: GL, img: Image ){
     gl.texImage2D( GL.TEXTURE_2D, 0, GL.RGB, GL.RGB, GL.UNSIGNED_BYTE, img );
 }
-
+inline
+function setAsPixel( gl: GL ){
+    final pixel = new Uint8Array([ 255, 255, 255, 255 ]);
+    var _2D     = GL.TEXTURE_2D;
+    gl.texImage2D( _2D, 0, GL.RGBA, 1, 1, 0, GL.RGBA, GL.UNSIGNED_BYTE, pixel );
+}
 inline
 function transformUV( gl: GL
                     , program: Program
@@ -43,10 +49,10 @@ function imageUniform( gl:      GL
     gl.uniform1i( imgUniform, 0 );
     gl.enable( GL.DEPTH_TEST );
     
-    gl.enable(GL.BLEND);
-    gl.blendFunc(GL.SRC_ALPHA, GL.ONE_MINUS_SRC_ALPHA);
+    gl.enable( GL.BLEND );
+    gl.blendFunc( GL.SRC_ALPHA, GL.ONE_MINUS_SRC_ALPHA );
     
-    gl.disable(GL.CULL_FACE);
+    gl.disable( GL.CULL_FACE );
     return imgUniform;
 }
 inline
@@ -54,13 +60,8 @@ function colorUniform( gl:      GL
                      , program: Program
                      , name:    String
                      , int: Int ): UniformLocation {
-    var colUniform = gl.getUniformLocation( program, name );
-    var a = ((int >> 24) & 255) / 255;
-    var r = ((int >> 16) & 255) / 255;
-    var g = ((int >> 8) & 255) / 255;
-    var b = (int & 255) / 255;
-    gl.uniform4f( colUniform, r, g, b, a );
-    return colUniform;
+    var argb = hexToFloat( int );
+    return rgbaUniform( gl, program, name, argb.r, argb.g, argb.b, argb.a );
 }
 inline
 function rgbaUniform( gl: GL 
@@ -85,19 +86,17 @@ function updateTexture( gl: GL, texture: Texture, image: Image ){
     gl.bindTexture( _2D, texture );
     /*gl.texImage2D( _2D, 0, rgba, 1, 1, 0, rgba, srcType,
                   new Uint8Array([0, 0, 255, 255])); */
-    gl.texImage2D( _2D, 0, rgba, rgba, srcType, image );
+    setAsRGBA( gl, image );
 }
 inline
 function uploadImage( gl: GL, imageIndex: Int, image: Image ): Texture {
     var _2D     = GL.TEXTURE_2D;
     var RGBA    = GL.RGBA;
     var texture = gl.createTexture();
-    var UNSIGNED_BYTE = GL.UNSIGNED_BYTE;
-    final pixel = new Uint8Array([ 255, 255, 255, 255 ]);
     gl.bindTexture( _2D, texture );
-    gl.texImage2D( _2D, 0, RGBA, 1, 1, 0, RGBA, UNSIGNED_BYTE, pixel );
+    setAsPixel( gl );
     textureStandard( gl ); // hard coded for now
-    gl.texImage2D( _2D, 0, RGBA, RGBA, UNSIGNED_BYTE, image );
+    setAsRGBA( gl, image );
     activateTexture( gl, texture, imageIndex );
     return texture;
 }
@@ -118,27 +117,54 @@ function activateTexture( gl: GL, texture: Texture, imageIndex: Int ){
 }
 inline
 function textureStandard( gl: GL ){
+    //nearestTexture();
+    linearTexture( gl );
+    clampTexture( gl );
+    //repeatTexture( gl );
+}
+inline 
+function unpackAlign( gl: GL ){
+    gl.pixelStorei( GL.UNPACK_ALIGNMENT,4);
+}
+inline
+function unpackPremultiplyAlpha( gl: GL ){
+    gl.pixelStorei( GL.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 1 );
+}
+inline
+function clampTexture( gl: GL ){
     var _2D     = GL.TEXTURE_2D;
     var clamp   = GL.CLAMP_TO_EDGE;
+    var _S      = GL.TEXTURE_WRAP_S;
+    var _T      = GL.TEXTURE_WRAP_T;
+    gl.texParameteri( _2D, _S, clamp );
+    gl.texParameteri( _2D, _T, clamp );
+}
+inline
+function linearTexture( gl: GL ){
+    var _2D     = GL.TEXTURE_2D;
+    var linear  = GL.LINEAR;
     var mag     = GL.TEXTURE_MAG_FILTER;
     var min     = GL.TEXTURE_MIN_FILTER;
-    var _S      = RenderingContext.TEXTURE_WRAP_S;
-    var _T      = RenderingContext.TEXTURE_WRAP_T;
-    var repeat  = GL.REPEAT;
+    gl.texParameteri( _2D, mag, linear );
+    gl.texParameteri( _2D, min, linear );
+}
+inline
+function nearestTexture( gl: GL ){
+    var _2D     = GL.TEXTURE_2D;
     var nearest = GL.NEAREST;
-    var linear  = GL.LINEAR;
-    //gl.texParameteri( _2D, mag, nearest );
-    //gl.texParameteri( _2D, min, nearest );
-     gl.texParameteri( _2D, mag, linear );
-     gl.texParameteri( _2D, min, linear );
-     //gl.pixelStorei( RenderingContext.UNPACK_FLIP_Y_WEBGL, 1 );
-     //gl.pixelStorei( RenderingContext.UNPACK_ALIGNMENT,4);
-     gl.texParameteri( _2D, _S, clamp );
-     gl.texParameteri( _2D, _T, clamp );
-     gl.pixelStorei( GL.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 1 );
-     //gl.texParameteri( _2D, _S, repeat );
-     //gl.texParameteri( _2D, _T, repeat );
-    
+    var mag     = GL.TEXTURE_MAG_FILTER;
+    var min     = GL.TEXTURE_MIN_FILTER;
+    gl.texParameteri( _2D, mag, nearest );
+    gl.texParameteri( _2D, min, nearest );
+}
+inline
+function repeatTexture( gl: GL ){
+    var _2D     = GL.TEXTURE_2D;
+    var repeat  = GL.REPEAT;
+    var _S      = GL.TEXTURE_WRAP_S;
+    var _T      = GL.TEXTURE_WRAP_T;
+    gl.texParameteri( _2D, _S, repeat );
+    gl.texParameteri( _2D, _T, repeat );
 }
 // just used for docs
 class ImageGL {

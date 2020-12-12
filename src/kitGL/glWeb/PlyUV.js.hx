@@ -121,6 +121,9 @@ class PlyUV{
         gl.drawArrays( GL.TRIANGLES, 0, Std.int( (end-start) * 3 ) );
     }
     
+    public function changeTexture( img: Image ){
+        
+    }
     
     public inline
     function withAlpha(){
