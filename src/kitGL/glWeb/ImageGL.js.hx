@@ -16,11 +16,24 @@ inline
 function setAsRGBA( gl: GL, img: Image ){
     gl.texImage2D( GL.TEXTURE_2D, 0, GL.RGBA, GL.RGBA, GL.UNSIGNED_BYTE, img );
 }
-
 inline
 function setAsRGB( gl: GL, img: Image ){
     gl.texImage2D( GL.TEXTURE_2D, 0, GL.RGB, GL.RGB, GL.UNSIGNED_BYTE, img );
 }
+inline
+function updateAsARGB( gl: GL, texture: Texture, img: Image ){
+    trace(' IMAGE ' + img );
+    //gl.bindTexture( GL.TEXTURE_2D, texture );
+    gl.texSubImage2D( GL.TEXTURE_2D, 0, 0, 0, GL.RGBA, GL.UNSIGNED_BYTE, img );
+    //textureStandard( gl );
+    //activateTexture( gl, texture, 0 );
+}
+/*
+inline
+function updateAsRGB( gl: GL, img: Image ){
+    gl.texSubImage2D( GL.TEXTURE_2D, 0, 0, 0, GL.RGB, GL.UNSIGNED_BYTE, img );
+}
+*/
 inline
 function setAsPixel( gl: GL ){
     final pixel = new Uint8Array([ 255, 255, 255, 255 ]);
@@ -42,18 +55,33 @@ function transformUV( gl: GL
     return uvTransform;
 }
 inline
-function imageUniform( gl:      GL
-                     , program: Program
-                     , name:    String ): UniformLocation {
+function imageUniform( gl:            GL
+                     , program:      Program
+                     , name:         String
+                     , ?preMultAlpha: Bool = true ): UniformLocation {
     var imgUniform = gl.getUniformLocation( program, name );
     gl.uniform1i( imgUniform, 0 );
     gl.enable( GL.DEPTH_TEST );
     
     gl.enable( GL.BLEND );
-    gl.blendFunc( GL.SRC_ALPHA, GL.ONE_MINUS_SRC_ALPHA );
-    
+    if( preMultAlpha ) {
+        premulipliedAlpha( gl );
+    } else {
+        nonPreMultipliedAlpha( gl );
+    }
+    gl.depthMask(false);
     gl.disable( GL.CULL_FACE );
     return imgUniform;
+}
+
+// https://webglfundamentals.org/webgl/lessons/webgl-and-alpha.html
+inline 
+function premulipliedAlpha( gl: GL ){
+    gl.blendFunc( GL.SRC_ALPHA, GL.ONE_MINUS_SRC_ALPHA );
+}
+inline
+function nonPreMultipliedAlpha( gl: GL ){
+    gl.blendFunc( GL.ONE, GL.ONE_MINUS_SRC_ALPHA );
 }
 inline
 function colorUniform( gl:      GL
@@ -87,16 +115,39 @@ function updateTexture( gl: GL, texture: Texture, image: Image ){
     /*gl.texImage2D( _2D, 0, rgba, 1, 1, 0, rgba, srcType,
                   new Uint8Array([0, 0, 255, 255])); */
     setAsRGBA( gl, image );
+    return texture;
 }
 inline
-function uploadImage( gl: GL, imageIndex: Int, image: Image ): Texture {
+function isPowerOf2( value: Int ){
+    return (value & (value - 1)) == 0;
+}
+
+/*
+gl.bindTexture(gl.TEXTURE_2D, this._texture);
+gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
+
+// mop: it is the first call
+if (!this._texture.isReady) {
+  gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+} else {
+  gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, gl.RGBA, gl.UNSIGNED_BYTE, img);
+}
+gl.bindTexture(gl.TEXTURE_2D, null);
+*/
+
+inline
+function uploadImage( gl: GL, imageIndex: Int, image: Image, ?midMap: Bool = false ): Texture {
     var _2D     = GL.TEXTURE_2D;
     var RGBA    = GL.RGBA;
     var texture = gl.createTexture();
     gl.bindTexture( _2D, texture );
     setAsPixel( gl );
-    textureStandard( gl ); // hard coded for now
+    var midMap = (isPowerOf2(image.width) && isPowerOf2(image.height));
+    if( !midMap ) textureStandard( gl ); // hard coded for now
     setAsRGBA( gl, image );
+    //midMap = true;
+    if( midMap ) gl.generateMipmap( _2D );
     activateTexture( gl, texture, imageIndex );
     return texture;
 }
@@ -131,15 +182,6 @@ function unpackPremultiplyAlpha( gl: GL ){
     gl.pixelStorei( GL.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 1 );
 }
 inline
-function clampTexture( gl: GL ){
-    var _2D     = GL.TEXTURE_2D;
-    var clamp   = GL.CLAMP_TO_EDGE;
-    var _S      = GL.TEXTURE_WRAP_S;
-    var _T      = GL.TEXTURE_WRAP_T;
-    gl.texParameteri( _2D, _S, clamp );
-    gl.texParameteri( _2D, _T, clamp );
-}
-inline
 function linearTexture( gl: GL ){
     var _2D     = GL.TEXTURE_2D;
     var linear  = GL.LINEAR;
@@ -158,9 +200,27 @@ function nearestTexture( gl: GL ){
     gl.texParameteri( _2D, min, nearest );
 }
 inline
+function clampTexture( gl: GL ){
+    var _2D     = GL.TEXTURE_2D;
+    var clamp   = GL.CLAMP_TO_EDGE;
+    var _S      = GL.TEXTURE_WRAP_S;
+    var _T      = GL.TEXTURE_WRAP_T;
+    gl.texParameteri( _2D, _S, clamp );
+    gl.texParameteri( _2D, _T, clamp );
+}
+inline
 function repeatTexture( gl: GL ){
     var _2D     = GL.TEXTURE_2D;
     var repeat  = GL.REPEAT;
+    var _S      = GL.TEXTURE_WRAP_S;
+    var _T      = GL.TEXTURE_WRAP_T;
+    gl.texParameteri( _2D, _S, repeat );
+    gl.texParameteri( _2D, _T, repeat );
+}
+inline
+function repeatMirrorTexture( gl: GL ){
+    var _2D     = GL.TEXTURE_2D;
+    var repeat  = GL.MIRRORED_REPEAT;
     var _S      = GL.TEXTURE_WRAP_S;
     var _T      = GL.TEXTURE_WRAP_T;
     gl.texParameteri( _2D, _S, repeat );
@@ -170,10 +230,12 @@ function repeatTexture( gl: GL ){
 class ImageGL {
     public var imageUniform_:    ( gl:           GL
                                  , program:      Program
-                                 , name:        String ) -> UniformLocation = imageUniform;
+                                 , name:        String
+                                 , ?preMultAlpha: Bool ) -> UniformLocation = imageUniform;
     public var uploadImage_:     ( gl:           GL
                                  , imageIndex:   Int
-                                 , image:        Image ) -> Texture   = uploadImage;
+                                 , image:        Image
+                                 , ?midMap:       Bool ) -> Texture   = uploadImage;
     public var updateTexture_:   ( gl:           GL
                                  , texture:      Texture
                                  , image:        Image ) -> Void   = updateTexture;

@@ -5,6 +5,7 @@ import kitGL.glWeb.TextureShader;
 import kitGL.glWeb.HelpGL;
 import kitGL.glWeb.BufferGL;
 import kitGL.glWeb.ImageGL;
+import kitGL.util.ARGB;
 
 // html stuff
 import kitGL.glWeb.Sheet;
@@ -28,6 +29,8 @@ class PlyUV{
     public var height:      Int;
     public var buf:         Buffer;
     public var mainSheet:   Sheet;
+    public var img:         Image; 
+    public var tex:         Texture;
     var indices           = new Array<Int>();
     public var textureArr = new Array<Texture>();
     final vertexPosition  = 'vertexPosition';
@@ -50,8 +53,6 @@ class PlyUV{
         mainSheet.create( width, height, true );
         gl = mainSheet.gl;
     }
-    var tex: Texture;
-    public var img: Image; 
     inline
     function setup(){
         // don't use projection matrix for now
@@ -76,7 +77,9 @@ class PlyUV{
         
         setAnimate();
     }
-    
+    public function changeImage( img_: Image ){
+        updateAsARGB( gl, tex, img_ );
+    }
     public function setBackgroundShapeColor( red: Float, green: Float, blue: Float, alpha: Float ){
         rgbaUniform( gl, program, uniformColor, red, green, blue, alpha );
     }
@@ -119,10 +122,6 @@ class PlyUV{
         gl.bufferSubData( GL.ARRAY_BUFFER, 0, cast partData );//cast dataGL.data );
         gl.useProgram( program );
         gl.drawArrays( GL.TRIANGLES, 0, Std.int( (end-start) * 3 ) );
-    }
-    
-    public function changeTexture( img: Image ){
-        
     }
     
     public inline
