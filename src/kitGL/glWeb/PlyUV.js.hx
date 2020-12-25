@@ -91,6 +91,8 @@ class PlyUV{
     inline
     function render(){
         clearAll( gl, width, height );
+        gl.bindBuffer( GL.ARRAY_BUFFER, null );
+        gl.bindBuffer( GL.ARRAY_BUFFER, buf );
         renderDraw();
         // NOT NEEDED but need to explore code for changing images at runtime most structures done.
         //gl.enable( GL.CULL_FACE );
@@ -109,7 +111,6 @@ class PlyUV{
     }
     public function drawShape( start: Int, end: Int, bgColor: Int ) {
         colorUniform( gl, program, uniformColor, bgColor );
-        
         var partData = dataGL.data.subarray( start*27, end*27 );
         /*
         buf = interleaveXYZ_RGBA_UV( gl
@@ -117,8 +118,8 @@ class PlyUV{
                         , partData
                         , vertexPosition, vertexColor, vertexTexture, true );
         */
-        gl.bindBuffer( GL.ARRAY_BUFFER, null );
-        gl.bindBuffer( GL.ARRAY_BUFFER, buf );
+        //gl.bindBuffer( GL.ARRAY_BUFFER, null );
+        //gl.bindBuffer( GL.ARRAY_BUFFER, buf );
         gl.bufferSubData( GL.ARRAY_BUFFER, 0, cast partData );//cast dataGL.data );
         gl.useProgram( program );
         gl.drawArrays( GL.TRIANGLES, 0, Std.int( (end-start) * 3 ) );

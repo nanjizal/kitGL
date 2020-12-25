@@ -60,6 +60,14 @@ function interleaveXYZ_RGBA( gl:            GL
     return vbo;
 }
 inline
+function updateBufferXYZ_RGBA( gl:       GL
+                           , program:     Program 
+                           , xyzName:     String
+                           , rgbaName:    String ){
+    inputAttEnable( gl,  program, xyzName, 3, 7, 0 );
+    inputAttEnable( gl, program, rgbaName, 4, 7, 3 );
+}
+inline
 function interleaveXYZ_RGBA_UV( gl:       GL
                            , program:     Program 
                            , data:        Float32Array
@@ -72,6 +80,21 @@ function interleaveXYZ_RGBA_UV( gl:       GL
     inputAttEnable( gl, program, rgbaName, 4, 9, 3 );
     inputAttEnable( gl, program, uvName, 2, 9, 7 );
     return vbo;
+}
+inline
+function updateBufferXYZ_RGBA_UV(gl:       GL
+                           , program:     Program
+                           , xyzName:     String
+                           , rgbaName:    String
+                           , uvName:      String ){
+    inputAttEnable( gl, program, xyzName, 3, 9, 0 );
+    inputAttEnable( gl, program, rgbaName, 4, 9, 3 );
+    inputAttEnable( gl, program, uvName, 2, 9, 7 );
+}
+inline
+function updateBufferLocations( gl: GL, program: Program, inPosName: String, inColName: String ){
+    inputAttribute( gl, program, inPosName );
+    inputAttribute( gl, program, inColName );
 }
 // X Y   R G B
 inline

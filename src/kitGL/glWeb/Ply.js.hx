@@ -17,13 +17,23 @@ import js.html.webgl.Program;
 
 class Ply{
     public var gl: RenderingContext;
-    public var dataGL: DataGL;
-    public var program: Program;
-    public var width:  Int;
-    public var height: Int;
-    public var buf: Buffer;
-    final vertexPosition = 'vertexPosition';
-    final vertexColor    = 'vertexColor';
+    
+    // general inputs
+    final vertexPosition         = 'vertexPosition';
+    final vertexColor            = 'vertexColor';
+    
+    // general
+    public var width:            Int;
+    public var height:           Int;
+    public var mainSheet:        Sheet;
+    
+    // Color
+    public var programColor:     Program;
+    public var dataGLcolor:      DataGL;
+    public var bufColor:         Buffer;
+    // maybe not needed
+    var indicesColor             = new Array<Int>();
+    
     public
     function new( width_: Int, height_: Int ){
         width = width_;
@@ -39,13 +49,21 @@ class Ply{
     }
     inline
     function setup(){
-        program = programSetup( gl, vertexString0, fragmentString0 );
+        setupProgramColor();
         draw();
-        buf = interleaveXYZ_RGBA( gl
-                                , program
-                                , cast dataGL.data
-                                , vertexPosition, vertexColor, true );
+        setupInputColor();
         setAnimate();
+    }
+    inline
+    function setupProgramColor(){
+        programColor = programSetup( gl, vertexString0, fragmentString0 );
+    }
+    inline
+    function setupInputColor(){
+        bufColor = interleaveXYZ_RGBA( gl
+                                , programColor
+                                , cast dataGLcolor.data
+                                , vertexPosition, vertexColor, true );
     }
     // override this for drawing initial scene
     public
@@ -53,11 +71,24 @@ class Ply{
     inline
     function render(){
         clearAll( gl, width, height );
+        gl.bindBuffer( RenderingContext.ARRAY_BUFFER, bufColor );
         renderDraw();
-        gl.bindBuffer( RenderingContext.ARRAY_BUFFER, buf );
-        gl.bufferSubData( RenderingContext.ARRAY_BUFFER, 0, cast dataGL.data );
+    }
+    public function drawShape( start: Int, end: Int ) {
+        // set uniforms
+        drawData( programColor, dataGLcolor, start, end, 21 );
+    }
+    public inline
+    function drawData( program: Program, dataGL: DataGL, start: Int, end: Int, len: Int ){
+        var partData = dataGL.data.subarray( start*len, end*len );
+        gl.bufferSubData( GL.ARRAY_BUFFER, 0, cast partData );
         gl.useProgram( program );
-        gl.drawArrays( RenderingContext.TRIANGLES, 0, dataGL.size );
+        gl.drawArrays( GL.TRIANGLES, 0, Std.int( ( end - start ) * 3 ) );
+    }
+    public function drawAll(){
+        gl.bufferSubData( RenderingContext.ARRAY_BUFFER, 0, cast dataGLcolor.data );
+        gl.useProgram( programColor );
+        gl.drawArrays( RenderingContext.TRIANGLES, 0, dataGLcolor.size );
     }
     // override this for drawing every frame or changing the data.
     public
