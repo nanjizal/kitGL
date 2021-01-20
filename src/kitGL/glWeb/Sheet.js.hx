@@ -30,6 +30,10 @@ class Sheet {
         canvasGL            = Browser.document.createCanvasElement();
         canvasGL.width      = width;
         canvasGL.height     = height;
+        Browser.document.body.style.overflow = "hidden";
+        Browser.document.body.style.position = 'fixed';
+        var bodyEL: Element = cast Browser.document.body;
+        styleZero( bodyEL );
         domGL               = cast canvasGL;
         styleZero( domGL );
         if( autoChild ) Browser.document.body.appendChild( cast canvasGL );
@@ -51,6 +55,8 @@ class Sheet {
         style.paddingTop  = px( 0 );
         style.left        = px( 0 );
         style.top         = px( 0 );
+        style.marginLeft  = px( 0 );
+        style.marginTop   = px( 0 );
         style.position    = "absolute";
     }
     public inline
