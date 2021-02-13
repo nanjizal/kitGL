@@ -142,6 +142,7 @@ class PlyMix{
     public function setBackgroundShapeColor( red: Float, green: Float, blue: Float, alpha: Float ){
         rgbaUniform( gl, programTexture, uniformColor, red, green, blue, alpha );
     }
+    
     // override this for drawing initial scene
     public
     function draw(){

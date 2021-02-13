@@ -6,11 +6,16 @@ import js.html.CanvasElement;
 import js.html.BodyElement;
 import js.html.webgl.RenderingContext;
 import js.html.CanvasRenderingContext2D;
+import trilateral3.structure.XY;
 //import js.html.webgl.WebGL2RenderingContext;
 import js.html.webgl.ContextAttributes;
 import js.html.CanvasElement;
 import js.Browser;
+import js.html.MouseEvent;
+import js.html.Event;
+import js.html.KeyboardEvent;
 class Sheet {
+    public var pixelRatio:     Float;
     public var width:          Int;
     public var height:         Int;
     public var penX:           Float;
@@ -22,6 +27,9 @@ class Sheet {
     public var canvas2D:       CanvasElement;
     public var gl:             RenderingContext;
     public var cx:             CanvasRenderingContext2D;
+    public var mouseUpXY:      ( XY ) -> Void;
+    public var mouseDownXY:    ( XY ) -> Void;
+    public var mouseMoveXY:    ( XY ) -> Void; 
     public inline function new(){}
     public
     function create( width_: Int = 600, height_: Int = 600, autoChild: Bool = false ){
@@ -30,23 +38,72 @@ class Sheet {
         canvasGL            = Browser.document.createCanvasElement();
         canvasGL.width      = width;
         canvasGL.height     = height;
-        Browser.document.body.style.overflow = "hidden";
-        Browser.document.body.style.position = 'fixed';
+        var body = Browser.document.body;
+        body.style.overflow = "hidden";
+        body.style.position = 'fixed';
+        pixelRatio = Browser.window.devicePixelRatio;
+        if( pixelRatio == null ) pixelRatio = 1.;
         var bodyEL: Element = cast Browser.document.body;
         styleZero( bodyEL );
         domGL               = cast canvasGL;
         styleZero( domGL );
-        if( autoChild ) Browser.document.body.appendChild( cast canvasGL );
+        if( autoChild ) body.appendChild( cast canvasGL );
         canvas2D            = Browser.document.createCanvasElement();
         canvas2D.width      = width;
         canvas2D.height     = height;
         domGL2D             = cast canvasGL;
         styleZero( domGL );
-        if( autoChild ) Browser.document.body.appendChild( cast canvas2D );
+        if( autoChild ) body.appendChild( cast canvas2D );
         //gl                  = canvasGL.getContextWebGL();
         //gl                  = canvas.getContext("webgl", { alpha: false }};
         gl                  = canvasGL.getContext("webgl", { premultipliedAlpha: false } );
         cx                  = canvas2D.getContext('2d');
+    }
+    public inline
+    function mouseXY( e: Event ): XY {
+        var p: MouseEvent = cast e;
+        e.stopPropagation();
+        e.preventDefault();
+        return { x: ( p.pageX - canvasGL.offsetLeft ) * pixelRatio
+               , y: ( p.pageY - canvasGL.offsetTop  ) * pixelRatio };
+    }
+    public inline
+    function mouseDownSetup(){
+        var body = Browser.document.body;
+        body.onmousedown = mouseDown;
+        body.onmouseup = mouseUp;
+    }
+    public inline
+    function mouseDragStop(){
+        var body = Browser.document.body;
+        body.onmousemove = null;
+        body.onmousedown = mouseDown;
+    }
+    public inline
+    function mouseDownDisable(){
+        Browser.document.body.onmousedown = null;
+    }
+    public inline
+    function mouseMoveSetup(){
+        var body = Browser.document.body;
+        body.onmousemove = mouseMove;
+    }
+    inline
+    function mouseDown( e: Event ){
+        if( mouseDownXY != null ) mouseDownXY( mouseXY( e ) );
+    }
+    inline 
+    function mouseMove( e: Event ){
+        if( mouseMoveXY != null ) mouseMoveXY( mouseXY( e ) );
+    }
+    inline
+    function mouseUp( e: Event ){
+        if( mouseUpXY != null ) mouseUpXY( mouseXY( e ) );
+    }
+    public inline
+    function keyboardInt( e: KeyboardEvent ): Int {
+        e.preventDefault();
+        return e.keyCode;
     }
     public inline
     function styleZero( domGL: Element ){

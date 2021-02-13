@@ -8,6 +8,7 @@ import haxe.io.Float32Array;
 import kitGL.glWeb.BufferGL;
 import kitGL.glWeb.GL;
 
+@:transitive
 inline
 function bufferSetup( gl:           GL
                     , program:      Program
@@ -22,7 +23,6 @@ function bufferSetup( gl:           GL
     //gl.bindBuffer( RenderingContext.ARRAY_BUFFER, null );
     return buf;	
 }
-
 inline
 function dataSet( gl: GL, data: Float32Array, isDraw: Int ){
     var arrayBuffer = GL.ARRAY_BUFFER;

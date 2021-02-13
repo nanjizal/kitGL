@@ -4,6 +4,7 @@ typedef TDataGL = {
     public function get_data(): Float32Array;
     public function get_size(): Int;
 }
+@:transitive
 @:forward
 abstract DataGL( TDataGL ) to TDataGL from TDataGL {
     public inline function new( tDataGL: TDataGL ){
