@@ -3,7 +3,7 @@
 -D html5
 -D doc_gen
 -D lime-doc-gen
-
+-lib trilateral3
 
 -D notKitGLDoc
 -D doc-gen

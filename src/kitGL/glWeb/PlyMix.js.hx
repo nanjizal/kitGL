@@ -27,7 +27,7 @@ enum abstract ProgramMode(Int) {
 }
 class PlyMix{
     public var gl:               RenderingContext;
-    
+    public var animate: Bool;
         // general inputs
     final vertexPosition         = 'vertexPosition';
     final vertexColor            = 'vertexColor';
@@ -60,14 +60,20 @@ class PlyMix{
     public var programColor:     Program;
     public var dataGLcolor:      DataGL;
     public var bufColor:         Buffer;
-    
+    public var hasImage:         Bool = true;
     public var mode: ProgramMode = ModeNone;
     public
-    function new( width_: Int, height_: Int ){
+    function new( width_: Int, height_: Int, ?hasImage: Bool = true, ?animate: Bool = true ){
+        animate = this.animate;
         width  = width_;
         height = height_;
         creategl();
-        imageLoader = new ImageLoader( [], setup );
+        this.hasImage = hasImage;
+        if( hasImage ) {
+            imageLoader = new ImageLoader( [], setup );
+        } else {
+            setup();
+        }
     }
     inline
     function creategl( ){
@@ -101,14 +107,17 @@ class PlyMix{
     }
     inline
     function setup(){
-        trace(' setup ');
         // don't use projection matrix for now
         setupProgramTexture();
         setupProgramColor();
         draw();
-        setupInputTexture();
+        if( hasImage ) setupInputTexture();
         setupInputColor();
-        setAnimate();
+        if( animate ) {
+            setAnimate();
+        } else {
+            renderOnce();
+        }
     }
     inline
     function setupProgramColor(){
@@ -151,7 +160,6 @@ class PlyMix{
     inline
     function render(){
         clearAll( gl, width, height );
-        gl.bindBuffer( RenderingContext.ARRAY_BUFFER, bufColor );
         renderDraw();
     }
     public
@@ -187,6 +195,10 @@ class PlyMix{
     // override this for drawing every frame or changing the data.
     public
     function renderDraw(){}
+    public
+    function renderOnce(){
+        clearAll( gl, width, height );
+    }
     inline
     function setAnimate(){
         AnimateTimer.create();

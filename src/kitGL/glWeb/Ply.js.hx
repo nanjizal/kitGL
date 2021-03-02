@@ -17,7 +17,7 @@ import js.html.webgl.Program;
 
 class Ply{
     public var gl: RenderingContext;
-    
+    public var animate: Bool;
     // general inputs
     final vertexPosition         = 'vertexPosition';
     final vertexColor            = 'vertexColor';
@@ -35,7 +35,8 @@ class Ply{
     var indicesColor             = new Array<Int>();
     
     public
-    function new( width_: Int, height_: Int ){
+    function new( width_: Int, height_: Int, ?animate: Bool = true ){
+        this.animate = animate;
         width = width_;
         height = height_;
         creategl();
@@ -52,8 +53,13 @@ class Ply{
         setupProgramColor();
         draw();
         setupInputColor();
-        setAnimate();
+        if( animate ) {
+            setAnimate();
+        } else {
+            renderOnce();
+        }
     }
+    
     inline
     function setupProgramColor(){
         programColor = programSetup( gl, vertexString0, fragmentString0 );
@@ -93,6 +99,10 @@ class Ply{
     // override this for drawing every frame or changing the data.
     public
     function renderDraw(){}
+    public
+    function renderOnce(){
+        clearAll( gl, width, height );
+    }
     inline
     function setAnimate(){
         AnimateTimer.create();
